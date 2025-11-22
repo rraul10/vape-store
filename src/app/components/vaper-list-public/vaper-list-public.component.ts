@@ -8,344 +8,474 @@ import { VaperService, Vaper } from '../../services/vaper.service';
   imports: [CommonModule],
   template: `
     <div class="catalog-container">
-      <div class="pattern-bg"></div>
+      <!-- Fondo animado sutil -->
+      <div class="bg-glow"></div>
       
       <div class="content">
-        <!-- Header -->
-        <div class="header">
-          <h1>🌬️ Vaper Stock</h1>
-          <p>Encuentra tu sabor favorito</p>
-          <div class="stock-badge">
-            <span class="stock-icon">📦</span>
-            <span>{{ totalStock }} productos en stock</span>
+        <!-- Header mejorado -->
+        <header class="header">
+          <div class="logo-badge">🌬️</div>
+          <h1>Vaper Stock</h1>
+          <p class="subtitle">Encuentra tu sabor favorito</p>
+          
+          <div class="stats-row">
+            <div class="stat-badge">
+              <span class="stat-number">{{ totalStock }}</span>
+              <span class="stat-label">En stock</span>
+            </div>
+            <div class="stat-badge">
+              <span class="stat-number">{{ vapers.length }}</span>
+              <span class="stat-label">Productos</span>
+            </div>
+          </div>
+        </header>
+
+        <!-- Filtros pill-style -->
+        <div class="filters-section">
+          <div class="filters-scroll">
+            <button 
+              *ngFor="let f of filtros" 
+              class="filter-pill"
+              [class.active]="filtroActivo === f.value"
+              (click)="filtroActivo = f.value">
+              <span class="filter-icon">{{ f.icon }}</span>
+              <span class="filter-text">{{ f.label }}</span>
+            </button>
           </div>
         </div>
 
-        <!-- Filtros -->
-        <div class="filters">
-          <button 
-            *ngFor="let f of filtros" 
-            [class.active]="filtroActivo === f.value"
-            (click)="filtroActivo = f.value">
-            {{ f.label }}
-          </button>
-        </div>
-
-        <!-- Grid de Vapers -->
-        <div class="vaper-grid">
-          <div class="vaper-card" *ngFor="let vaper of vapersFiltrados" [style.--color]="vaper.color">
-            <div class="card-gradient"></div>
-            
-            <div class="card-image">
-              <div class="image-overlay"></div>
-              <span class="emoji">{{ vaper.emoji }}</span>
-              <div class="price-tag">{{ vaper.precioEur }}€</div>
+        <!-- Grid de productos -->
+        <div class="products-grid">
+          <article class="product-card" *ngFor="let vaper of vapersFiltrados">
+            <!-- Imagen/Emoji del producto -->
+            <div class="product-visual" [style.background]="vaper.color">
+              <span class="product-emoji">{{ vaper.emoji }}</span>
+              <div class="price-badge">{{ vaper.precioEur }}€</div>
             </div>
 
-            <div class="card-content">
-              <h3>{{ vaper.nombre }}</h3>
+            <!-- Info del producto -->
+            <div class="product-info">
+              <h3 class="product-name">{{ vaper.nombre }}</h3>
               
-              <div class="stock-info" [class.low]="vaper.stock <= 1" [class.medium]="vaper.stock === 2">
-                <span class="package-icon">📦</span>
-                <span>{{ vaper.stock }} {{ vaper.stock === 1 ? 'unidad disponible' : 'unidades disponibles' }}</span>
-                <span *ngIf="vaper.stock <= 2" class="fire">🔥</span>
+              <!-- Stock indicator -->
+              <div class="stock-indicator" 
+                   [class.stock-low]="vaper.stock <= 1" 
+                   [class.stock-medium]="vaper.stock === 2"
+                   [class.stock-good]="vaper.stock > 2">
+                <div class="stock-bar">
+                  <div class="stock-fill" [style.width.%]="getStockPercent(vaper.stock)"></div>
+                </div>
+                <div class="stock-text">
+                  <span>{{ vaper.stock }} {{ vaper.stock === 1 ? 'unidad' : 'unidades' }}</span>
+                  <span class="stock-badge-mini" *ngIf="vaper.stock <= 2">¡Últimas!</span>
+                </div>
               </div>
 
-              <button class="sabores-btn" (click)="toggleSabores(vaper.id)">
-                <span>Ver sabores ({{ vaper.sabores.length }})</span>
-                <span class="chevron">{{ saboresAbiertos[vaper.id] ? '▲' : '▼' }}</span>
+              <!-- Botón sabores -->
+              <button class="flavors-toggle" (click)="toggleSabores(vaper.id)">
+                <span class="flavors-count">{{ vaper.sabores.length }} sabores</span>
+                <span class="toggle-icon" [class.open]="saboresAbiertos[vaper.id]">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 9l6 6 6-6"/>
+                  </svg>
+                </span>
               </button>
 
-              <div class="sabores-list" [class.open]="saboresAbiertos[vaper.id]">
-                <div class="sabores-container">
-                  <div class="sabor-item" *ngFor="let sabor of vaper.sabores">
-                    <span class="dot"></span>
+              <!-- Lista de sabores expandible -->
+              <div class="flavors-panel" [class.expanded]="saboresAbiertos[vaper.id]">
+                <div class="flavors-grid">
+                  <span class="flavor-chip" *ngFor="let sabor of vaper.sabores">
                     {{ sabor }}
-                  </div>
+                  </span>
                 </div>
               </div>
             </div>
-          </div>
+          </article>
+        </div>
+
+        <!-- Empty state -->
+        <div class="empty-state" *ngIf="vapersFiltrados.length === 0">
+          <span class="empty-icon">🔍</span>
+          <p>No hay productos en esta categoría</p>
         </div>
 
         <!-- Footer -->
-        <div class="footer">
-          <p>📱 Consulta disponibilidad • 🚚 Envíos a todo el país</p>
-        </div>
+        <footer class="footer">
+          <div class="footer-item">
+            <span class="footer-icon">📱</span>
+            <span>Consulta disponibilidad</span>
+          </div>
+          <div class="footer-item">
+            <span class="footer-icon">🚚</span>
+            <span>Envíos a todo el país</span>
+          </div>
+        </footer>
       </div>
     </div>
   `,
   styles: [`
-    * { box-sizing: border-box; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     
     .catalog-container {
       min-height: 100vh;
-      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #1a1a2e 100%);
+      min-height: 100dvh;
+      background: #0f0f1a;
       position: relative;
-      font-family: 'Segoe UI', system-ui, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      overflow-x: hidden;
     }
 
-    .pattern-bg {
-      position: absolute;
-      inset: 0;
-      opacity: 0.5;
-      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%239C92AC' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    .bg-glow {
+      position: fixed;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: 
+        radial-gradient(circle at 30% 20%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 70% 80%, rgba(236, 72, 153, 0.1) 0%, transparent 50%);
+      pointer-events: none;
+      animation: slowRotate 60s linear infinite;
+    }
+
+    @keyframes slowRotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
     }
 
     .content {
       position: relative;
-      max-width: 1400px;
+      max-width: 600px;
       margin: 0 auto;
-      padding: 2rem 1rem;
+      padding: 1.5rem 1rem 2rem;
     }
 
+    /* ========== HEADER ========== */
     .header {
       text-align: center;
-      margin-bottom: 2.5rem;
+      padding: 1rem 0 2rem;
+    }
+
+    .logo-badge {
+      font-size: 3rem;
+      margin-bottom: 0.75rem;
+      display: block;
+      filter: drop-shadow(0 0 20px rgba(139, 92, 246, 0.5));
     }
 
     .header h1 {
-      font-size: 3rem;
-      font-weight: 900;
-      background: linear-gradient(90deg, #a855f7, #ec4899, #ef4444);
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #fff 0%, #c4b5fd 50%, #f9a8d4 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      margin: 0 0 0.5rem 0;
+      margin-bottom: 0.5rem;
     }
 
-    .header p {
-      color: #9ca3af;
-      font-size: 1.1rem;
-      margin: 0 0 1rem 0;
+    .subtitle {
+      color: rgba(255,255,255,0.5);
+      font-size: 1rem;
+      font-weight: 400;
+      margin-bottom: 1.5rem;
     }
 
-    .stock-badge {
-      display: inline-flex;
+    .stats-row {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .stat-badge {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 1rem;
+      padding: 0.75rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 90px;
+    }
+
+    .stat-number {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: white;
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* ========== FILTROS ========== */
+    .filters-section {
+      margin-bottom: 1.5rem;
+      margin-left: -1rem;
+      margin-right: -1rem;
+      padding: 0 1rem;
+    }
+
+    .filters-scroll {
+      display: flex;
+      gap: 0.625rem;
+      overflow-x: auto;
+      padding: 0.25rem;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .filters-scroll::-webkit-scrollbar { display: none; }
+
+    .filter-pill {
+      display: flex;
       align-items: center;
       gap: 0.5rem;
-      background: rgba(255,255,255,0.1);
-      backdrop-filter: blur(10px);
-      padding: 0.5rem 1rem;
-      border-radius: 50px;
-      color: white;
-      font-weight: 500;
-    }
-
-    .filters {
-      display: flex;
-      justify-content: center;
-      gap: 0.75rem;
-      margin-bottom: 2rem;
-      flex-wrap: wrap;
-    }
-
-    .filters button {
-      padding: 0.6rem 1.5rem;
-      border-radius: 50px;
-      border: none;
+      padding: 0.75rem 1.25rem;
+      border-radius: 100px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.03);
+      color: rgba(255,255,255,0.7);
+      font-size: 0.9rem;
       font-weight: 500;
       cursor: pointer;
-      transition: all 0.3s;
-      background: rgba(255,255,255,0.1);
-      color: #d1d5db;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
-    .filters button:hover {
-      background: rgba(255,255,255,0.2);
-    }
+    .filter-pill:active { transform: scale(0.96); }
 
-    .filters button.active {
-      background: linear-gradient(90deg, #a855f7, #ec4899);
+    .filter-pill.active {
+      background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+      border-color: transparent;
       color: white;
-      box-shadow: 0 4px 15px rgba(168, 85, 247, 0.4);
+      box-shadow: 0 4px 20px rgba(139, 92, 246, 0.4);
     }
 
-    .vaper-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1.5rem;
+    .filter-icon { font-size: 1.1rem; }
+
+    /* ========== PRODUCTOS GRID ========== */
+    .products-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
     }
 
-    .vaper-card {
-      --color: linear-gradient(135deg, #a855f7, #ec4899);
-      position: relative;
-      background: #1f2937;
-      border-radius: 1rem;
+    .product-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 1.25rem;
       overflow: hidden;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-      transition: all 0.3s;
+      transition: all 0.3s ease;
     }
 
-    .vaper-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+    .product-card:active {
+      transform: scale(0.98);
     }
 
-    .card-gradient {
-      position: absolute;
-      inset: 0;
-      background: var(--color);
-      opacity: 0.15;
-      transition: opacity 0.3s;
-    }
-
-    .vaper-card:hover .card-gradient {
-      opacity: 0.25;
-    }
-
-    .card-image {
-      height: 160px;
-      background: var(--color);
+    /* Visual del producto */
+    .product-visual {
+      height: 140px;
       display: flex;
       align-items: center;
       justify-content: center;
       position: relative;
-      overflow: hidden;
+      background: linear-gradient(135deg, #8b5cf6, #ec4899);
     }
 
-    .image-overlay {
+    .product-emoji {
+      font-size: 4rem;
+      filter: drop-shadow(0 8px 16px rgba(0,0,0,0.3));
+      transition: transform 0.3s ease;
+    }
+
+    .price-badge {
       position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.1);
-    }
-
-    .emoji {
-      font-size: 4.5rem;
-      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
-      transition: transform 0.3s;
-      position: relative;
-      z-index: 1;
-    }
-
-    .vaper-card:hover .emoji {
-      transform: scale(1.15);
-    }
-
-    .price-tag {
-      position: absolute;
-      top: 0.75rem;
-      right: 0.75rem;
-      background: rgba(0,0,0,0.5);
+      top: 1rem;
+      right: 1rem;
+      background: rgba(0,0,0,0.4);
       backdrop-filter: blur(10px);
-      padding: 0.25rem 0.75rem;
-      border-radius: 50px;
+      padding: 0.5rem 1rem;
+      border-radius: 100px;
       color: white;
-      font-size: 0.9rem;
-      font-weight: 700;
-    }
-
-    .card-content {
-      padding: 1.25rem;
-      position: relative;
-    }
-
-    .card-content h3 {
-      color: white;
-      font-weight: 700;
       font-size: 1.1rem;
-      margin: 0 0 0.75rem 0;
-      transition: all 0.3s;
+      font-weight: 700;
     }
 
-    .vaper-card:hover .card-content h3 {
-      background: linear-gradient(90deg, white, #d1d5db);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+    /* Info del producto */
+    .product-info {
+      padding: 1.25rem;
     }
 
-    .stock-info {
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-size: 0.85rem;
-      color: #4ade80;
+    .product-name {
+      color: white;
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+    }
+
+    /* Stock indicator */
+    .stock-indicator {
       margin-bottom: 1rem;
     }
 
-    .stock-info.medium { color: #facc15; }
-    .stock-info.low { color: #f87171; }
+    .stock-bar {
+      height: 4px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 100px;
+      overflow: hidden;
+      margin-bottom: 0.5rem;
+    }
 
-    .fire {
-      animation: pulse 1s infinite;
+    .stock-fill {
+      height: 100%;
+      border-radius: 100px;
+      transition: width 0.5s ease;
+    }
+
+    .stock-good .stock-fill { background: linear-gradient(90deg, #34d399, #10b981); }
+    .stock-medium .stock-fill { background: linear-gradient(90deg, #fbbf24, #f59e0b); }
+    .stock-low .stock-fill { background: linear-gradient(90deg, #f87171, #ef4444); }
+
+    .stock-text {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.6);
+    }
+
+    .stock-badge-mini {
+      background: rgba(239, 68, 68, 0.2);
+      color: #f87171;
+      padding: 0.2rem 0.6rem;
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      animation: pulse 2s infinite;
     }
 
     @keyframes pulse {
       0%, 100% { opacity: 1; }
-      50% { opacity: 0.5; }
+      50% { opacity: 0.6; }
     }
 
-    .sabores-btn {
+    /* Botón sabores */
+    .flavors-toggle {
       width: 100%;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0.75rem 1rem;
-      border-radius: 0.75rem;
+      padding: 1rem 1.25rem;
+      border-radius: 0.875rem;
       border: none;
-      background: var(--color);
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.3), rgba(236, 72, 153, 0.3));
       color: white;
-      font-weight: 500;
+      font-size: 0.95rem;
+      font-weight: 600;
       cursor: pointer;
-      transition: all 0.3s;
+      transition: all 0.2s ease;
     }
 
-    .sabores-btn:hover {
-      transform: scale(1.02);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    .flavors-toggle:active {
+      transform: scale(0.98);
     }
 
-    .sabores-list {
-      max-height: 0;
+    .toggle-icon {
+      display: flex;
+      transition: transform 0.3s ease;
+    }
+
+    .toggle-icon.open {
+      transform: rotate(180deg);
+    }
+
+    /* Panel de sabores */
+    .flavors-panel {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.3s ease;
+    }
+
+    .flavors-panel.expanded {
+      grid-template-rows: 1fr;
+    }
+
+    .flavors-grid {
       overflow: hidden;
-      transition: max-height 0.3s ease-out;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      padding-top: 1rem;
     }
 
-    .sabores-list.open {
-      max-height: 200px;
+    .flavor-chip {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 0.5rem 0.875rem;
+      border-radius: 100px;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.85);
     }
 
-    .sabores-container {
-      background: rgba(31, 41, 55, 0.8);
-      backdrop-filter: blur(10px);
-      border-radius: 0.75rem;
-      padding: 0.75rem;
-      margin-top: 0.75rem;
+    /* Empty state */
+    .empty-state {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: rgba(255,255,255,0.5);
     }
 
-    .sabor-item {
+    .empty-icon {
+      font-size: 3rem;
+      display: block;
+      margin-bottom: 1rem;
+      opacity: 0.5;
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: 2.5rem;
+      padding: 1.5rem;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .footer-item {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
-      color: #e5e7eb;
-      font-size: 0.9rem;
-      padding: 0.4rem 0.5rem;
-      border-radius: 0.5rem;
-      transition: background 0.2s;
-    }
-
-    .sabor-item:hover {
-      background: rgba(255,255,255,0.1);
-    }
-
-    .dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: linear-gradient(90deg, white, #9ca3af);
-    }
-
-    .footer {
-      margin-top: 3rem;
-      text-align: center;
-      color: #6b7280;
+      gap: 0.75rem;
+      color: rgba(255,255,255,0.6);
       font-size: 0.9rem;
     }
 
-    @media (max-width: 640px) {
-      .header h1 { font-size: 2rem; }
-      .vaper-grid { grid-template-columns: 1fr; }
+    .footer-icon {
+      font-size: 1.25rem;
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (min-width: 480px) {
+      .content { padding: 2rem 1.5rem; }
+      .header h1 { font-size: 2.5rem; }
+      .products-grid { gap: 1.5rem; }
+      .product-visual { height: 160px; }
+      .product-emoji { font-size: 5rem; }
+      .footer { flex-direction: row; justify-content: center; gap: 2rem; }
+    }
+
+    @media (min-width: 768px) {
+      .products-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
   `]
 })
@@ -355,9 +485,9 @@ export class VaperListPublicComponent implements OnInit {
   vapers: Vaper[] = [];
 
   filtros = [
-    { label: '🔥 Todos', value: 'all' },
-    { label: '💚 14€', value: '80000' },
-    { label: '💜 15€', value: '85000' }
+    { label: 'Todos', value: 'all', icon: '✨' },
+    { label: '14€', value: '80000', icon: '💚' },
+    { label: '15€', value: '85000', icon: '💜' }
   ];
 
   constructor(private service: VaperService) {}
@@ -377,5 +507,9 @@ export class VaperListPublicComponent implements OnInit {
 
   toggleSabores(id: number): void {
     this.saboresAbiertos[id] = !this.saboresAbiertos[id];
+  }
+
+  getStockPercent(stock: number): number {
+    return Math.min((stock / 5) * 100, 100);
   }
 }
