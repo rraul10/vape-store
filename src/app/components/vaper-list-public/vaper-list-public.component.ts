@@ -1,6 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { VaperService, Vaper } from '../../services/vaper.service';
+
+export interface Vaper {
+  id: number;
+  nombre: string;
+  precio: number;
+  precioEur: number;
+  stock: number;
+  tipo: string;
+  color: string;
+  emoji: string;
+  sabores: string[];
+}
 
 @Component({
   selector: 'app-vaper-list-public',
@@ -16,18 +27,7 @@ import { VaperService, Vaper } from '../../services/vaper.service';
         <header class="header">
           <div class="logo-badge">🌬️</div>
           <h1>Vaper Stock</h1>
-          <p class="subtitle">Encuentra tu sabor favorito</p>
           
-          <div class="stats-row">
-            <div class="stat-badge">
-              <span class="stat-number">{{ totalStock }}</span>
-              <span class="stat-label">En stock</span>
-            </div>
-            <div class="stat-badge">
-              <span class="stat-number">{{ vapers.length }}</span>
-              <span class="stat-label">Productos</span>
-            </div>
-          </div>
         </header>
 
         <!-- Filtros pill-style -->
@@ -98,18 +98,6 @@ import { VaperService, Vaper } from '../../services/vaper.service';
           <span class="empty-icon">🔍</span>
           <p>No hay productos en esta categoría</p>
         </div>
-
-        <!-- Footer -->
-        <footer class="footer">
-          <div class="footer-item">
-            <span class="footer-icon">📱</span>
-            <span>Consulta disponibilidad</span>
-          </div>
-          <div class="footer-item">
-            <span class="footer-icon">🚚</span>
-            <span>Envíos a todo el país</span>
-          </div>
-        </footer>
       </div>
     </div>
   `,
@@ -486,23 +474,120 @@ export class VaperListPublicComponent implements OnInit {
 
   filtros = [
     { label: 'Todos', value: 'all', icon: '✨' },
-    { label: '14€', value: '80000', icon: '💚' },
-    { label: '15€', value: '85000', icon: '💜' }
+    { label: '80K ZOOY', value: '80k-zooy', icon: '🔵' },
+    { label: '85K BANG', value: '85k-bang', icon: '💥' },
+    { label: '85K', value: '85k', icon: '🟣' }
   ];
 
-  constructor(private service: VaperService) {}
+  constructor() {}
 
   ngOnInit(): void {
-    this.vapers = this.service.getVapersDisponibles();
+    this.vapers = this.getVapersData();
+  }
+
+  getVapersData(): Vaper[] {
+    return [
+      // 80K ZOOY - 14€
+      {
+        id: 1,
+        nombre: 'Tropical Mix',
+        precio: 80000,
+        precioEur: 14,
+        stock: 2,
+        tipo: '80k-zooy',
+        color: 'linear-gradient(135deg, #3b82f6, #1e40af)',
+        emoji: '🔵',
+        sabores: ['🍍 Tropical Fruit', '🍓🍉 Strawberry Watermelon', '🍓🥭 Strawberry Mango']
+      },
+      {
+        id: 2,
+        nombre: 'Berry Paradise',
+        precio: 80000,
+        precioEur: 14,
+        stock: 2,
+        tipo: '80k-zooy',
+        color: 'linear-gradient(135deg, #06b6d4, #0891b2)',
+        emoji: '🔵',
+        sabores: ['🥝 Kiwi Passion Fruit', '🍓🍌 Strawberry Banana', '🔵 Blue Razz']
+      },
+      // 85K BANG - 15€
+      {
+        id: 3,
+        nombre: 'Energy Blast',
+        precio: 85000,
+        precioEur: 15,
+        stock: 1,
+        tipo: '85k-bang',
+        color: 'linear-gradient(135deg, #ef4444, #dc2626)',
+        emoji: '💥',
+        sabores: ['🍻 RedBull', '🫐🍉 Blueberry Watermelon', '🍓🍨 Strawberry Ice Cream']
+      },
+      {
+        id: 4,
+        nombre: 'Purple Dreams',
+        precio: 85000,
+        precioEur: 15,
+        stock: 1,
+        tipo: '85k-bang',
+        color: 'linear-gradient(135deg, #a855f7, #7c3aed)',
+        emoji: '💥',
+        sabores: ['💙 Love 666', '🔵 Blueberry Raspberry', '💜 Vimto']
+      },
+      {
+        id: 5,
+        nombre: 'Grape Sensation',
+        precio: 85000,
+        precioEur: 15,
+        stock: 2,
+        tipo: '85k-bang',
+        color: 'linear-gradient(135deg, #8b5cf6, #6d28d9)',
+        emoji: '💥',
+        sabores: ['🟣 Grape Ice', '🍓🥝 Strawberry Kiwi', '🟠 Passion Fruit Guava']
+      },
+      // 85K Normal - 15€
+      {
+        id: 6,
+        nombre: 'Citrus Fusion',
+        precio: 85000,
+        precioEur: 15,
+        stock: 1,
+        tipo: '85k',
+        color: 'linear-gradient(135deg, #a78bfa, #8b5cf6)',
+        emoji: '🟣',
+        sabores: ['🍍 Tropical Fruit', '🍋🍑 Lemon Peach', '🍓🍉 Strawberry Watermelon']
+      },
+      {
+        id: 7,
+        nombre: 'Island Breeze',
+        precio: 85000,
+        precioEur: 15,
+        stock: 1,
+        tipo: '85k',
+        color: 'linear-gradient(135deg, #c084fc, #a855f7)',
+        emoji: '🟣',
+        sabores: ['🍍🥥 Pineapple Coconut', '🔵 Blue Razz', '🍓🍌 Strawberry Banana']
+      },
+      {
+        id: 8,
+        nombre: 'Berry Delight',
+        precio: 85000,
+        precioEur: 15,
+        stock: 2,
+        tipo: '85k',
+        color: 'linear-gradient(135deg, #d8b4fe, #c084fc)',
+        emoji: '🟣',
+        sabores: ['🍓🔵 Strawberry Raspberry', '⚫ Black Currant', '🍓🍌 Strawberry Banana']
+      }
+    ];
   }
 
   get vapersFiltrados(): Vaper[] {
     if (this.filtroActivo === 'all') return this.vapers;
-    return this.vapers.filter(v => v.precio === parseInt(this.filtroActivo));
+    return this.vapers.filter(v => v.tipo === this.filtroActivo);
   }
 
   get totalStock(): number {
-    return this.service.getTotalStock();
+    return this.vapers.reduce((sum, vaper) => sum + vaper.stock, 0);
   }
 
   toggleSabores(id: number): void {
