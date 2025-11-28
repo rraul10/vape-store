@@ -10,6 +10,7 @@ export interface Vaper {
   tipo: string;
   color: string;
   emoji: string;
+  imagen?: string;
   sabores: string[];
 }
 
@@ -48,8 +49,9 @@ export interface Vaper {
         <div class="products-grid">
           <article class="product-card" *ngFor="let vaper of vapersFiltrados">
             <!-- Imagen/Emoji del producto -->
-            <div class="product-visual" [style.background]="vaper.color">
-              <span class="product-emoji">{{ vaper.emoji }}</span>
+            <div class="product-visual">
+              <img *ngIf="vaper.imagen" [src]="vaper.imagen" [alt]="vaper.nombre" class="product-image">
+              <span *ngIf="!vaper.imagen" class="product-emoji">{{ vaper.emoji }}</span>
               <div class="price-badge">{{ vaper.precioEur }}€</div>
             </div>
 
@@ -71,19 +73,9 @@ export interface Vaper {
                 </div>
               </div>
 
-              <!-- Botón sabores -->
-              <button class="flavors-toggle" (click)="toggleSabores(vaper.id)">
-                <span class="flavors-count">{{ vaper.sabores.length }} sabores</span>
-                <span class="toggle-icon" [class.open]="saboresAbiertos[vaper.id]">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M6 9l6 6 6-6"/>
-                  </svg>
-                </span>
-              </button>
-
-              <!-- Lista de sabores expandible -->
-              <div class="flavors-panel" [class.expanded]="saboresAbiertos[vaper.id]">
-                <div class="flavors-grid">
+              <!-- Lista de sabores siempre visible -->
+              <div class="flavors-list">
+                <div class="flavors-grid-visible">
                   <span class="flavor-chip" *ngFor="let sabor of vaper.sabores">
                     {{ sabor }}
                   </span>
@@ -267,18 +259,31 @@ export interface Vaper {
 
     /* Visual del producto */
     .product-visual {
-      height: 140px;
+      height: 200px;
       display: flex;
       align-items: center;
       justify-content: center;
       position: relative;
-      background: linear-gradient(135deg, #8b5cf6, #ec4899);
+      background: rgba(255,255,255,0.02);
     }
 
     .product-emoji {
       font-size: 4rem;
       filter: drop-shadow(0 8px 16px rgba(0,0,0,0.3));
       transition: transform 0.3s ease;
+    }
+
+    .product-image {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 1.5rem;
+      transition: transform 0.3s ease;
+    }
+
+    .product-card:hover .product-image,
+    .product-card:hover .product-emoji {
+      transform: scale(1.05);
     }
 
     .price-badge {
@@ -353,53 +358,15 @@ export interface Vaper {
       50% { opacity: 0.6; }
     }
 
-    /* Botón sabores */
-    .flavors-toggle {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1rem 1.25rem;
-      border-radius: 0.875rem;
-      border: none;
-      background: linear-gradient(135deg, rgba(139, 92, 246, 0.3), rgba(236, 72, 153, 0.3));
-      color: white;
-      font-size: 0.95rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s ease;
+    /* Lista de sabores siempre visible */
+    .flavors-list {
+      margin-top: 0.5rem;
     }
 
-    .flavors-toggle:active {
-      transform: scale(0.98);
-    }
-
-    .toggle-icon {
-      display: flex;
-      transition: transform 0.3s ease;
-    }
-
-    .toggle-icon.open {
-      transform: rotate(180deg);
-    }
-
-    /* Panel de sabores */
-    .flavors-panel {
-      display: grid;
-      grid-template-rows: 0fr;
-      transition: grid-template-rows 0.3s ease;
-    }
-
-    .flavors-panel.expanded {
-      grid-template-rows: 1fr;
-    }
-
-    .flavors-grid {
-      overflow: hidden;
+    .flavors-grid-visible {
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem;
-      padding-top: 1rem;
     }
 
     .flavor-chip {
@@ -454,7 +421,7 @@ export interface Vaper {
       .content { padding: 2rem 1.5rem; }
       .header h1 { font-size: 2.5rem; }
       .products-grid { gap: 1.5rem; }
-      .product-visual { height: 160px; }
+      .product-visual { height: 240px; }
       .product-emoji { font-size: 5rem; }
       .footer { flex-direction: row; justify-content: center; gap: 2rem; }
     }
@@ -473,10 +440,10 @@ export class VaperListPublicComponent implements OnInit {
   vapers: Vaper[] = [];
 
   filtros = [
-    { label: 'Todos', value: 'all', icon: '✨' },
-    { label: '80K ZOOY', value: '80k-zooy', icon: '🔵' },
-    { label: '85K BANG', value: '85k-bang', icon: '💥' },
-    { label: '85K', value: '85k', icon: '🟣' }
+    { label: 'Todos', value: 'all', icon: '' },
+    { label: '80K ZOOY', value: '80k-zooy', icon: '' },
+    { label: '85K BANG', value: '85k-bang', icon: '' },
+    { label: '85K', value: '85k', icon: '' }
   ];
 
   constructor() {}
@@ -487,16 +454,17 @@ export class VaperListPublicComponent implements OnInit {
 
   getVapersData(): Vaper[] {
     return [
-      // 80K ZOOY - 14€
+      // 80K ZOOY - 15€
       {
         id: 1,
         nombre: 'Tropical Mix',
         precio: 80000,
         precioEur: 15,
-        stock: 2,
+        stock: 1,
         tipo: '80k-zooy',
         color: 'linear-gradient(135deg, #3b82f6, #1e40af)',
         emoji: '🔵',
+        imagen: 'assets/80k-zooy.jpg', 
         sabores: ['🍍 Tropical Fruit', '🍓🍉 Strawberry Watermelon', '🍓🥭 Strawberry Mango']
       },
       {
@@ -504,10 +472,11 @@ export class VaperListPublicComponent implements OnInit {
         nombre: 'Berry Paradise',
         precio: 80000,
         precioEur: 15,
-        stock: 2,
+        stock: 1,
         tipo: '80k-zooy',
         color: 'linear-gradient(135deg, #06b6d4, #0891b2)',
         emoji: '🔵',
+        imagen: 'assets/80k-zooy.jpg', 
         sabores: ['🥝 Kiwi Passion Fruit', '🍓🍌 Strawberry Banana', '🔵 Blue Razz']
       },
       // 85K BANG - 15€
@@ -520,18 +489,8 @@ export class VaperListPublicComponent implements OnInit {
         tipo: '85k-bang',
         color: 'linear-gradient(135deg, #ef4444, #dc2626)',
         emoji: '💥',
+        imagen: 'assets/85k.jpg',
         sabores: ['🍻 RedBull', '🫐🍉 Blueberry Watermelon', '🍓🍨 Strawberry Ice Cream']
-      },
-      {
-        id: 4,
-        nombre: 'Purple Dreams',
-        precio: 85000,
-        precioEur: 15,
-        stock: 1,
-        tipo: '85k-bang',
-        color: 'linear-gradient(135deg, #a855f7, #7c3aed)',
-        emoji: '💥',
-        sabores: ['💙 Love 666', '🔵 Blueberry Raspberry', '💜 Vimto']
       },
       {
         id: 5,
@@ -542,7 +501,21 @@ export class VaperListPublicComponent implements OnInit {
         tipo: '85k-bang',
         color: 'linear-gradient(135deg, #8b5cf6, #6d28d9)',
         emoji: '💥',
+        imagen: 'assets/85k.jpg',
         sabores: ['🟣 Grape Ice', '🍓🥝 Strawberry Kiwi', '🟠 Passion Fruit Guava']
+      },
+
+      {
+        id: 13,
+        nombre: 'Berry Explosion',
+        precio: 85000,
+        precioEur: 15,
+        stock: 2,
+        tipo: '85k-bang',
+        color: 'linear-gradient(135deg, #f87171, #b91c1c)',
+        emoji: '💥',
+        imagen: 'assets/85k.jpg',
+        sabores: ['🍓 Strawberry Raspberry', '🫐 Black Currant', '🍓🍌 Strawberry Banana']
       },
       // 85K Normal - 15€
       {
@@ -554,6 +527,7 @@ export class VaperListPublicComponent implements OnInit {
         tipo: '85k',
         color: 'linear-gradient(135deg, #a78bfa, #8b5cf6)',
         emoji: '🟣',
+        imagen: 'assets/85BangKing.jpg',
         sabores: ['🍍 Tropical Fruit', '🍋🍑 Lemon Peach', '🍓🍉 Strawberry Watermelon']
       },
       {
@@ -565,19 +539,57 @@ export class VaperListPublicComponent implements OnInit {
         tipo: '85k',
         color: 'linear-gradient(135deg, #c084fc, #a855f7)',
         emoji: '🟣',
+        imagen: 'assets/85BangKing.jpg',
         sabores: ['🍍🥥 Pineapple Coconut', '🔵 Blue Razz', '🍓🍌 Strawberry Banana']
       },
       {
         id: 8,
-        nombre: 'Berry Delight',
+        nombre: 'Sweet Delight',
         precio: 85000,
         precioEur: 15,
         stock: 2,
         tipo: '85k',
-        color: 'linear-gradient(135deg, #d8b4fe, #c084fc)',
+        color: 'linear-gradient(135deg, #f472b6, #ec4899)',
         emoji: '🟣',
-        sabores: ['🍓🔵 Strawberry Raspberry', '⚫ Black Currant', '🍓🍌 Strawberry Banana']
-      }
+        imagen: 'assets/85BangKing.jpg',
+        sabores: ['🍩 Strawberry Donut', '💖 Love66', '🍌 Banana Ice']
+      },
+      {
+        id: 9,
+        nombre: 'Double Pineapple',
+        precio: 85000,
+        precioEur: 15,
+        stock: 1,
+        tipo: '85k',
+        color: 'linear-gradient(135deg, #facc15, #eab308)',
+        emoji: '🟣',
+        imagen: 'assets/85BangKing.jpg',
+        sabores: ['🍎 Double Apple', '🍍 Pineapple Ice', '🍓 Fruity Pfusion']
+      },
+      {
+        id: 10,
+        nombre: 'Berry Citrus',
+        precio: 85000,
+        precioEur: 15,
+        stock: 1,
+        tipo: '85k',
+        color: 'linear-gradient(135deg, #60a5fa, #2563eb)',
+        emoji: '🟣',
+        imagen: 'assets/85BangKing.jpg',
+        sabores: ['🫐 Blueberry Ice', '🍋 Lemon Lime', '🍓 Strawberry Watermelon']
+      },
+      {
+        id: 11,
+        nombre: 'Tropical Cherry',
+        precio: 85000,
+        precioEur: 15,
+        stock: 1,
+        tipo: '85k',
+        color: 'linear-gradient(135deg, #fb7185, #dc2626)',
+        emoji: '🟣',
+        imagen: 'assets/85BangKing.jpg',
+        sabores: ['🍑 Peach Mango', '🔵 Blue Razz Cherry', '❄️ Cool Mint']
+      },
     ];
   }
 
