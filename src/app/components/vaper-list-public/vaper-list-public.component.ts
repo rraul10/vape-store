@@ -69,7 +69,6 @@ export interface Vaper {
                 </div>
                 <div class="stock-text">
                   <span>{{ vaper.stock }} {{ vaper.stock === 1 ? 'unidad' : 'unidades' }}</span>
-                  <span class="stock-badge-mini" *ngIf="vaper.stock <= 2">¡Últimas!</span>
                 </div>
               </div>
 
@@ -439,12 +438,13 @@ export class VaperListPublicComponent implements OnInit {
   saboresAbiertos: { [key: number]: boolean } = {};
   vapers: Vaper[] = [];
 
-  filtros = [
-    { label: 'Todos', value: 'all', icon: '' },
-    { label: '80K ZOOY', value: '80k-zooy', icon: '' },
-    { label: '85K BANG', value: '85k-bang', icon: '' },
-    { label: '85K', value: '85k', icon: '' }
-  ];
+ filtros = [
+  { label: 'Todos', value: 'all', icon: '' },
+  { label: '80K ZOOY', value: '80k-ZOOY', icon: '' },
+  { label: '85K BANG', value: '85k-BANG', icon: '' },
+  { label: '85K', value: '85k', icon: '' },
+  { label: '80K 12€', value: '80k-RUNCHUNFU', icon: '' } 
+];
 
   constructor() {}
 
@@ -461,7 +461,7 @@ export class VaperListPublicComponent implements OnInit {
         precio: 80000,
         precioEur: 15,
         stock: 1,
-        tipo: '80k-zooy',
+        tipo: '80k-ZOOY',
         color: 'linear-gradient(135deg, #3b82f6, #1e40af)',
         emoji: '🔵',
         imagen: 'assets/80k-zooy.jpg', 
@@ -473,7 +473,7 @@ export class VaperListPublicComponent implements OnInit {
         precio: 80000,
         precioEur: 15,
         stock: 1,
-        tipo: '80k-zooy',
+        tipo: '80k-ZOOY',
         color: 'linear-gradient(135deg, #06b6d4, #0891b2)',
         emoji: '🔵',
         imagen: 'assets/80k-zooy.jpg', 
@@ -486,7 +486,7 @@ export class VaperListPublicComponent implements OnInit {
         precio: 85000,
         precioEur: 15,
         stock: 1,
-        tipo: '85k-bang',
+        tipo: '85k-BANG',
         color: 'linear-gradient(135deg, #ef4444, #dc2626)',
         emoji: '💥',
         imagen: 'assets/85k.jpg',
@@ -498,7 +498,7 @@ export class VaperListPublicComponent implements OnInit {
         precio: 85000,
         precioEur: 15,
         stock: 2,
-        tipo: '85k-bang',
+        tipo: '85k-BANG',
         color: 'linear-gradient(135deg, #8b5cf6, #6d28d9)',
         emoji: '💥',
         imagen: 'assets/85k.jpg',
@@ -511,7 +511,7 @@ export class VaperListPublicComponent implements OnInit {
         precio: 85000,
         precioEur: 15,
         stock: 2,
-        tipo: '85k-bang',
+        tipo: '85k-BANG',
         color: 'linear-gradient(135deg, #f87171, #b91c1c)',
         emoji: '💥',
         imagen: 'assets/85k.jpg',
@@ -590,6 +590,56 @@ export class VaperListPublicComponent implements OnInit {
         imagen: 'assets/85BangKing.jpg',
         sabores: ['🍑 Peach Mango', '🔵 Blue Razz Cherry', '❄️ Cool Mint']
       },
+      // 80K - 12€
+      {
+        id: 20,
+        nombre: 'Watermelon Bubble Gum',
+        precio: 80000,
+        precioEur: 12,
+        stock: 3,
+        tipo: '80k-RUNCHUNFU',
+        color: 'linear-gradient(135deg, #f472b6, #ec4899)',
+        emoji: '🍉',
+        imagen: 'assets/Vaper80K.jpg',
+        sabores: ['🍉 Watermelon', '🍬 Bubble Gum']
+      },
+      {
+        id: 21,
+        nombre: 'Blueberry Ice',
+        precio: 80000,
+        precioEur: 12,
+        stock: 2,
+        tipo: '80k-RUNCHUNFU',
+        color: 'linear-gradient(135deg, #60a5fa, #2563eb)',
+        emoji: '🫐',
+        imagen: 'assets/Vaper80K.jpg',
+        sabores: ['🫐 Blueberry', '❄️ Ice']
+      },
+      {
+        id: 22,
+        nombre: 'Mixed Berries',
+        precio: 80000,
+        precioEur: 12,
+        stock: 3,
+        tipo: '80k-RUNCHUNFU',
+        color: 'linear-gradient(135deg, #f87171, #b91c1c)',
+        emoji: '🍓',
+        imagen: 'assets/Vaper80K.jpg',
+        sabores: ['🍓 Strawberry', '🫐 Blueberry', '🍇 Grape']
+      },
+      {
+        id: 23,
+        nombre: 'Strawberry Watermelon',
+        precio: 80000,
+        precioEur: 12,
+        stock: 3,
+        tipo: '80k-12',
+        color: 'linear-gradient(135deg, #fb7185, #f43f5e)',
+        emoji: '🍓',
+        imagen: 'assets/Vaper80K.jpg',
+        sabores: ['🍓 Strawberry', '🍉 Watermelon']
+      },
+
     ];
   }
 
