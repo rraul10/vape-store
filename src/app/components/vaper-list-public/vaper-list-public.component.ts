@@ -456,18 +456,6 @@ export class VaperListPublicComponent implements OnInit {
     return [
       // 80K ZOOY - 15€
       {
-        id: 1,
-        nombre: 'Tropical Mix',
-        precio: 80000,
-        precioEur: 15,
-        stock: 1,
-        tipo: '80k-ZOOY',
-        color: 'linear-gradient(135deg, #3b82f6, #1e40af)',
-        emoji: '🔵',
-        imagen: 'assets/80k-zooy.jpg', 
-        sabores: ['🍍 Tropical Fruit', '🍓🍉 Strawberry Watermelon', '🍓🥭 Strawberry Mango']
-      },
-      {
         id: 2,
         nombre: 'Berry Paradise',
         precio: 80000,
