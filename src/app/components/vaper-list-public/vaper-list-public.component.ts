@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 export interface Vaper {
   id: number;
@@ -17,7 +18,7 @@ export interface Vaper {
 @Component({
   selector: 'app-vaper-list-public',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   template: `
     <div class="catalog-container">
       <!-- Fondo animado sutil -->
@@ -28,20 +29,22 @@ export interface Vaper {
         <header class="header">
           <div class="logo-badge">🌬️</div>
           <h1>Vaper Stock</h1>
-          
         </header>
 
-        <!-- Filtros pill-style -->
+        <!-- Filtro desplegable -->
         <div class="filters-section">
-          <div class="filters-scroll">
-            <button 
-              *ngFor="let f of filtros" 
-              class="filter-pill"
-              [class.active]="filtroActivo === f.value"
-              (click)="filtroActivo = f.value">
-              <span class="filter-icon">{{ f.icon }}</span>
-              <span class="filter-text">{{ f.label }}</span>
-            </button>
+          <div class="dropdown-container">
+            <label class="dropdown-label">Filtrar por:</label>
+            <div class="custom-select">
+              <select 
+                [(ngModel)]="filtroActivo" 
+                class="select-control">
+                <option *ngFor="let f of filtros" [value]="f.value">
+                  {{ f.icon }} {{ f.label }}
+                </option>
+              </select>
+              <span class="select-arrow">▼</span>
+            </div>
           </div>
         </div>
 
@@ -153,89 +156,76 @@ export interface Vaper {
       margin-bottom: 0.5rem;
     }
 
-    .subtitle {
-      color: rgba(255,255,255,0.5);
-      font-size: 1rem;
-      font-weight: 400;
-      margin-bottom: 1.5rem;
-    }
-
-    .stats-row {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-    }
-
-    .stat-badge {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 1rem;
-      padding: 0.75rem 1.25rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-width: 90px;
-    }
-
-    .stat-number {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: white;
-    }
-
-    .stat-label {
-      font-size: 0.75rem;
-      color: rgba(255,255,255,0.5);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    /* ========== FILTROS ========== */
+    /* ========== FILTROS DESPLEGABLE ========== */
     .filters-section {
       margin-bottom: 1.5rem;
-      margin-left: -1rem;
-      margin-right: -1rem;
-      padding: 0 1rem;
     }
 
-    .filters-scroll {
+    .dropdown-container {
       display: flex;
-      gap: 0.625rem;
-      overflow-x: auto;
-      padding: 0.25rem;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-    }
-
-    .filters-scroll::-webkit-scrollbar { display: none; }
-
-    .filter-pill {
-      display: flex;
-      align-items: center;
+      flex-direction: column;
       gap: 0.5rem;
-      padding: 0.75rem 1.25rem;
-      border-radius: 100px;
-      border: 1px solid rgba(255,255,255,0.1);
-      background: rgba(255,255,255,0.03);
+    }
+
+    .dropdown-label {
       color: rgba(255,255,255,0.7);
       font-size: 0.9rem;
       font-weight: 500;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      white-space: nowrap;
-      flex-shrink: 0;
+      letter-spacing: 0.02em;
     }
 
-    .filter-pill:active { transform: scale(0.96); }
+    .custom-select {
+      position: relative;
+      width: 100%;
+    }
 
-    .filter-pill.active {
-      background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
-      border-color: transparent;
+    .select-control {
+      width: 100%;
+      padding: 1rem 3rem 1rem 1.25rem;
+      border-radius: 1rem;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.05);
       color: white;
-      box-shadow: 0 4px 20px rgba(139, 92, 246, 0.4);
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      appearance: none;
+      transition: all 0.2s ease;
+      font-family: inherit;
     }
 
-    .filter-icon { font-size: 1.1rem; }
+    .select-control:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(139, 92, 246, 0.3);
+    }
+
+    .select-control:focus {
+      outline: none;
+      border-color: #8b5cf6;
+      box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2);
+    }
+
+    .select-control option {
+      background: #1a1a2e;
+      color: white;
+      padding: 0.75rem;
+    }
+
+    .select-arrow {
+      position: absolute;
+      right: 1.25rem;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+      color: rgba(255,255,255,0.5);
+      font-size: 0.75rem;
+      transition: transform 0.2s ease;
+    }
+
+    .custom-select:focus-within .select-arrow {
+      transform: translateY(-50%) rotate(180deg);
+      color: #8b5cf6;
+    }
 
     /* ========== PRODUCTOS GRID ========== */
     .products-grid {
@@ -391,30 +381,6 @@ export interface Vaper {
       opacity: 0.5;
     }
 
-    /* Footer */
-    .footer {
-      margin-top: 2.5rem;
-      padding: 1.5rem;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 1rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-
-    .footer-item {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      color: rgba(255,255,255,0.6);
-      font-size: 0.9rem;
-    }
-
-    .footer-icon {
-      font-size: 1.25rem;
-    }
-
     /* ========== RESPONSIVE ========== */
     @media (min-width: 480px) {
       .content { padding: 2rem 1.5rem; }
@@ -422,7 +388,6 @@ export interface Vaper {
       .products-grid { gap: 1.5rem; }
       .product-visual { height: 240px; }
       .product-emoji { font-size: 5rem; }
-      .footer { flex-direction: row; justify-content: center; gap: 2rem; }
     }
 
     @media (min-width: 768px) {
@@ -438,13 +403,13 @@ export class VaperListPublicComponent implements OnInit {
   saboresAbiertos: { [key: number]: boolean } = {};
   vapers: Vaper[] = [];
 
- filtros = [
-  { label: 'Todos', value: 'all', icon: '' },
-  { label: '80K ZOOY', value: '80k-ZOOY', icon: '' },
-  { label: '85K BANG', value: '85k-BANG', icon: '' },
-  { label: '85K', value: '85k', icon: '' },
-  { label: '80K 12€', value: '80k-RUNCHUNFU', icon: '' } 
-];
+  filtros = [
+    { label: 'Todos', value: 'all', icon: '📦' },
+    { label: '80K ZOOY', value: '80k-ZOOY', icon: '🔵' },
+    { label: '85K BANG', value: '85k-BANG', icon: '💥' },
+    { label: '85K', value: '85k', icon: '🟣' },
+    { label: '80K RUNCHUNFU', value: '80k-RUNCHUNFU', icon: '💨' } 
+  ];
 
   constructor() {}
 
@@ -452,7 +417,7 @@ export class VaperListPublicComponent implements OnInit {
     this.vapers = this.getVapersData();
   }
 
-  getVapersData(): Vaper[] {
+   getVapersData(): Vaper[] {
     return [
       // 80K ZOOY - 15€
       {
@@ -630,7 +595,7 @@ export class VaperListPublicComponent implements OnInit {
 
     ];
   }
-
+  
   get vapersFiltrados(): Vaper[] {
     if (this.filtroActivo === 'all') return this.vapers;
     return this.vapers.filter(v => v.tipo === this.filtroActivo);
