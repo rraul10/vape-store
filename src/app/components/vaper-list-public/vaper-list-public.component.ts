@@ -586,13 +586,12 @@ export class VaperListPublicComponent implements OnInit {
         precio: 80000,
         precioEur: 12,
         stock: 3,
-        tipo: '80k-12',
+        tipo: '80k-RUNCHUNFU',
         color: 'linear-gradient(135deg, #fb7185, #f43f5e)',
         emoji: '🍓',
         imagen: 'assets/Vaper80K.jpg',
         sabores: ['🍓 Strawberry', '🍉 Watermelon']
       },
-
     ];
   }
   
