@@ -419,32 +419,6 @@ export class VaperListPublicComponent implements OnInit {
 
    getVapersData(): Vaper[] {
     return [
-      // 80K ZOOY - 15€
-      {
-        id: 2,
-        nombre: 'Berry Paradise',
-        precio: 80000,
-        precioEur: 15,
-        stock: 1,
-        tipo: '80k-ZOOY',
-        color: 'linear-gradient(135deg, #06b6d4, #0891b2)',
-        emoji: '🔵',
-        imagen: 'assets/80k-zooy.jpg', 
-        sabores: ['🥝 Kiwi Passion Fruit', '🍓🍌 Strawberry Banana', '🔵 Blue Razz']
-      },
-      // 85K BANG - 15€
-      {
-        id: 3,
-        nombre: 'Energy Blast',
-        precio: 85000,
-        precioEur: 15,
-        stock: 1,
-        tipo: '85k-BANG',
-        color: 'linear-gradient(135deg, #ef4444, #dc2626)',
-        emoji: '💥',
-        imagen: 'assets/85k.jpg',
-        sabores: ['🍻 RedBull', '🫐🍉 Blueberry Watermelon', '🍓🍨 Strawberry Ice Cream']
-      },
       {
         id: 5,
         nombre: 'Grape Sensation',
@@ -463,7 +437,7 @@ export class VaperListPublicComponent implements OnInit {
         nombre: 'Berry Explosion',
         precio: 85000,
         precioEur: 15,
-        stock: 2,
+        stock: 1,
         tipo: '85k-BANG',
         color: 'linear-gradient(135deg, #f87171, #b91c1c)',
         emoji: '💥',
