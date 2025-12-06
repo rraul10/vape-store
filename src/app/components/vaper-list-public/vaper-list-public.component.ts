@@ -523,7 +523,7 @@ export class VaperListPublicComponent implements OnInit {
         nombre: 'Watermelon Bubble Gum',
         precio: 80000,
         precioEur: 12,
-        stock: 2,
+        stock: 1,
         tipo: '80k-RUNCHUNFU',
         color: 'linear-gradient(135deg, #f472b6, #ec4899)',
         emoji: '🍉',
