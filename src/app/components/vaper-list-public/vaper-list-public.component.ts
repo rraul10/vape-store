@@ -494,18 +494,6 @@ export class VaperListPublicComponent implements OnInit {
         sabores: ['🍎 Double Apple', '🍍 Pineapple Ice', '🍓 Fruity Pfusion']
       },
       {
-        id: 10,
-        nombre: 'Berry Citrus',
-        precio: 85000,
-        precioEur: 15,
-        stock: 1,
-        tipo: '85k',
-        color: 'linear-gradient(135deg, #60a5fa, #2563eb)',
-        emoji: '🟣',
-        imagen: 'assets/85BangKing.jpg',
-        sabores: ['🫐 Blueberry Ice', '🍋 Lemon Lime', '🍓 Strawberry Watermelon']
-      },
-      {
         id: 11,
         nombre: 'Tropical Cherry',
         precio: 85000,
