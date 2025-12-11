@@ -405,7 +405,6 @@ export class VaperListPublicComponent implements OnInit {
 
   filtros = [
     { label: 'Todos', value: 'all', icon: '📦' },
-    { label: '80K ZOOY', value: '80k-ZOOY', icon: '🔵' },
     { label: '85K BANG', value: '85k-BANG', icon: '💥' },
     { label: '85K', value: '85k', icon: '🟣' },
     { label: '80K RUNCHUNFU', value: '80k-RUNCHUNFU', icon: '💨' } 
@@ -424,7 +423,7 @@ export class VaperListPublicComponent implements OnInit {
         nombre: 'Grape Sensation',
         precio: 85000,
         precioEur: 15,
-        stock: 2,
+        stock: 1,
         tipo: '85k-BANG',
         color: 'linear-gradient(135deg, #8b5cf6, #6d28d9)',
         emoji: '💥',
