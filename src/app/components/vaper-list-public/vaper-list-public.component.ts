@@ -492,18 +492,6 @@ export class VaperListPublicComponent implements OnInit {
         imagen: 'assets/85BangKing.jpg',
         sabores: ['🍎 Double Apple', '🍍 Pineapple Ice', '🍓 Fruity Pfusion']
       },
-      {
-        id: 11,
-        nombre: 'Tropical Cherry',
-        precio: 85000,
-        precioEur: 15,
-        stock: 1,
-        tipo: '85k',
-        color: 'linear-gradient(135deg, #fb7185, #dc2626)',
-        emoji: '🟣',
-        imagen: 'assets/85BangKing.jpg',
-        sabores: ['🍑 Peach Mango', '🔵 Blue Razz Cherry', '❄️ Cool Mint']
-      },
       // 80K - 12€
       {
         id: 20,
