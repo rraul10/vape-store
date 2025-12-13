@@ -431,18 +431,6 @@ export class VaperListPublicComponent implements OnInit {
         sabores: ['🟣 Grape Ice', '🍓🥝 Strawberry Kiwi', '🟠 Passion Fruit Guava']
       },
 
-      {
-        id: 13,
-        nombre: 'Berry Explosion',
-        precio: 85000,
-        precioEur: 15,
-        stock: 1,
-        tipo: '85k-BANG',
-        color: 'linear-gradient(135deg, #f87171, #b91c1c)',
-        emoji: '💥',
-        imagen: 'assets/85k.jpg',
-        sabores: ['🍓 Strawberry Raspberry', '🫐 Black Currant', '🍓🍌 Strawberry Banana']
-      },
       // 85K Normal - 15€
       {
         id: 6,
@@ -455,18 +443,6 @@ export class VaperListPublicComponent implements OnInit {
         emoji: '🟣',
         imagen: 'assets/85BangKing.jpg',
         sabores: ['🍍 Tropical Fruit', '🍋🍑 Lemon Peach', '🍓🍉 Strawberry Watermelon']
-      },
-      {
-        id: 7,
-        nombre: 'Island Breeze',
-        precio: 85000,
-        precioEur: 15,
-        stock: 1,
-        tipo: '85k',
-        color: 'linear-gradient(135deg, #c084fc, #a855f7)',
-        emoji: '🟣',
-        imagen: 'assets/85BangKing.jpg',
-        sabores: ['🍍🥥 Pineapple Coconut', '🔵 Blue Razz', '🍓🍌 Strawberry Banana']
       },
       {
         id: 8,
