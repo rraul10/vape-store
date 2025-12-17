@@ -431,19 +431,6 @@ export class VaperListPublicComponent implements OnInit {
         sabores: ['🟣 Grape Ice', '🍓🥝 Strawberry Kiwi', '🟠 Passion Fruit Guava']
       },
 
-      // 85K Normal - 15€
-      {
-        id: 6,
-        nombre: 'Citrus Fusion',
-        precio: 85000,
-        precioEur: 15,
-        stock: 1,
-        tipo: '85k',
-        color: 'linear-gradient(135deg, #a78bfa, #8b5cf6)',
-        emoji: '🟣',
-        imagen: 'assets/85BangKing.jpg',
-        sabores: ['🍍 Tropical Fruit', '🍋🍑 Lemon Peach', '🍓🍉 Strawberry Watermelon']
-      },
       {
         id: 8,
         nombre: 'Sweet Delight',
