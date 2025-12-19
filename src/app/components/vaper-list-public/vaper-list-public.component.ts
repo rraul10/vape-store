@@ -436,7 +436,7 @@ export class VaperListPublicComponent implements OnInit {
         nombre: 'Sweet Delight',
         precio: 85000,
         precioEur: 15,
-        stock: 2,
+        stock: 1,
         tipo: '85k',
         color: 'linear-gradient(135deg, #f472b6, #ec4899)',
         emoji: '🟣',
