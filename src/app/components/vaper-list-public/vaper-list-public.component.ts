@@ -407,7 +407,8 @@ export class VaperListPublicComponent implements OnInit {
     { label: 'Todos', value: 'all', icon: '📦' },
     { label: '85K BANG', value: '85k-BANG', icon: '💥' },
     { label: '85K', value: '85k', icon: '🟣' },
-    { label: '80K RUNCHUNFU', value: '80k-RUNCHUNFU', icon: '💨' } 
+    { label: '80K RUNCHUNFU', value: '80k-RUNCHUNFU', icon: '💨' },
+    { label: '200K RUNCHUNFU', value: '200k-RUNCHUNFU', icon: '💨' } 
   ];
 
   constructor() {}
@@ -504,6 +505,57 @@ export class VaperListPublicComponent implements OnInit {
         imagen: 'assets/Vaper80K.jpg',
         sabores: ['🍓 Strawberry', '🍉 Watermelon']
       },
+      // 200K - 20€
+      {
+        id: 24,
+        nombre: 'Energy Mix',
+        precio: 120000,
+        precioEur: 20,
+        stock: 2,
+        tipo: '200k-RUNCHUNFU',
+        color: 'linear-gradient(135deg, #ef4444, #dc2626)',
+        emoji: '⚡',
+        imagen: 'assets/Vaper200K.jpg',
+        sabores: [
+          '⚡ Redbull',
+          '🍓🥭 Strawberry Mango',
+          '🍓🍉🍬 Strawberry Watermelon Bubblegum'
+        ]
+      },
+      {
+        id: 25,
+        nombre: 'Fresh Candy',
+        precio: 120000,
+        precioEur: 20,
+        stock: 2,
+        tipo: '200k-RUNCHUNFU',
+        color: 'linear-gradient(135deg, #a855f7, #7e22ce)',
+        emoji: '🍬',
+        imagen: 'assets/Vaper200K.jpg',
+        sabores: [
+          '🍓 Mixed Berries',
+          '🌿 Mint',
+          '🌈 Rainbow Candy'
+        ]
+      },
+      {
+        id: 26,
+        nombre: 'Ice Fusion',
+        precio: 120000,
+        precioEur: 20,
+        stock: 1,
+        tipo: '200k-RUNCHUNFU',
+        color: 'linear-gradient(135deg, #38bdf8, #0284c7)',
+        emoji: '❄️',
+        imagen: 'assets/Vaper200K.jpg',
+        sabores: [
+          '🍉❄️ Watermelon Ice',
+          '🍓🥝 Strawberry Kiwi',
+          '🍋🍈 Lemon Lime'
+        ]
+      },
+
+      
     ];
   }
   
