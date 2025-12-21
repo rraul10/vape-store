@@ -515,7 +515,7 @@ export class VaperListPublicComponent implements OnInit {
         tipo: '200k-RUNCHUNFU',
         color: 'linear-gradient(135deg, #ef4444, #dc2626)',
         emoji: '⚡',
-        imagen: 'assets/Vaper200K.jpg',
+        imagen: 'assets/vaper200k.jpg',
         sabores: [
           '⚡ Redbull',
           '🍓🥭 Strawberry Mango',
@@ -531,7 +531,7 @@ export class VaperListPublicComponent implements OnInit {
         tipo: '200k-RUNCHUNFU',
         color: 'linear-gradient(135deg, #a855f7, #7e22ce)',
         emoji: '🍬',
-        imagen: 'assets/Vaper200K.jpg',
+        imagen: 'assets/vaper200k.jpg',
         sabores: [
           '🍓 Mixed Berries',
           '🌿 Mint',
@@ -547,7 +547,7 @@ export class VaperListPublicComponent implements OnInit {
         tipo: '200k-RUNCHUNFU',
         color: 'linear-gradient(135deg, #38bdf8, #0284c7)',
         emoji: '❄️',
-        imagen: 'assets/Vaper200K.jpg',
+        imagen: 'assets/vaper200k.jpg',
         sabores: [
           '🍉❄️ Watermelon Ice',
           '🍓🥝 Strawberry Kiwi',
