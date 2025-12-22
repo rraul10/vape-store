@@ -420,19 +420,6 @@ export class VaperListPublicComponent implements OnInit {
    getVapersData(): Vaper[] {
     return [
       {
-        id: 5,
-        nombre: 'Grape Sensation',
-        precio: 85000,
-        precioEur: 15,
-        stock: 1,
-        tipo: '85k-BANG',
-        color: 'linear-gradient(135deg, #8b5cf6, #6d28d9)',
-        emoji: '💥',
-        imagen: 'assets/85k.jpg',
-        sabores: ['🟣 Grape Ice', '🍓🥝 Strawberry Kiwi', '🟠 Passion Fruit Guava']
-      },
-
-      {
         id: 8,
         nombre: 'Sweet Delight',
         precio: 85000,
@@ -444,19 +431,6 @@ export class VaperListPublicComponent implements OnInit {
         imagen: 'assets/85BangKing.jpg',
         sabores: ['🍩 Strawberry Donut', '💖 Love66', '🍌 Banana Ice']
       },
-      {
-        id: 9,
-        nombre: 'Double Pineapple',
-        precio: 85000,
-        precioEur: 15,
-        stock: 1,
-        tipo: '85k',
-        color: 'linear-gradient(135deg, #facc15, #eab308)',
-        emoji: '🟣',
-        imagen: 'assets/85BangKing.jpg',
-        sabores: ['🍎 Double Apple', '🍍 Pineapple Ice', '🍓 Fruity Pfusion']
-      },
-      // 80K - 12€
       {
         id: 20,
         nombre: 'Watermelon Bubble Gum',
