@@ -405,7 +405,6 @@ export class VaperListPublicComponent implements OnInit {
 
   filtros = [
     { label: 'Todos', value: 'all', icon: '📦' },
-    { label: '85K BANG', value: '85k-BANG', icon: '💥' },
     { label: '85K', value: '85k', icon: '🟣' },
     { label: '80K RUNCHUNFU', value: '80k-RUNCHUNFU', icon: '💨' },
     { label: '200K RUNCHUNFU', value: '200k-RUNCHUNFU', icon: '💨' } 
