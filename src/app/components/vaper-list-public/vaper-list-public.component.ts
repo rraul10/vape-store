@@ -474,7 +474,7 @@ export class VaperListPublicComponent implements OnInit {
         nombre: 'Blueberry Ice',
         precio: 80000,
         precioEur: 12,
-        stock: 2,
+        stock: 1,
         tipo: '80k-RUNCHUNFU',
         color: 'linear-gradient(135deg, #60a5fa, #2563eb)',
         emoji: '🫐',
@@ -498,14 +498,13 @@ export class VaperListPublicComponent implements OnInit {
         nombre: 'Strawberry Watermelon',
         precio: 80000,
         precioEur: 12,
-        stock: 3,
+        stock: 1,
         tipo: '80k-RUNCHUNFU',
         color: 'linear-gradient(135deg, #fb7185, #f43f5e)',
         emoji: '🍓',
         imagen: 'assets/Vaper80K.jpg',
         sabores: ['🍓 Strawberry', '🍉 Watermelon']
       },
-      // 200K - 20€
       {
         id: 24,
         nombre: 'Energy Mix',
