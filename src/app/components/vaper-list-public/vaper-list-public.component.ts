@@ -419,98 +419,6 @@ export class VaperListPublicComponent implements OnInit {
    getVapersData(): Vaper[] {
     return [
       {
-        id: 8,
-        nombre: 'Sweet Delight',
-        precio: 85000,
-        precioEur: 15,
-        stock: 1,
-        tipo: '85k',
-        color: 'linear-gradient(135deg, #f472b6, #ec4899)',
-        emoji: '🟣',
-        imagen: 'assets/85BangKing.jpg',
-        sabores: ['🍩 Strawberry Donut', '💖 Love66', '🍌 Banana Ice']
-      },
-      {
-        id: 20,
-        nombre: 'Watermelon Bubble Gum',
-        precio: 80000,
-        precioEur: 12,
-        stock: 1,
-        tipo: '80k-RUNCHUNFU',
-        color: 'linear-gradient(135deg, #f472b6, #ec4899)',
-        emoji: '🍉',
-        imagen: 'assets/Vaper80K.jpg',
-        sabores: ['🍉 Watermelon', '🍬 Bubble Gum']
-      },
-      {
-        id: 21,
-        nombre: 'Blueberry Ice',
-        precio: 80000,
-        precioEur: 12,
-        stock: 1,
-        tipo: '80k-RUNCHUNFU',
-        color: 'linear-gradient(135deg, #60a5fa, #2563eb)',
-        emoji: '🫐',
-        imagen: 'assets/Vaper80K.jpg',
-        sabores: ['🫐 Blueberry', '❄️ Ice']
-      },
-      {
-        id: 22,
-        nombre: 'Mixed Berries',
-        precio: 80000,
-        precioEur: 12,
-        stock: 1,
-        tipo: '80k-RUNCHUNFU',
-        color: 'linear-gradient(135deg, #f87171, #b91c1c)',
-        emoji: '🍓',
-        imagen: 'assets/Vaper80K.jpg',
-        sabores: ['🍓 Strawberry', '🫐 Blueberry', '🍇 Grape']
-      },
-      {
-        id: 23,
-        nombre: 'Strawberry Watermelon',
-        precio: 80000,
-        precioEur: 12,
-        stock: 1,
-        tipo: '80k-RUNCHUNFU',
-        color: 'linear-gradient(135deg, #fb7185, #f43f5e)',
-        emoji: '🍓',
-        imagen: 'assets/Vaper80K.jpg',
-        sabores: ['🍓 Strawberry', '🍉 Watermelon']
-      },
-      {
-        id: 24,
-        nombre: 'Energy Mix',
-        precio: 120000,
-        precioEur: 17,
-        stock: 2,
-        tipo: '200k-RUNCHUNFU',
-        color: 'linear-gradient(135deg, #ef4444, #dc2626)',
-        emoji: '⚡',
-        imagen: 'assets/vaper200k.jpg',
-        sabores: [
-          '⚡ Redbull',
-          '🍓🥭 Strawberry Mango',
-          '🍓🍉🍬 Strawberry Watermelon Bubblegum'
-        ]
-      },
-      {
-        id: 25,
-        nombre: 'Fresh Candy',
-        precio: 120000,
-        precioEur: 17,
-        stock: 1,
-        tipo: '200k-RUNCHUNFU',
-        color: 'linear-gradient(135deg, #a855f7, #7e22ce)',
-        emoji: '🍬',
-        imagen: 'assets/vaper200k.jpg',
-        sabores: [
-          '🍓 Mixed Berries',
-          '🌿 Mint',
-          '🌈 Rainbow Candy'
-        ]
-      },
-      {
         id: 26,
         nombre: 'Ice Fusion',
         precio: 120000,
@@ -526,8 +434,6 @@ export class VaperListPublicComponent implements OnInit {
           '🍋🍈 Lemon Lime'
         ]
       },
-
-      
     ];
   }
   
