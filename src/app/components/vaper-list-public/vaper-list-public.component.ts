@@ -406,9 +406,8 @@ export class VaperListPublicComponent implements OnInit {
   filtros = [
     { label: 'Todos', value: 'all', icon: '📦' },
     { label: '85K', value: '85k', icon: '🟣' },
-    { label: '80K RUNCHUNFU', value: '80k-RUNCHUNFU', icon: '💨' },
-    { label: '200K RUNCHUNFU', value: '200k-RUNCHUNFU', icon: '💨' } 
-  ];
+    { label: '80k-BANGKING', value: '80k-BANGKING', icon: '💨' },
+  ];  
 
   constructor() {}
 
@@ -416,26 +415,123 @@ export class VaperListPublicComponent implements OnInit {
     this.vapers = this.getVapersData();
   }
 
-   getVapersData(): Vaper[] {
-    return [
-      {
-        id: 26,
-        nombre: 'Ice Fusion',
-        precio: 120000,
-        precioEur: 17,
-        stock: 1,
-        tipo: '200k-RUNCHUNFU',
-        color: 'linear-gradient(135deg, #38bdf8, #0284c7)',
-        emoji: '❄️',
-        imagen: 'assets/vaper200k.jpg',
-        sabores: [
-          '🍉❄️ Watermelon Ice',
-          '🍓🥝 Strawberry Kiwi',
-          '🍋🍈 Lemon Lime'
-        ]
-      },
-    ];
-  }
+    getVapersData(): Vaper[] {
+  return [
+    {
+      id: 27,
+      nombre: 'Bang King 85K',
+      precio: 120000,
+      precioEur: 13,
+      stock: 3,
+      tipo: '85k',
+      color: 'linear-gradient(135deg, #f472b6, #ec4899)',
+      emoji: '🍍',
+      imagen: 'assets/85BangKing.jpg',
+      sabores: [
+        '🥭 Tropical Fruit',
+        '🍋🍑 Lemon Peach',
+        '🍓🍉 Strawberry Watermelon'
+      ]
+    },
+    {
+      id: 28,
+      nombre: 'Bang King 85K',
+      precio: 120000,
+      precioEur: 13,
+      stock: 3,
+      tipo: '85k',
+      color: 'linear-gradient(135deg, #a3e635, #65a30d)',
+      emoji: '🍏',
+      imagen: 'assets/85BangKing.jpg',
+      sabores: [
+        '🍎🍏 Double Apple',
+        '🍍❄️ Pineapple Ice',
+        '🍹 Fruity Fusion'
+      ]
+    },
+    {
+      id: 29,
+      nombre: 'Bang King 85K',
+      precio: 120000,
+      precioEur: 13,
+      stock: 1,
+      tipo: '85k',
+      color: 'linear-gradient(135deg, #fb7185, #e11d48)',
+      emoji: '🍩',
+      imagen: 'assets/85BangKing.jpg',
+      sabores: [
+        '🍓🍩 Strawberry Donut',
+        '❤️ Love 66',
+        '🍌❄️ Banana Ice'
+      ]
+    },
+
+    {
+      id: 30,
+      nombre: 'Bang King 80K',
+      precio: 120000,
+      precioEur: 14,
+      stock: 2,
+      tipo: '80k-BANGKING',
+      color: 'linear-gradient(135deg, #c084fc, #7c3aed)',
+      emoji: '🍓',
+      imagen: 'assets/80BangKing.jpg',
+      sabores: [
+        '🍓🍌 Strawberry Banana',
+        '🍓🍉 Raspberry Watermelon',
+        '❤️ Love 66'
+      ]
+    },
+    {
+      id: 31,
+      nombre: 'Bang King 80K',
+      precio: 120000,
+      precioEur: 14,
+      stock: 1,
+      tipo: '80k-BANGKING',
+      color: 'linear-gradient(135deg, #60a5fa, #2563eb)',
+      emoji: '🫐',
+      imagen: 'assets/80BangKing.jpg',
+      sabores: [
+        '🫐❄️ Triple Berry Ice',
+        '🥭🍑 Mango Peach',
+        '🍓🥝 Strawberry Kiwi'
+      ]
+    },
+    {
+      id: 32,
+      nombre: 'Bang King 80K',
+      precio: 120000,
+      precioEur: 14,
+      stock: 3,
+      tipo: '80k-BANGKING',
+      color: 'linear-gradient(135deg, #22d3ee, #0284c7)',
+      emoji: '🍉',
+      imagen: 'assets/80BangKing.jpg',
+      sabores: [
+        '🍉❄️ Watermelon Ice',
+        '🍓🍦 Strawberry Ice Cream',
+        '🍈🍈🍈 Triple Melon'
+      ]
+    },
+    {
+      id: 33,
+      nombre: 'Bang King 80K',
+      precio: 120000,
+      precioEur: 14,
+      stock: 3,
+      tipo: '80k-BANGKING',
+      color: 'linear-gradient(135deg, #f87171, #dc2626)',
+      emoji: '⚡',
+      imagen: 'assets/80BangKing.jpg',
+      sabores: [
+        '🍉❄️ Watermelon Ice',
+        '⚡ Red Bull',
+        '🍓🥝 Strawberry Kiwi'
+      ]
+    }
+  ];
+}
   
   get vapersFiltrados(): Vaper[] {
     if (this.filtroActivo === 'all') return this.vapers;
