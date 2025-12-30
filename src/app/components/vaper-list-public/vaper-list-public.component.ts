@@ -422,7 +422,7 @@ export class VaperListPublicComponent implements OnInit {
       nombre: 'Bang King 85K',
       precio: 120000,
       precioEur: 13,
-      stock: 3,
+      stock: 2,
       tipo: '85k',
       color: 'linear-gradient(135deg, #f472b6, #ec4899)',
       emoji: '🍍',
@@ -438,7 +438,7 @@ export class VaperListPublicComponent implements OnInit {
       nombre: 'Bang King 85K',
       precio: 120000,
       precioEur: 13,
-      stock: 3,
+      stock: 1,
       tipo: '85k',
       color: 'linear-gradient(135deg, #a3e635, #65a30d)',
       emoji: '🍏',
@@ -449,23 +449,6 @@ export class VaperListPublicComponent implements OnInit {
         '🍹 Fruity Fusion'
       ]
     },
-    {
-      id: 29,
-      nombre: 'Bang King 85K',
-      precio: 120000,
-      precioEur: 13,
-      stock: 1,
-      tipo: '85k',
-      color: 'linear-gradient(135deg, #fb7185, #e11d48)',
-      emoji: '🍩',
-      imagen: 'assets/85BangKing.jpg',
-      sabores: [
-        '🍓🍩 Strawberry Donut',
-        '❤️ Love 66',
-        '🍌❄️ Banana Ice'
-      ]
-    },
-
     {
       id: 30,
       nombre: 'Bang King 80K',
@@ -503,7 +486,7 @@ export class VaperListPublicComponent implements OnInit {
       nombre: 'Bang King 80K',
       precio: 120000,
       precioEur: 14,
-      stock: 3,
+      stock: 1,
       tipo: '80k-BANGKING',
       color: 'linear-gradient(135deg, #22d3ee, #0284c7)',
       emoji: '🍉',
@@ -519,7 +502,7 @@ export class VaperListPublicComponent implements OnInit {
       nombre: 'Bang King 80K',
       precio: 120000,
       precioEur: 14,
-      stock: 3,
+      stock: 1,
       tipo: '80k-BANGKING',
       color: 'linear-gradient(135deg, #f87171, #dc2626)',
       emoji: '⚡',
@@ -528,6 +511,102 @@ export class VaperListPublicComponent implements OnInit {
         '🍉❄️ Watermelon Ice',
         '⚡ Red Bull',
         '🍓🥝 Strawberry Kiwi'
+      ]
+    },
+    {
+      id: 34,
+      nombre: 'Bang King 80K',
+      precio: 120000,
+      precioEur: 14,
+      stock: 1,
+      tipo: '80k-BANGKING',
+      color: 'linear-gradient(135deg, #f87171, #dc2626)',
+      emoji: '⚡',
+      imagen: 'assets/80BangKing.jpg',
+      sabores: [
+        '🍉❄️ Lemon Lime',
+        '⚡ Mango Peach Watermelon',
+        '🍓🥝 Blueberry Ice'
+      ]
+    },
+    {
+      id: 35,
+      nombre: 'Bang King 80K',
+      precio: 120000,
+      precioEur: 14,
+      stock: 1,
+      tipo: '80k-BANGKING',
+      color: 'linear-gradient(135deg, #f87171, #dc2626)',
+      emoji: '⚡',
+      imagen: 'assets/80BangKing.jpg',
+      sabores: [
+        '🍉❄️ Pineapple Coconut',
+        '⚡ Strawberry Raspberry Candy',
+        '🍓🥝 Blue Razz Ice'
+      ]
+    },
+    {
+      id: 36,
+      nombre: 'Bang King 80K',
+      precio: 120000,
+      precioEur: 14,
+      stock: 1,
+      tipo: '80k-BANGKING',
+      color: 'linear-gradient(135deg, #f87171, #dc2626)',
+      emoji: '⚡',
+      imagen: 'assets/80BangKing.jpg',
+      sabores: [
+        '🍉❄️ Tropical Fruit',
+        '⚡ Strawberry Watermelon',
+        '🍓🥝 Lemon Peach'
+      ]
+    },
+    {
+      id: 37,
+      nombre: 'Bang King 80K',
+      precio: 120000,
+      precioEur: 14,
+      stock: 1,
+      tipo: '80k-BANGKING',
+      color: 'linear-gradient(135deg, #f87171, #dc2626)',
+      emoji: '⚡',
+      imagen: 'assets/80BangKing.jpg',
+      sabores: [
+        '🍉❄️ Lemon Cola Soda',
+        '⚡ Watermelon Gum',
+        '🍓🥝 Black Dragon Ice'
+      ]
+    },
+    {
+      id: 36,
+      nombre: 'Bang King 80K',
+      precio: 120000,
+      precioEur: 14,
+      stock: 1,
+      tipo: '80k-BANGKING',
+      color: 'linear-gradient(135deg, #f87171, #dc2626)',
+      emoji: '⚡',
+      imagen: 'assets/80BangKing.jpg',
+      sabores: [
+        '🍉❄️ Strawberry Ice',
+        '⚡ Strawberry Watermelon',
+        '🍓🥝 Pineapple Mango Peach'
+      ]
+    },
+     {
+      id: 38,
+      nombre: 'Bang King 80K',
+      precio: 120000,
+      precioEur: 14,
+      stock: 1,
+      tipo: '80k-BANGKING',
+      color: 'linear-gradient(135deg, #f87171, #dc2626)',
+      emoji: '⚡',
+      imagen: 'assets/80BangKing.jpg',
+      sabores: [
+        '🍉❄️ Strawberry Vanilla Cola',
+        '⚡ Sour Apple Raspberry',
+        '🍓🥝 Lemon Lime'
       ]
     }
   ];
