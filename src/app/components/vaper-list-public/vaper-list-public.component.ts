@@ -406,8 +406,8 @@ export class VaperListPublicComponent implements OnInit {
   filtros = [
     { label: 'Todos', value: 'all', icon: '📦' },
     { label: '85K', value: '85k', icon: '🟣' },
-    { label: '80k-BANGKING', value: '80k-BANGKING', icon: '💨' },
-  ];  
+    { label: '80K Bang King', value: '80k-BANGKING', icon: '💨' },
+  ];
 
   constructor() {}
 
@@ -415,217 +415,168 @@ export class VaperListPublicComponent implements OnInit {
     this.vapers = this.getVapersData();
   }
 
-    getVapersData(): Vaper[] {
-  return [
-    {
-      id: 27,
-      nombre: 'Bang King 85K',
-      precio: 120000,
-      precioEur: 13,
-      stock: 2,
-      tipo: '85k',
-      color: 'linear-gradient(135deg, #f472b6, #ec4899)',
-      emoji: '🍍',
-      imagen: 'assets/85BangKing.jpg',
-      sabores: [
-        '🥭 Tropical Fruit',
-        '🍋🍑 Lemon Peach',
-        '🍓🍉 Strawberry Watermelon'
-      ]
-    },
-    {
-      id: 28,
-      nombre: 'Bang King 85K',
-      precio: 120000,
-      precioEur: 13,
-      stock: 1,
-      tipo: '85k',
-      color: 'linear-gradient(135deg, #a3e635, #65a30d)',
-      emoji: '🍏',
-      imagen: 'assets/85BangKing.jpg',
-      sabores: [
-        '🍎🍏 Double Apple',
-        '🍍❄️ Pineapple Ice',
-        '🍹 Fruity Fusion'
-      ]
-    },
-    {
-      id: 30,
-      nombre: 'Bang King 80K',
-      precio: 120000,
-      precioEur: 14,
-      stock: 2,
-      tipo: '80k-BANGKING',
-      color: 'linear-gradient(135deg, #c084fc, #7c3aed)',
-      emoji: '🍓',
-      imagen: 'assets/80BangKing.jpg',
-      sabores: [
-        '🍓🍌 Strawberry Banana',
-        '🍓🍉 Raspberry Watermelon',
-        '❤️ Love 66'
-      ]
-    },
-    {
-      id: 31,
-      nombre: 'Bang King 80K',
-      precio: 120000,
-      precioEur: 14,
-      stock: 1,
-      tipo: '80k-BANGKING',
-      color: 'linear-gradient(135deg, #60a5fa, #2563eb)',
-      emoji: '🫐',
-      imagen: 'assets/80BangKing.jpg',
-      sabores: [
-        '🫐❄️ Triple Berry Ice',
-        '🥭🍑 Mango Peach',
-        '🍓🥝 Strawberry Kiwi'
-      ]
-    },
-    {
-      id: 32,
-      nombre: 'Bang King 80K',
-      precio: 120000,
-      precioEur: 14,
-      stock: 1,
-      tipo: '80k-BANGKING',
-      color: 'linear-gradient(135deg, #22d3ee, #0284c7)',
-      emoji: '🍉',
-      imagen: 'assets/80BangKing.jpg',
-      sabores: [
-        '🍉❄️ Watermelon Ice',
-        '🍓🍦 Strawberry Ice Cream',
-        '🍈🍈🍈 Triple Melon'
-      ]
-    },
-    {
-      id: 33,
-      nombre: 'Bang King 80K',
-      precio: 120000,
-      precioEur: 14,
-      stock: 1,
-      tipo: '80k-BANGKING',
-      color: 'linear-gradient(135deg, #f87171, #dc2626)',
-      emoji: '⚡',
-      imagen: 'assets/80BangKing.jpg',
-      sabores: [
-        '🍉❄️ Watermelon Ice',
-        '⚡ Red Bull',
-        '🍓🥝 Strawberry Kiwi'
-      ]
-    },
-    {
-      id: 34,
-      nombre: 'Bang King 80K',
-      precio: 120000,
-      precioEur: 14,
-      stock: 1,
-      tipo: '80k-BANGKING',
-      color: 'linear-gradient(135deg, #f87171, #dc2626)',
-      emoji: '⚡',
-      imagen: 'assets/80BangKing.jpg',
-      sabores: [
-        '🍉❄️ Lemon Lime',
-        '⚡ Mango Peach Watermelon',
-        '🍓🥝 Blueberry Ice'
-      ]
-    },
-    {
-      id: 35,
-      nombre: 'Bang King 80K',
-      precio: 120000,
-      precioEur: 14,
-      stock: 1,
-      tipo: '80k-BANGKING',
-      color: 'linear-gradient(135deg, #f87171, #dc2626)',
-      emoji: '⚡',
-      imagen: 'assets/80BangKing.jpg',
-      sabores: [
-        '🍉❄️ Pineapple Coconut',
-        '⚡ Strawberry Raspberry Candy',
-        '🍓🥝 Blue Razz Ice'
-      ]
-    },
-    {
-      id: 36,
-      nombre: 'Bang King 80K',
-      precio: 120000,
-      precioEur: 14,
-      stock: 1,
-      tipo: '80k-BANGKING',
-      color: 'linear-gradient(135deg, #f87171, #dc2626)',
-      emoji: '⚡',
-      imagen: 'assets/80BangKing.jpg',
-      sabores: [
-        '🍉❄️ Tropical Fruit',
-        '⚡ Strawberry Watermelon',
-        '🍓🥝 Lemon Peach'
-      ]
-    },
-    {
-      id: 37,
-      nombre: 'Bang King 80K',
-      precio: 120000,
-      precioEur: 14,
-      stock: 1,
-      tipo: '80k-BANGKING',
-      color: 'linear-gradient(135deg, #f87171, #dc2626)',
-      emoji: '⚡',
-      imagen: 'assets/80BangKing.jpg',
-      sabores: [
-        '🍉❄️ Lemon Cola Soda',
-        '⚡ Watermelon Gum',
-        '🍓🥝 Black Dragon Ice'
-      ]
-    },
-    {
-      id: 36,
-      nombre: 'Bang King 80K',
-      precio: 120000,
-      precioEur: 14,
-      stock: 1,
-      tipo: '80k-BANGKING',
-      color: 'linear-gradient(135deg, #f87171, #dc2626)',
-      emoji: '⚡',
-      imagen: 'assets/80BangKing.jpg',
-      sabores: [
-        '🍉❄️ Strawberry Ice',
-        '⚡ Strawberry Watermelon',
-        '🍓🥝 Pineapple Mango Peach'
-      ]
-    },
-     {
-      id: 38,
-      nombre: 'Bang King 80K',
-      precio: 120000,
-      precioEur: 14,
-      stock: 1,
-      tipo: '80k-BANGKING',
-      color: 'linear-gradient(135deg, #f87171, #dc2626)',
-      emoji: '⚡',
-      imagen: 'assets/80BangKing.jpg',
-      sabores: [
-        '🍉❄️ Strawberry Vanilla Cola',
-        '⚡ Sour Apple Raspberry',
-        '🍓🥝 Lemon Lime'
-      ]
-    }
-  ];
-}
-  
-  get vapersFiltrados(): Vaper[] {
-    if (this.filtroActivo === 'all') return this.vapers;
-    return this.vapers.filter(v => v.tipo === this.filtroActivo);
-  }
-
-  get totalStock(): number {
-    return this.vapers.reduce((sum, vaper) => sum + vaper.stock, 0);
-  }
-
-  toggleSabores(id: number): void {
-    this.saboresAbiertos[id] = !this.saboresAbiertos[id];
-  }
-
-  getStockPercent(stock: number): number {
-    return Math.min((stock / 5) * 100, 100);
+  getVapersData(): Vaper[] {
+    return [
+      {
+        id: 27,
+        nombre: 'Bang King 85K',
+        precio: 120000,
+        precioEur: 13,
+        stock: 2,
+        tipo: '85k',
+        color: 'linear-gradient(135deg, #f472b6, #ec4899)',
+        emoji: '🍍',
+        imagen: 'assets/85BangKing.jpg',
+        sabores: [
+          '🥭🍍 Tropical Fruit',
+          '🍋🍑 Lemon Peach',
+          '🍓🍉 Strawberry Watermelon'
+        ]
+      },
+      {
+        id: 28,
+        nombre: 'Bang King 85K',
+        precio: 120000,
+        precioEur: 13,
+        stock: 1,
+        tipo: '85k',
+        color: 'linear-gradient(135deg, #a3e635, #65a30d)',
+        emoji: '🍏',
+        imagen: 'assets/85BangKing.jpg',
+        sabores: [
+          '🍎🍏 Double Apple',
+          '🍍❄️ Pineapple Ice',
+          '🍹🍓 Fruity Fusion'
+        ]
+      },
+      {
+        id: 31,
+        nombre: 'Bang King 80K',
+        precio: 120000,
+        precioEur: 14,
+        stock: 1,
+        tipo: '80k-BANGKING',
+        color: 'linear-gradient(135deg, #60a5fa, #2563eb)',
+        emoji: '🫐',
+        imagen: 'assets/80BangKing.jpg',
+        sabores: [
+          '🫐🍓❄️ Triple Berry Ice',
+          '🥭🍑 Mango Peach',
+          '🍓🥝 Strawberry Kiwi'
+        ]
+      },
+      {
+        id: 32,
+        nombre: 'Bang King 80K',
+        precio: 120000,
+        precioEur: 14,
+        stock: 1,
+        tipo: '80k-BANGKING',
+        color: 'linear-gradient(135deg, #22d3ee, #0284c7)',
+        emoji: '🍉',
+        imagen: 'assets/80BangKing.jpg',
+        sabores: [
+          '🍉❄️ Watermelon Ice',
+          '🍓🍦 Strawberry Ice Cream',
+          '🍈🍈🍈 Triple Melon'
+        ]
+      },
+      {
+        id: 33,
+        nombre: 'Bang King 80K',
+        precio: 120000,
+        precioEur: 14,
+        stock: 1,
+        tipo: '80k-BANGKING',
+        color: 'linear-gradient(135deg, #f87171, #dc2626)',
+        emoji: '⚡',
+        imagen: 'assets/80BangKing.jpg',
+        sabores: [
+          '🍉❄️ Watermelon Ice',
+          '⚡🥤 Energy Drink',
+          '🍓🥝 Strawberry Kiwi'
+        ]
+      },
+      {
+        id: 34,
+        nombre: 'Bang King 80K',
+        precio: 120000,
+        precioEur: 14,
+        stock: 1,
+        tipo: '80k-BANGKING',
+        color: 'linear-gradient(135deg, #f87171, #dc2626)',
+        emoji: '⚡',
+        imagen: 'assets/80BangKing.jpg',
+        sabores: [
+          '🍋🍈 Lemon Lime',
+          '🥭🍑🍉 Mango Peach Watermelon',
+          '🫐❄️ Blueberry Ice'
+        ]
+      },
+      {
+        id: 35,
+        nombre: 'Bang King 80K',
+        precio: 120000,
+        precioEur: 14,
+        stock: 1,
+        tipo: '80k-BANGKING',
+        color: 'linear-gradient(135deg, #f87171, #dc2626)',
+        emoji: '⚡',
+        imagen: 'assets/80BangKing.jpg',
+        sabores: [
+          '🍍🥥 Pineapple Coconut',
+          '🍓🍬 Strawberry Raspberry Candy',
+          '🧊🍇 Blue Razz Ice'
+        ]
+      },
+      {
+        id: 36,
+        nombre: 'Bang King 80K',
+        precio: 120000,
+        precioEur: 14,
+        stock: 1,
+        tipo: '80k-BANGKING',
+        color: 'linear-gradient(135deg, #f87171, #dc2626)',
+        emoji: '⚡',
+        imagen: 'assets/80BangKing.jpg',
+        sabores: [
+          '🥭🍍 Tropical Fruit',
+          '🍓🍉 Strawberry Watermelon',
+          '🍋🍑 Lemon Peach'
+        ]
+      },
+      {
+        id: 37,
+        nombre: 'Bang King 80K',
+        precio: 120000,
+        precioEur: 14,
+        stock: 1,
+        tipo: '80k-BANGKING',
+        color: 'linear-gradient(135deg, #f87171, #dc2626)',
+        emoji: '⚡',
+        imagen: 'assets/80BangKing.jpg',
+        sabores: [
+          '🥤🍋 Lemon Cola Soda',
+          '🍉🍬 Watermelon Gum',
+          '🐉❄️ Black Dragon Ice'
+        ]
+      },
+      {
+        id: 39,
+        nombre: 'Bang King 80K',
+        precio: 120000,
+        precioEur: 14,
+        stock: 1,
+        tipo: '80k-BANGKING',
+        color: 'linear-gradient(135deg, #f87171, #dc2626)',
+        emoji: '⚡',
+        imagen: 'assets/80BangKing.jpg',
+        sabores: [
+          '🍓❄️ Strawberry Ice',
+          '🍓🍉 Strawberry Watermelon',
+          '🍍🥭🍑 Pineapple Mango Peach'
+        ]
+      }
+    ];
   }
 }
