@@ -482,54 +482,6 @@ export class VaperListPublicComponent implements OnInit {
         ]
       },
       {
-        id: 33,
-        nombre: 'Bang King 80K',
-        precio: 120000,
-        precioEur: 14,
-        stock: 1,
-        tipo: '80k-BANGKING',
-        color: 'linear-gradient(135deg, #f87171, #dc2626)',
-        emoji: '⚡',
-        imagen: 'assets/80BangKing.jpg',
-        sabores: [
-          '🍉❄️ Watermelon Ice',
-          '⚡🥤 Red Bull',
-          '🍓🥝 Strawberry Kiwi'
-        ]
-      },
-      {
-        id: 34,
-        nombre: 'Bang King 80K',
-        precio: 120000,
-        precioEur: 14,
-        stock: 1,
-        tipo: '80k-BANGKING',
-        color: 'linear-gradient(135deg, #f87171, #dc2626)',
-        emoji: '⚡',
-        imagen: 'assets/80BangKing.jpg',
-        sabores: [
-          '🍋🍈 Lemon Lime',
-          '🥭🍑🍉 Mango Peach Watermelon',
-          '🫐❄️ Blueberry Ice'
-        ]
-      },
-      {
-        id: 35,
-        nombre: 'Bang King 80K',
-        precio: 120000,
-        precioEur: 14,
-        stock: 1,
-        tipo: '80k-BANGKING',
-        color: 'linear-gradient(135deg, #f87171, #dc2626)',
-        emoji: '⚡',
-        imagen: 'assets/80BangKing.jpg',
-        sabores: [
-          '🍍🥥 Pineapple Coconut',
-          '🍓🍬 Strawberry Raspberry Candy',
-          '🫐❄️ Blue Razz Ice'
-        ]
-      },
-      {
         id: 36,
         nombre: 'Bang King 80K',
         precio: 120000,
@@ -543,38 +495,6 @@ export class VaperListPublicComponent implements OnInit {
           '🥤🍋 Lemon Cola Soda',
           '🍉🍬 Watermelon Gum',
           '🐉❄️ Black Dragon Ice'
-        ]
-      },
-      {
-        id: 37,
-        nombre: 'Bang King 80K',
-        precio: 120000,
-        precioEur: 14,
-        stock: 1,
-        tipo: '80k-BANGKING',
-        color: 'linear-gradient(135deg, #f87171, #dc2626)',
-        emoji: '⚡',
-        imagen: 'assets/80BangKing.jpg',
-        sabores: [
-          '🍓❄️ Strawberry Ice',
-          '🍓🍉 Strawberry Watermelon',
-          '🍍🥭🍑 Pineapple Mango Peach'
-        ]
-      },
-      {
-        id: 38,
-        nombre: 'Bang King 80K',
-        precio: 120000,
-        precioEur: 14,
-        stock: 1,
-        tipo: '80k-BANGKING',
-        color: 'linear-gradient(135deg, #f87171, #dc2626)',
-        emoji: '⚡',
-        imagen: 'assets/80BangKing.jpg',
-        sabores: [
-          '🍓🍦🥤 Strawberry Vanilla Cola',
-          '🍏🍓🍋 Sour Apple Raspberry',
-          '🍋🍈 Lemon Lime'
         ]
       },
          {
