@@ -450,38 +450,6 @@ export class VaperListPublicComponent implements OnInit {
         ]
       },
       {
-        id: 31,
-        nombre: 'Bang King 80K',
-        precio: 120000,
-        precioEur: 14,
-        stock: 1,
-        tipo: '80k-BANGKING',
-        color: 'linear-gradient(135deg, #60a5fa, #2563eb)',
-        emoji: '🫐',
-        imagen: 'assets/80BangKing.jpg',
-        sabores: [
-          '🫐🍓❄️ Triple Berry Ice',
-          '🥭🍑 Mango Peach',
-          '🍓🥝 Strawberry Kiwi'
-        ]
-      },
-      {
-        id: 32,
-        nombre: 'Bang King 80K',
-        precio: 120000,
-        precioEur: 14,
-        stock: 1,
-        tipo: '80k-BANGKING',
-        color: 'linear-gradient(135deg, #22d3ee, #0284c7)',
-        emoji: '🍉',
-        imagen: 'assets/80BangKing.jpg',
-        sabores: [
-          '🍉❄️ Watermelon Ice',
-          '🍓🍦 Strawberry Ice Cream',
-          '🍈🍈🍈 Triple Melon'
-        ]
-      },
-      {
         id: 36,
         nombre: 'Bang King 80K',
         precio: 120000,
@@ -497,22 +465,6 @@ export class VaperListPublicComponent implements OnInit {
           '🐉❄️ Black Dragon Ice'
         ]
       },
-         {
-        id: 38,
-        nombre: 'Bang King 80K',
-        precio: 120000,
-        precioEur: 14,
-        stock: 1,
-        tipo: '80k-BANGKING',
-        color: 'linear-gradient(135deg, #f87171, #dc2626)',
-        emoji: '⚡',
-        imagen: 'assets/80BangKing.jpg',
-        sabores: [
-          '🥭🍍 Tropical Fruit',
-          '🍓🍉 Strawberry Watermelon',
-          '🍋🍈 Lemon Peach'
-        ]
-      }
     ];
   }
 
