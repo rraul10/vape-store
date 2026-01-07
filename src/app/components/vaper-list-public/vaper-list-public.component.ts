@@ -406,8 +406,10 @@ export class VaperListPublicComponent implements OnInit {
   filtros = [
     { label: 'Todos', value: 'all', icon: '📦' },
     { label: '85K', value: '85k', icon: '🟣' },
-    { label: '80k-BANGKING', value: '80k-BANGKING', icon: '💨' },
-  ];  
+    { label: '80K Bangking', value: '80k-BANGKING', icon: '💨' },
+    { label: 'MRVI 60K', value: '60k-MRVI', icon: '🔥' },
+  ];
+ 
 
   constructor() {}
 
@@ -417,6 +419,7 @@ export class VaperListPublicComponent implements OnInit {
 
   getVapersData(): Vaper[] {
     return [
+      // ===== 85K =====
       {
         id: 27,
         nombre: 'Bang King 85K',
@@ -449,6 +452,8 @@ export class VaperListPublicComponent implements OnInit {
           '🍹🍓 Fruity Fusion'
         ]
       },
+
+      // ===== 80K Bang King (existente) =====
       {
         id: 36,
         nombre: 'Bang King 80K',
@@ -465,8 +470,157 @@ export class VaperListPublicComponent implements OnInit {
           '🐉❄️ Black Dragon Ice'
         ]
       },
+
+      // ===== NUEVO: MRVI 60K =====
+      {
+        id: 50,
+        nombre: 'MRVI 60K',
+        precio: 110000,
+        precioEur: 12,
+        stock: 4,
+        tipo: '60k-MRVI',
+        color: 'linear-gradient(135deg, #38bdf8, #0ea5e9)',
+        emoji: '🌴',
+        imagen: 'assets/mrvi60k.jpg',
+        sabores: [
+          '🌴 Tropical Mix',
+          '🍓❄️ Strawberry Ice Cream',
+          '🥭❄️ Mango Ice'
+        ]
+      },
+      {
+        id: 51,
+        nombre: 'MRVI 60K',
+        precio: 110000,
+        precioEur: 12,
+        stock: 2,
+        tipo: '60k-MRVI',
+        color: 'linear-gradient(135deg, #f472b6, #db2777)',
+        emoji: '🍉',
+        imagen: 'assets/mrvi60k.jpg',
+        sabores: [
+          '🍓🍉 Raspberry Watermelon',
+          '🥤❄️ Cola Ice',
+          '🍏⚡ Sour Apple'
+        ]
+      },
+      {
+        id: 52,
+        nombre: 'MRVI 60K',
+        precio: 110000,
+        precioEur: 12,
+        stock: 2,
+        tipo: '60k-MRVI',
+        color: 'linear-gradient(135deg, #c084fc, #9333ea)',
+        emoji: '🍒',
+        imagen: 'assets/mrvi60k.jpg',
+        sabores: [
+          '🍓🍒 Strawberry Raspberry Cherry',
+          '❤️ Love 666',
+          '🍒❄️ Cherry Candy Ice'
+        ]
+      },
+      {
+        id: 53,
+        nombre: 'MRVI 60K',
+        precio: 110000,
+        precioEur: 12,
+        stock: 2,
+        tipo: '60k-MRVI',
+        color: 'linear-gradient(135deg, #4ade80, #16a34a)',
+        emoji: '🫐',
+        imagen: 'assets/mrvi60k.jpg',
+        sabores: [
+          '🫐🍓 Mixed Berries',
+          '🐻🍬 Gummy Bear',
+          '🍑❄️ Peach Ice'
+        ]
+      },
+
+      // ===== NUEVOS: Bang King 80K =====
+      {
+        id: 60,
+        nombre: 'Bang King 80K',
+        precio: 120000,
+        precioEur: 14,
+        stock: 2,
+        tipo: '80k-BANGKING',
+        color: 'linear-gradient(135deg, #fde047, #facc15)',
+        emoji: '🍉',
+        imagen: 'assets/80BangKing.jpg',
+        sabores: [
+          '🍍 Tropical Fruit',
+          '🍓🍉 Strawberry Watermelon',
+          '🍋🍑 Lemon Peach'
+        ]
+      },
+      {
+        id: 61,
+        nombre: 'Bang King 80K',
+        precio: 120000,
+        precioEur: 14,
+        stock: 2,
+        tipo: '80k-BANGKING',
+        color: 'linear-gradient(135deg, #60a5fa, #2563eb)',
+        emoji: '❄️',
+        imagen: 'assets/80BangKing.jpg',
+        sabores: [
+          '🍉❄️ Watermelon Ice',
+          '🍓🍦 Strawberry Ice Cream',
+          '🍈🍈🍈 Triple Melon'
+        ]
+      },
+      {
+        id: 62,
+        nombre: 'Bang King 80K',
+        precio: 120000,
+        precioEur: 14,
+        stock: 2,
+        tipo: '80k-BANGKING',
+        color: 'linear-gradient(135deg, #a78bfa, #7c3aed)',
+        emoji: '🫐',
+        imagen: 'assets/80BangKing.jpg',
+        sabores: [
+          '🫐❄️ Triple Berry Ice',
+          '🥭🍑 Mango Peach',
+          '🍓🥝 Strawberry Kiwi'
+        ]
+      },
+      {
+        id: 63,
+        nombre: 'Bang King 80K',
+        precio: 120000,
+        precioEur: 14,
+        stock: 2,
+        tipo: '80k-BANGKING',
+        color: 'linear-gradient(135deg, #34d399, #059669)',
+        emoji: '🍍',
+        imagen: 'assets/80BangKing.jpg',
+        sabores: [
+          '🍍🥥 Pineapple Coconut',
+          '🍓🍒 Strawberry Raspberry Candy',
+          '🧊 Blue Razz Ice'
+        ]
+      },
+      {
+        id: 64,
+        nombre: 'Bang King 80K',
+        precio: 120000,
+        precioEur: 14,
+        stock: 2,
+        tipo: '80k-BANGKING',
+        color: 'linear-gradient(135deg, #f87171, #ef4444)',
+        emoji: '🍋',
+        imagen: 'assets/80BangKing.jpg',
+        sabores: [
+          '🍋🍈 Lemon Lime',
+          '🥭🍑🍉 Mango Peach Watermelon',
+          '🫐❄️ Blueberry Ice'
+        ]
+      }
     ];
   }
+
 
   get vapersFiltrados(): Vaper[] {
     if (this.filtroActivo === 'all') return this.vapers;
