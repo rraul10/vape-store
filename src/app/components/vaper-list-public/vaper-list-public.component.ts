@@ -453,24 +453,6 @@ export class VaperListPublicComponent implements OnInit {
         ]
       },
 
-      // ===== 80K Bang King (existente) =====
-      {
-        id: 36,
-        nombre: 'Bang King 80K',
-        precio: 120000,
-        precioEur: 14,
-        stock: 1,
-        tipo: '80k-BANGKING',
-        color: 'linear-gradient(135deg, #f87171, #dc2626)',
-        emoji: '⚡',
-        imagen: 'assets/80BangKing.jpg',
-        sabores: [
-          '🥤🍋 Lemon Cola Soda',
-          '🍉🍬 Watermelon Gum',
-          '🐉❄️ Black Dragon Ice'
-        ]
-      },
-
       // ===== NUEVO: MRVI 60K =====
       {
         id: 50,
@@ -543,7 +525,7 @@ export class VaperListPublicComponent implements OnInit {
         nombre: 'Bang King 80K',
         precio: 120000,
         precioEur: 14,
-        stock: 2,
+        stock: 1,
         tipo: '80k-BANGKING',
         color: 'linear-gradient(135deg, #fde047, #facc15)',
         emoji: '🍉',
