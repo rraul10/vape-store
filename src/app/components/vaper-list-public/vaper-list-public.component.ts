@@ -519,23 +519,6 @@ export class VaperListPublicComponent implements OnInit {
         ]
       },
 
-      // ===== NUEVOS: Bang King 80K =====
-      {
-        id: 60,
-        nombre: 'Bang King 80K',
-        precio: 120000,
-        precioEur: 14,
-        stock: 1,
-        tipo: '80k-BANGKING',
-        color: 'linear-gradient(135deg, #fde047, #facc15)',
-        emoji: '🍉',
-        imagen: 'assets/80BangKing.jpg',
-        sabores: [
-          '🍍 Tropical Fruit',
-          '🍓🍉 Strawberry Watermelon',
-          '🍋🍑 Lemon Peach'
-        ]
-      },
       {
         id: 61,
         nombre: 'Bang King 80K',
