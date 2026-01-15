@@ -572,7 +572,7 @@ export class VaperListPublicComponent implements OnInit {
         nombre: 'Bang King 80K',
         precio: 120000,
         precioEur: 14,
-        stock: 2,
+        stock: 1,
         tipo: '80k-BANGKING',
         color: 'linear-gradient(135deg, #f87171, #ef4444)',
         emoji: '🍋',
