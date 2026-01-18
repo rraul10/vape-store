@@ -459,7 +459,7 @@ export class VaperListPublicComponent implements OnInit {
         nombre: 'MRVI 60K',
         precio: 110000,
         precioEur: 12,
-        stock: 4,
+        stock: 2,
         tipo: '60k-MRVI',
         color: 'linear-gradient(135deg, #38bdf8, #0ea5e9)',
         emoji: '🌴',
@@ -567,22 +567,6 @@ export class VaperListPublicComponent implements OnInit {
           '🧊 Blue Razz Ice'
         ]
       },
-      {
-        id: 64,
-        nombre: 'Bang King 80K',
-        precio: 120000,
-        precioEur: 14,
-        stock: 1,
-        tipo: '80k-BANGKING',
-        color: 'linear-gradient(135deg, #f87171, #ef4444)',
-        emoji: '🍋',
-        imagen: 'assets/80BangKing.jpg',
-        sabores: [
-          '🍋🍈 Lemon Lime',
-          '🥭🍑🍉 Mango Peach Watermelon',
-          '🫐❄️ Blueberry Ice'
-        ]
-      }
     ];
   }
 
