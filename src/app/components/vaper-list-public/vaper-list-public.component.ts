@@ -518,23 +518,6 @@ export class VaperListPublicComponent implements OnInit {
           '🍑❄️ Peach Ice'
         ]
       },
-
-      {
-        id: 61,
-        nombre: 'Bang King 80K',
-        precio: 120000,
-        precioEur: 14,
-        stock: 1,
-        tipo: '80k-BANGKING',
-        color: 'linear-gradient(135deg, #60a5fa, #2563eb)',
-        emoji: '❄️',
-        imagen: 'assets/80BangKing.jpg',
-        sabores: [
-          '🍉❄️ Watermelon Ice',
-          '🍓🍦 Strawberry Ice Cream',
-          '🍈🍈🍈 Triple Melon'
-        ]
-      },
       {
         id: 62,
         nombre: 'Bang King 80K',
@@ -556,7 +539,7 @@ export class VaperListPublicComponent implements OnInit {
         nombre: 'Bang King 80K',
         precio: 120000,
         precioEur: 14,
-        stock: 2,
+        stock: 1,
         tipo: '80k-BANGKING',
         color: 'linear-gradient(135deg, #34d399, #059669)',
         emoji: '🍍',
