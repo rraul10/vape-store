@@ -534,22 +534,6 @@ export class VaperListPublicComponent implements OnInit {
           '🍓🥝 Strawberry Kiwi'
         ]
       },
-      {
-        id: 63,
-        nombre: 'Bang King 80K',
-        precio: 120000,
-        precioEur: 14,
-        stock: 1,
-        tipo: '80k-BANGKING',
-        color: 'linear-gradient(135deg, #34d399, #059669)',
-        emoji: '🍍',
-        imagen: 'assets/80BangKing.jpg',
-        sabores: [
-          '🍍🥥 Pineapple Coconut',
-          '🍓🍒 Strawberry Raspberry Candy',
-          '🧊 Blue Razz Ice'
-        ]
-      },
     ];
   }
 
