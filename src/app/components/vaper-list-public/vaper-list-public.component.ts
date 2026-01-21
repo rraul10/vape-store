@@ -406,10 +406,9 @@ export class VaperListPublicComponent implements OnInit {
   filtros = [
     { label: 'Todos', value: 'all', icon: '📦' },
     { label: '85K', value: '85k', icon: '🟣' },
-    { label: '80K Bangking', value: '80k-BANGKING', icon: '💨' },
     { label: 'MRVI 60K', value: '60k-MRVI', icon: '🔥' },
+    { label: 'ZOOY 30K', value: '30k-ZOOY', icon: '🦁' },
   ];
- 
 
   constructor() {}
 
@@ -453,23 +452,7 @@ export class VaperListPublicComponent implements OnInit {
         ]
       },
 
-      // ===== NUEVO: MRVI 60K =====
-      {
-        id: 50,
-        nombre: 'MRVI 60K',
-        precio: 110000,
-        precioEur: 12,
-        stock: 2,
-        tipo: '60k-MRVI',
-        color: 'linear-gradient(135deg, #38bdf8, #0ea5e9)',
-        emoji: '🌴',
-        imagen: 'assets/mrvi60k.jpg',
-        sabores: [
-          '🌴 Tropical Mix',
-          '🍓❄️ Strawberry Ice Cream',
-          '🥭❄️ Mango Ice'
-        ]
-      },
+      // ===== MRVI 60K =====
       {
         id: 51,
         nombre: 'MRVI 60K',
@@ -491,7 +474,7 @@ export class VaperListPublicComponent implements OnInit {
         nombre: 'MRVI 60K',
         precio: 110000,
         precioEur: 12,
-        stock: 2,
+        stock: 1,
         tipo: '60k-MRVI',
         color: 'linear-gradient(135deg, #c084fc, #9333ea)',
         emoji: '🍒',
@@ -502,40 +485,71 @@ export class VaperListPublicComponent implements OnInit {
           '🍒❄️ Cherry Candy Ice'
         ]
       },
+
+      // ===== ZOOY 30K =====
       {
-        id: 53,
-        nombre: 'MRVI 60K',
-        precio: 110000,
-        precioEur: 12,
-        stock: 2,
-        tipo: '60k-MRVI',
-        color: 'linear-gradient(135deg, #4ade80, #16a34a)',
-        emoji: '🫐',
-        imagen: 'assets/mrvi60k.jpg',
+        id: 61,
+        nombre: 'ZOOY 30K',
+        precio: 90000,
+        precioEur: 10,
+        stock: 3,
+        tipo: '30k-ZOOY',
+        color: 'linear-gradient(135deg, #38bdf8, #0284c7)',
+        emoji: '🍦',
+        imagen: 'assets/zooy30k.jpg',
         sabores: [
-          '🫐🍓 Mixed Berries',
-          '🐻🍬 Gummy Bear',
-          '🍑❄️ Peach Ice'
+          '🍓🍦 Strawberry Ice Cream',
+          '🍑🥭 Peach Mango Milkshake'
         ]
       },
       {
         id: 62,
-        nombre: 'Bang King 80K',
-        precio: 120000,
-        precioEur: 14,
-        stock: 1,
-        tipo: '80k-BANGKING',
-        color: 'linear-gradient(135deg, #a78bfa, #7c3aed)',
-        emoji: '🫐',
-        imagen: 'assets/80BangKing.jpg',
+        nombre: 'ZOOY 30K',
+        precio: 90000,
+        precioEur: 10,
+        stock: 2,
+        tipo: '30k-ZOOY',
+        color: 'linear-gradient(135deg, #a7f3d0, #059669)',
+        emoji: '🍇',
+        imagen: 'assets/zooy30k.jpg',
         sabores: [
-          '🫐❄️ Triple Berry Ice',
-          '🥭🍑 Mango Peach',
+          '🍇❄️ Grape Mint',
+          '🍓🍌 Strawberry Banana'
+        ]
+      },
+      {
+        id: 63,
+        nombre: 'ZOOY 30K',
+        precio: 90000,
+        precioEur: 10,
+        stock: 2,
+        tipo: '30k-ZOOY',
+        color: 'linear-gradient(135deg, #fca5a5, #dc2626)',
+        emoji: '❤️',
+        imagen: 'assets/zooy30k.jpg',
+        sabores: [
+          '❤️ Love 66',
+          '🥤❄️ Cola Ice'
+        ]
+      },
+      {
+        id: 64,
+        nombre: 'ZOOY 30K',
+        precio: 90000,
+        precioEur: 10,
+        stock: 2,
+        tipo: '30k-ZOOY',
+        color: 'linear-gradient(135deg, #fde047, #f59e0b)',
+        emoji: '⚡',
+        imagen: 'assets/zooy30k.jpg',
+        sabores: [
+          '⚡ Red Bull',
           '🍓🥝 Strawberry Kiwi'
         ]
       },
     ];
   }
+
 
 
   get vapersFiltrados(): Vaper[] {
