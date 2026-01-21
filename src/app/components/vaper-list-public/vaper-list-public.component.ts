@@ -496,7 +496,7 @@ export class VaperListPublicComponent implements OnInit {
         tipo: '30k-ZOOY',
         color: 'linear-gradient(135deg, #38bdf8, #0284c7)',
         emoji: '🍦',
-        imagen: 'assets/zooy30k.jpg',
+        imagen: 'assets/30kzooy.jpg',
         sabores: [
           '🍓🍦 Strawberry Ice Cream',
           '🍑🥭 Peach Mango Milkshake'
@@ -511,7 +511,7 @@ export class VaperListPublicComponent implements OnInit {
         tipo: '30k-ZOOY',
         color: 'linear-gradient(135deg, #a7f3d0, #059669)',
         emoji: '🍇',
-        imagen: 'assets/zooy30k.jpg',
+        imagen: 'assets/30kzooy.jpg',
         sabores: [
           '🍇❄️ Grape Mint',
           '🍓🍌 Strawberry Banana'
@@ -526,7 +526,7 @@ export class VaperListPublicComponent implements OnInit {
         tipo: '30k-ZOOY',
         color: 'linear-gradient(135deg, #fca5a5, #dc2626)',
         emoji: '❤️',
-        imagen: 'assets/zooy30k.jpg',
+        imagen: 'assets/30kzooy.jpg',
         sabores: [
           '❤️ Love 66',
           '🥤❄️ Cola Ice'
@@ -541,7 +541,7 @@ export class VaperListPublicComponent implements OnInit {
         tipo: '30k-ZOOY',
         color: 'linear-gradient(135deg, #fde047, #f59e0b)',
         emoji: '⚡',
-        imagen: 'assets/zooy30k.jpg',
+        imagen: 'assets/30kzooy.jpg',
         sabores: [
           '⚡ Red Bull',
           '🍓🥝 Strawberry Kiwi'
