@@ -406,6 +406,7 @@ export class VaperListPublicComponent implements OnInit {
   filtros = [
     { label: 'Todos', value: 'all', icon: '📦' },
     { label: '85K', value: '85k', icon: '🟣' },
+    { label: '80K', value: '80k', icon: '⚡' },
     { label: 'MRVI 60K', value: '60k-MRVI', icon: '🔥' },
     { label: 'ZOOY 30K', value: '30k-ZOOY', icon: '🦁' },
   ];
@@ -547,6 +548,88 @@ export class VaperListPublicComponent implements OnInit {
           '🍓🥝 Strawberry Kiwi'
         ]
       },
+      // ===== 80K =====
+      {
+        id: 29,
+        nombre: '80K Special Edition',
+        precio: 115000,
+        precioEur: 12,
+        stock: 2,
+        tipo: '80k',
+        color: 'linear-gradient(135deg, #60a5fa, #2563eb)',
+        emoji: '🫐',
+        imagen: 'assets/80BangKing.jpg',
+        sabores: [
+          '🫐❄️ Triple Berry Ice',
+          '🥭🍑 Mango Peach',
+          '🍓🥝 Strawberry Kiwi'
+        ]
+      },
+      {
+        id: 30,
+        nombre: '80K Special Edition',
+        precio: 115000,
+        precioEur: 12,
+        stock: 2,
+        tipo: '80k',
+        color: 'linear-gradient(135deg, #4ade80, #16a34a)',
+        emoji: '🍉',
+        imagen: 'assets/80BangKing.jpg',
+        sabores: [
+          '🍉❄️ Watermelon Ice',
+          '🍓🍦 Strawberry Ice Cream',
+          '🍈🍈 Triple Melon'
+        ]
+      },
+      {
+        id: 31,
+        nombre: '80K Special Edition',
+        precio: 115000,
+        precioEur: 12,
+        stock: 1,
+        tipo: '80k',
+        color: 'linear-gradient(135deg, #f472b6, #be185d)',
+        emoji: '🥤',
+        imagen: 'assets/80BangKing.jpg',
+        sabores: [
+          '🍓🥤 Strawberry Vanilla Cola',
+          '🍏🫐 Sour Apple Raspberry',
+          '🍋🟢 Lemon Lime'
+        ]
+      },
+      {
+        id: 32,
+        nombre: '80K Special Edition',
+        precio: 115000,
+        precioEur: 12,
+        stock: 2,
+        tipo: '80k',
+        color: 'linear-gradient(135deg, #fde047, #f59e0b)',
+        emoji: '🧃',
+        imagen: 'assets/80BangKing.jpg',
+        sabores: [
+          '🍋🥤 Lemon Cola Soda',
+          '🍉🍬 Watermelon Gum',
+          '🐉❄️ Black Dragon Ice'
+        ]
+      },
+      {
+        id: 33,
+        nombre: '80K Special Edition',
+        precio: 115000,
+        precioEur: 12,
+        stock: 2,
+        tipo: '80k',
+        color: 'linear-gradient(135deg, #38bdf8, #0ea5e9)',
+        emoji: '🍍',
+        imagen: 'assets/80BangKing.jpg',
+        sabores: [
+          '🍍🥥 Pineapple Coconut',
+          '🍓🍬 Strawberry Raspberry Candy',
+          '🧊💙 Blue Razz Ice'
+        ]
+      },
+
     ];
   }
 
