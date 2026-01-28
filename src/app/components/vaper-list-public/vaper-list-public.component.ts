@@ -470,22 +470,6 @@ export class VaperListPublicComponent implements OnInit {
           '🍏⚡ Sour Apple'
         ]
       },
-      {
-        id: 52,
-        nombre: 'MRVI 60K',
-        precio: 110000,
-        precioEur: 12,
-        stock: 1,
-        tipo: '60k-MRVI',
-        color: 'linear-gradient(135deg, #c084fc, #9333ea)',
-        emoji: '🍒',
-        imagen: 'assets/mrvi60k.jpg',
-        sabores: [
-          '🍓🍒 Strawberry Raspberry Cherry',
-          '❤️ Love 666',
-          '🍒❄️ Cherry Candy Ice'
-        ]
-      },
 
       // ===== ZOOY 30K =====
       {
