@@ -453,24 +453,6 @@ export class VaperListPublicComponent implements OnInit {
         ]
       },
 
-      // ===== MRVI 60K =====
-      {
-        id: 51,
-        nombre: 'MRVI 60K',
-        precio: 110000,
-        precioEur: 12,
-        stock: 2,
-        tipo: '60k-MRVI',
-        color: 'linear-gradient(135deg, #f472b6, #db2777)',
-        emoji: '🍉',
-        imagen: 'assets/mrvi60k.jpg',
-        sabores: [
-          '🍓🍉 Raspberry Watermelon',
-          '🥤❄️ Cola Ice',
-          '🍏⚡ Sour Apple'
-        ]
-      },
-
       // ===== ZOOY 30K =====
       {
         id: 61,
@@ -570,7 +552,7 @@ export class VaperListPublicComponent implements OnInit {
         nombre: '80K',
         precio: 115000,
         precioEur: 14,
-        stock: 2,
+        stock: 1,
         tipo: '80k',
         color: 'linear-gradient(135deg, #f472b6, #be185d)',
         emoji: '🥤',
@@ -586,7 +568,7 @@ export class VaperListPublicComponent implements OnInit {
         nombre: '80K',
         precio: 115000,
         precioEur: 14,
-        stock: 2,
+        stock: 1,
         tipo: '80k',
         color: 'linear-gradient(135deg, #fde047, #f59e0b)',
         emoji: '🧃',
