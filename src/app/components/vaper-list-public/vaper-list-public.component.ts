@@ -39,16 +39,19 @@ export interface Vaper {
         </header>
 
         <!-- Filtros -->
-        <div class="filters-scroll">
-          <button 
-            *ngFor="let f of filtros" 
-            [class.active]="filtroActivo === f.value"
-            (click)="filtroActivo = f.value"
-            class="filter-pill">
-            <span class="pill-emoji">{{ f.icon }}</span>
-            <span>{{ f.label }}</span>
-          </button>
+        <!-- Filtro select -->
+        <div class="filter-select-container">
+          <label class="filter-label">Selecciona caladas</label>
+          <div class="custom-select">
+            <select [(ngModel)]="filtroActivo" class="filter-select">
+              <option *ngFor="let f of filtros" [value]="f.value">
+                {{ f.icon }} {{ f.label }}
+              </option>
+            </select>
+            <span class="select-arrow">▼</span>
+          </div>
         </div>
+
 
         <!-- Cards de productos -->
         <div class="cards-grid">
@@ -490,19 +493,14 @@ export interface Vaper {
     }
 
     .flavor-tag {
-      background: linear-gradient(135deg, 
-        rgba(139, 92, 246, 0.15), 
-        rgba(236, 72, 153, 0.1));
-      border: 1.5px solid rgba(139, 92, 246, 0.3);
-      padding: 1rem 1.25rem;
-      border-radius: 1rem;
-      color: white;
-      font-size: 1.05rem;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-    }
+  padding: 0.35rem 0;
+  color: rgba(255,255,255,0.85);
+  font-size: 1rem;
+  font-weight: 500;
+  border-left: 3px solid rgba(139, 92, 246, 0.6);
+  padding-left: 0.75rem;
+}
+
 
     .flavor-tag:active {
       transform: translateX(5px);
@@ -538,6 +536,59 @@ export interface Vaper {
         font-size: 6.5rem;
       }
     }
+      /* ========== SELECT FILTRO ========== */
+.filter-select-container {
+  margin-bottom: 2rem;
+}
+
+.filter-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: rgba(255,255,255,0.6);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+}
+
+.custom-select {
+  position: relative;
+}
+
+.filter-select {
+  width: 100%;
+  padding: 1rem 3rem 1rem 1.25rem;
+  border-radius: 1.25rem;
+  border: 2px solid rgba(255,255,255,0.15);
+  background: rgba(0,0,0,0.4);
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 700;
+  appearance: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-select:hover {
+  border-color: rgba(139, 92, 246, 0.6);
+}
+
+.filter-select:focus {
+  outline: none;
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.3);
+}
+
+.select-arrow {
+  position: absolute;
+  right: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: rgba(255,255,255,0.5);
+  font-size: 0.85rem;
+}
+
   `]
 })
 export class VaperListPublicComponent implements OnInit {
