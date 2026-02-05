@@ -34,8 +34,7 @@ export interface Vaper {
             <div class="sparkle sparkle-1">✨</div>
             <div class="sparkle sparkle-2">✨</div>
           </div>
-          <h1>Mi Stock</h1>
-          <p class="tagline">Los mejores sabores</p>
+          <h1>Stock Vapers</h1>
         </header>
 
         <!-- Filtros -->
