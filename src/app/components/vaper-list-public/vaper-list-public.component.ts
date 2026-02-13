@@ -611,40 +611,6 @@ export class VaperListPublicComponent implements OnInit {
 
   getVapersData(): Vaper[] {
     return [
-      // ===== 85K =====
-      {
-        id: 27,
-        nombre: 'Bang King 85K',
-        precio: 120000,
-        precioEur: 13,
-        stock: 1,
-        tipo: '85k',
-        color: 'linear-gradient(135deg, #f472b6, #ec4899)',
-        emoji: '🍍',
-        imagen: 'assets/85BangKing.jpg',
-        sabores: [
-          '🥭🍍 Tropical Fruit',
-          '🍋🍑 Lemon Peach',
-          '🍓🍉 Strawberry Watermelon'
-        ]
-      },
-      {
-        id: 28,
-        nombre: 'Bang King 85K',
-        precio: 120000,
-        precioEur: 13,
-        stock: 1,
-        tipo: '85k',
-        color: 'linear-gradient(135deg, #a3e635, #65a30d)',
-        emoji: '🍏',
-        imagen: 'assets/85BangKing.jpg',
-        sabores: [
-          '🍎🍏 Double Apple',
-          '🍍❄️ Pineapple Ice',
-          '🍹🍓 Fruity Fusion'
-        ]
-      },
-
       // ===== ZOOY 30K =====
       {
         id: 61,
@@ -704,39 +670,6 @@ export class VaperListPublicComponent implements OnInit {
         sabores: [
           '⚡ Red Bull',
           '🍓🥝 Strawberry Kiwi'
-        ]
-      },
-      // ===== 80K =====
-      {
-        id: 29,
-        nombre: '80K',
-        precio: 115000,
-        precioEur: 14,
-        stock: 1,
-        tipo: '80k',
-        color: 'linear-gradient(135deg, #60a5fa, #2563eb)',
-        emoji: '🫐',
-        imagen: 'assets/80BangKing.jpg',
-        sabores: [
-          '🫐❄️ Triple Berry Ice',
-          '🥭🍑 Mango Peach',
-          '🍓🥝 Strawberry Kiwi'
-        ]
-      },
-      {
-        id: 30,
-        nombre: '80K',
-        precio: 115000,
-        precioEur: 14,
-        stock: 1,
-        tipo: '80k',
-        color: 'linear-gradient(135deg, #4ade80, #16a34a)',
-        emoji: '🍉',
-        imagen: 'assets/80BangKing.jpg',
-        sabores: [
-          '🍉❄️ Watermelon Ice',
-          '🍓🍦 Strawberry Ice Cream',
-          '🍈🍈 Triple Melon'
         ]
       },
       // ===== RAZZ BAR 60K =====
