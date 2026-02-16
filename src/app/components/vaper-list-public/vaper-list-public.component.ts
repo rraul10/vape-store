@@ -678,7 +678,7 @@ export class VaperListPublicComponent implements OnInit {
         nombre: '80K',
         precio: 100000,
         precioEur: 14,
-        stock: 2,
+        stock: 1,
         tipo: '80k',
         color: 'linear-gradient(135deg, #f472b6, #be185d)',
         emoji: '🍓',
@@ -706,27 +706,11 @@ export class VaperListPublicComponent implements OnInit {
         ]
       },
       {
-        id: 82,
-        nombre: '80K',
-        precio: 100000,
-        precioEur: 14,
-        stock: 1,
-        tipo: '80k',
-        color: 'linear-gradient(135deg, #a78bfa, #7c3aed)',
-        emoji: '🫐',
-        imagen: 'assets/80BangKing.jpg',
-        sabores: [
-          '🫐❄️ Triple Berry Ice',
-          '🥭🍑 Mango Peach',
-          '🍓🥝 Strawberry Kiwi'
-        ]
-      },
-      {
         id: 83,
         nombre: '80K',
         precio: 100000,
         precioEur: 14,
-        stock: 2,
+        stock: 1,
         tipo: '80k',
         color: 'linear-gradient(135deg, #fde047, #f59e0b)',
         emoji: '🍍',
@@ -758,7 +742,7 @@ export class VaperListPublicComponent implements OnInit {
         nombre: '80K',
         precio: 100000,
         precioEur: 14,
-        stock: 2,
+        stock: 3,
         tipo: '80k',
         color: 'linear-gradient(135deg, #fb7185, #e11d48)',
         emoji: '🍉',
