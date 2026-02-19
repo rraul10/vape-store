@@ -672,61 +672,12 @@ export class VaperListPublicComponent implements OnInit {
           '🍓🥝 Strawberry Kiwi'
         ]
       },
-      // ===== 80K =====
-      {
-        id: 80,
-        nombre: '80K',
-        precio: 100000,
-        precioEur: 14,
-        stock: 1,
-        tipo: '80k',
-        color: 'linear-gradient(135deg, #f472b6, #be185d)',
-        emoji: '🍓',
-        imagen: 'assets/80BangKing.jpg',
-        sabores: [
-          '🍓🥤 Strawberry Vanilla Cola',
-          '🍏🍓 Sour Apple Raspberry',
-          '🍋🍈 Lemon Lime'
-        ]
-      },
-      {
-        id: 81,
-        nombre: '80K',
-        precio: 100000,
-        precioEur: 14,
-        stock: 1,
-        tipo: '80k',
-        color: 'linear-gradient(135deg, #38bdf8, #0ea5e9)',
-        emoji: '🥤',
-        imagen: 'assets/80BangKing.jpg',
-        sabores: [
-          '🍋🥤 Lemon Cola Soda',
-          '🍉🍬 Watermelon Gum',
-          '🐉❄️ Black Dragon Ice'
-        ]
-      },
-      {
-        id: 84,
-        nombre: '80K',
-        precio: 100000,
-        precioEur: 14,
-        stock: 1,
-        tipo: '80k',
-        color: 'linear-gradient(135deg, #4ade80, #16a34a)',
-        emoji: '🍋',
-        imagen: 'assets/80BangKing.jpg',
-        sabores: [
-          '🍋🍈 Lemon Lime',
-          '🥭🍑🍉 Mango Peach Watermelon',
-          '🫐❄️ Blueberry Ice'
-        ]
-      },
       {
         id: 85,
         nombre: '80K',
         precio: 100000,
         precioEur: 14,
-        stock: 2,
+        stock: 1,
         tipo: '80k',
         color: 'linear-gradient(135deg, #fb7185, #e11d48)',
         emoji: '🍉',
@@ -735,6 +686,22 @@ export class VaperListPublicComponent implements OnInit {
           '🍉❄️ Watermelon Ice',
           '⚡ Red Bull',
           '🍓🥝 Strawberry Kiwi'
+        ]
+      },
+        {
+        id: 85,
+        nombre: '80K',
+        precio: 100000,
+        precioEur: 14,
+        stock: 1,
+        tipo: '80k',
+        color: 'linear-gradient(135deg, #fb7185, #e11d48)',
+        emoji: '🍉',
+        imagen: 'assets/80BangKing.jpg',
+        sabores: [
+          '🍉❄️ Watermelon Ice',
+          '🍓🍦 Strawberry Ice Cream',
+          '🍈🍈🍈 Triple Melon'
         ]
       },
 
