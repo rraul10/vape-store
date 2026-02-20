@@ -598,6 +598,7 @@ export class VaperListPublicComponent implements OnInit {
     { label: 'Todos', value: 'all', icon: '📦' },
     { label: '85K', value: '85k', icon: '🟣' },
     { label: '80K', value: '80k', icon: '⚡' },
+    { label: '140K', value: '140k', icon: '🚀' },
     { label: 'ZOOY 30K', value: '30k-ZOOY', icon: '🦁' },
     { label: 'RAZZ BAR 60K', value: '60k-RAZZ', icon: '🔥' },
   ];
@@ -672,14 +673,141 @@ export class VaperListPublicComponent implements OnInit {
           '🍓🥝 Strawberry Kiwi'
         ]
       },
+      // ===== 80K =====
+
+      // 3 unidades
       {
-        id: 85,
+        id: 201,
+        nombre: '80K',
+        precio: 100000,
+        precioEur: 14,
+        stock: 3,
+        tipo: '80k',
+        color: 'linear-gradient(135deg, #facc15, #ca8a04)',
+        emoji: '🥤',
+        imagen: 'assets/80BangKing.jpg',
+        sabores: [
+          '🍋🥤 Lemon Cola Soda',
+          '🍉🍬 Watermelon Gum',
+          '🐉❄️ Black Dragon Ice'
+        ]
+      },
+      {
+        id: 201,
+        nombre: '80K',
+        precio: 100000,
+        precioEur: 14,
+        stock: 3,
+        tipo: '80k',
+        color: 'linear-gradient(135deg, #facc15, #ca8a04)',
+        emoji: '🥤',
+        imagen: 'assets/80BangKing.jpg',
+        sabores: [
+          '🍉❄️ Watermelon Ice',
+          '🍓🍦 Strawberry Ice Cream',
+          '🍈🍈🍈 Triple Melon'
+        ]
+      },
+
+      // 1 unidad
+      {
+        id: 202,
         nombre: '80K',
         precio: 100000,
         precioEur: 14,
         stock: 1,
         tipo: '80k',
-        color: 'linear-gradient(135deg, #fb7185, #e11d48)',
+        color: 'linear-gradient(135deg, #fcd34d, #22c55e)',
+        emoji: '🍍',
+        imagen: 'assets/80BangKing.jpg',
+        sabores: [
+          '🍍🥥 Pineapple Coconut',
+          '🍓🍬 Strawberry Raspberry Candy',
+          '🫐❄️ Blue Razz Ice'
+        ]
+      },
+
+      // 1 unidad
+      {
+        id: 203,
+        nombre: '80K',
+        precio: 100000,
+        precioEur: 14,
+        stock: 1,
+        tipo: '80k',
+        color: 'linear-gradient(135deg, #bef264, #2563eb)',
+        emoji: '🍋',
+        imagen: 'assets/80BangKing.jpg',
+        sabores: [
+          '🍋🍈 Lemon Lime',
+          '🥭🍑🍉 Mango Peach Watermelon',
+          '🫐❄️ Blueberry Ice'
+        ]
+      },
+
+      // 1 unidad
+      {
+        id: 204,
+        nombre: '80K',
+        precio: 100000,
+        precioEur: 14,
+        stock: 1,
+        tipo: '80k',
+        color: 'linear-gradient(135deg, #a855f7, #ec4899)',
+        emoji: '🍓',
+        imagen: 'assets/80BangKing.jpg',
+        sabores: [
+          '🍓🫐❄️ Triple Berry Ice',
+          '🥭🍑 Mango Peach',
+          '🍓🥝 Strawberry Kiwi'
+        ]
+      },
+
+      // 2 unidades
+      {
+        id: 205,
+        nombre: '80K',
+        precio: 100000,
+        precioEur: 14,
+        stock: 2,
+        tipo: '80k',
+        color: 'linear-gradient(135deg, #fb7185, #15803d)',
+        emoji: '🍏',
+        imagen: 'assets/80BangKing.jpg',
+        sabores: [
+          '🍓🥤 Strawberry Vanilla Cola',
+          '🍏 Sour Apple',
+          '🍇 Raspberry'
+        ]
+      },
+
+      // 2 unidades
+      {
+        id: 206,
+        nombre: '80K',
+        precio: 100000,
+        precioEur: 14,
+        stock: 2,
+        tipo: '80k',
+        color: 'linear-gradient(135deg, #facc15, #4d7c0f)',
+        emoji: '🍋',
+        imagen: 'assets/80BangKing.jpg',
+        sabores: [
+          '🍋🍈 Lemon Lime',
+          '🍓🥤 Strawberry Vanilla Cola',
+          '🍇 Raspberry'
+        ]
+      },
+
+      // 1 unidad
+      {
+        id: 207,
+        nombre: '80K',
+        precio: 100000,
+        precioEur: 14,
+        stock: 2,
+        tipo: '80k',
+        color: 'linear-gradient(135deg, #fb7185, #ef4444)',
         emoji: '🍉',
         imagen: 'assets/80BangKing.jpg',
         sabores: [
@@ -688,22 +816,118 @@ export class VaperListPublicComponent implements OnInit {
           '🍓🥝 Strawberry Kiwi'
         ]
       },
-        {
-        id: 85,
-        nombre: '80K',
-        precio: 100000,
-        precioEur: 14,
-        stock: 1,
-        tipo: '80k',
-        color: 'linear-gradient(135deg, #fb7185, #e11d48)',
-        emoji: '🍉',
-        imagen: 'assets/80BangKing.jpg',
+
+      // ===== 140K =====
+
+      // 2 unidades
+      {
+        id: 301,
+        nombre: '140K',
+        precio: 130000,
+        precioEur: 15,
+        stock: 2,
+        tipo: '140k',
+        color: 'linear-gradient(135deg, #fcd34d, #22c55e)',
+        emoji: '🍍',
+        imagen: 'assets/VAPERS140k.jpg',
         sabores: [
-          '🍉❄️ Watermelon Ice',
-          '🍓🍦 Strawberry Ice Cream',
-          '🍈🍈🍈 Triple Melon'
+          '🍍🥥 Pineapple Coconut',
+          '🥝🍈 Kiwi Passionfruit Guava',
+          '🫐🍇 Blueberry Raspberry'
         ]
       },
+
+      // 2 unidades
+      {
+        id: 302,
+        nombre: '140K',
+        precio: 130000,
+        precioEur: 1156,
+        stock: 2,
+        tipo: '140k',
+        color: 'linear-gradient(135deg, #fb7185, #0ea5e9)',
+        emoji: '❄️',
+        imagen: 'assets/VAPERS140k.jpg',
+        sabores: [
+          '🍓🍋❄️ Strawberry Lemon Ice',
+          '🫐🍉 Blueberry Watermelon',
+          '🍑❄️ Peach Ice'
+        ]
+      },
+
+      // 2 unidades
+      {
+        id: 303,
+        nombre: '140K',
+        precio: 130000,
+        precioEur: 15,
+        stock: 2,
+        tipo: '140k',
+        color: 'linear-gradient(135deg, #a855f7, #0f172a)',
+        emoji: '🐉',
+        imagen: 'assets/VAPERS140k.jpg',
+        sabores: [
+          '🍇 Raspberry Grape',
+          '🍓🍬 Strawberry Mamba',
+          '🐉❄️ Black Dragon Ice'
+        ]
+      },
+
+      // 2 unidades
+      {
+        id: 304,
+        nombre: '140K',
+        precio: 130000,
+        precioEur: 15,
+        stock: 2,
+        tipo: '140k',
+        color: 'linear-gradient(135deg, #ec4899, #facc15)',
+        emoji: '🍉',
+        imagen: 'assets/VAPERS140k.jpg',
+        sabores: [
+          '🍬 Guity Bars',
+          '🍓🥭 Strawberry Lychee',
+          '🍉❄️ Watermelon Ice'
+        ]
+      },
+
+      // 1 unidad
+      {
+        id: 305,
+        nombre: '140K',
+        precio: 130000,
+        precioEur: 15,
+        stock: 2,
+        tipo: '140k',
+        color: 'linear-gradient(135deg, #22c55e, #f97316)',
+        emoji: '🥭',
+        imagen: 'assets/VAPERS140k.jpg',
+        sabores: [
+          '🍉🐉 Watermelon Dragon Fruit',
+          '🌿🥭 Aloe Mango Melon',
+          '🍋🍈 Lemon Lime'
+        ]
+      },
+
+      // 1 unidad
+      {
+        id: 306,
+        nombre: '140K',
+        precio: 130000,
+        precioEur: 15,
+        stock: 1,
+        tipo: '140k',
+        color: 'linear-gradient(135deg, #16a34a, #3b82f6)',
+        emoji: '🍏',
+        imagen: 'assets/VAPERS140k.jpg',
+        sabores: [
+          '🍏🍇 Apple Grape',
+          '🫐⚡ Blueberry Redbull',
+          '🥭🍑 Mango Peach'
+        ]
+      },
+
+      /*
 
       // ===== RAZZ BAR 60K =====
       {
@@ -790,6 +1014,7 @@ export class VaperListPublicComponent implements OnInit {
           '🍍🥭 Tropical Fruit'
         ]
       },
+      */
 
     ];
   }
