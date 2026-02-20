@@ -600,7 +600,9 @@ export class VaperListPublicComponent implements OnInit {
     { label: '80K', value: '80k', icon: '⚡' },
     { label: '140K', value: '140k', icon: '🚀' },
     { label: 'ZOOY 30K', value: '30k-ZOOY', icon: '🦁' },
+    /*
     { label: 'RAZZ BAR 60K', value: '60k-RAZZ', icon: '🔥' },
+     */
   ];
 
 
@@ -829,7 +831,7 @@ export class VaperListPublicComponent implements OnInit {
         tipo: '140k',
         color: 'linear-gradient(135deg, #fcd34d, #22c55e)',
         emoji: '🍍',
-        imagen: 'assets/VAPERS140k.jpg',
+        imagen: 'assets/VAPERS140K.jpg',
         sabores: [
           '🍍🥥 Pineapple Coconut',
           '🥝🍈 Kiwi Passionfruit Guava',
@@ -847,7 +849,7 @@ export class VaperListPublicComponent implements OnInit {
         tipo: '140k',
         color: 'linear-gradient(135deg, #fb7185, #0ea5e9)',
         emoji: '❄️',
-        imagen: 'assets/VAPERS140k.jpg',
+        imagen: 'assets/VAPERS140K.jpg',
         sabores: [
           '🍓🍋❄️ Strawberry Lemon Ice',
           '🫐🍉 Blueberry Watermelon',
@@ -865,7 +867,7 @@ export class VaperListPublicComponent implements OnInit {
         tipo: '140k',
         color: 'linear-gradient(135deg, #a855f7, #0f172a)',
         emoji: '🐉',
-        imagen: 'assets/VAPERS140k.jpg',
+        imagen: 'assets/VAPERS140K.jpg',
         sabores: [
           '🍇 Raspberry Grape',
           '🍓🍬 Strawberry Mamba',
@@ -883,7 +885,7 @@ export class VaperListPublicComponent implements OnInit {
         tipo: '140k',
         color: 'linear-gradient(135deg, #ec4899, #facc15)',
         emoji: '🍉',
-        imagen: 'assets/VAPERS140k.jpg',
+        imagen: 'assets/VAPERS140K.jpg',
         sabores: [
           '🍬 Guity Bars',
           '🍓🥭 Strawberry Lychee',
@@ -901,7 +903,7 @@ export class VaperListPublicComponent implements OnInit {
         tipo: '140k',
         color: 'linear-gradient(135deg, #22c55e, #f97316)',
         emoji: '🥭',
-        imagen: 'assets/VAPERS140k.jpg',
+        imagen: 'assets/VAPERS140K.jpg',
         sabores: [
           '🍉🐉 Watermelon Dragon Fruit',
           '🌿🥭 Aloe Mango Melon',
@@ -919,7 +921,7 @@ export class VaperListPublicComponent implements OnInit {
         tipo: '140k',
         color: 'linear-gradient(135deg, #16a34a, #3b82f6)',
         emoji: '🍏',
-        imagen: 'assets/VAPERS140k.jpg',
+        imagen: 'assets/VAPERS140K.jpg',
         sabores: [
           '🍏🍇 Apple Grape',
           '🫐⚡ Blueberry Redbull',
