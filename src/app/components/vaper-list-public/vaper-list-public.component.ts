@@ -620,7 +620,7 @@ export class VaperListPublicComponent implements OnInit {
         nombre: 'ZOOY 30K',
         precio: 90000,
         precioEur: 9,
-        stock: 3,
+        stock: 2,
         tipo: '30k-ZOOY',
         color: 'linear-gradient(135deg, #38bdf8, #0284c7)',
         emoji: '🍦',
