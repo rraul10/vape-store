@@ -822,23 +822,6 @@ export class VaperListPublicComponent implements OnInit {
       // ===== 140K =====
       // 2 unidades
       {
-        id: 302,
-        nombre: '140K',
-        precio: 130000,
-        precioEur: 15,
-        stock: 1,
-        tipo: '140k',
-        color: 'linear-gradient(135deg, #fb7185, #0ea5e9)',
-        emoji: '❄️',
-        imagen: 'assets/VAPERS140K.jpg',
-        sabores: [
-          '🍓🍋❄️ Strawberry Lemon Ice',
-          '🫐🍉 Blueberry Watermelon',
-          '🍑❄️ Peach Ice'
-        ]
-      },
-      // 2 unidades
-      {
         id: 304,
         nombre: '140K',
         precio: 130000,
@@ -890,95 +873,6 @@ export class VaperListPublicComponent implements OnInit {
           '🥭🍑 Mango Peach'
         ]
       },
-
-      /*
-
-      // ===== RAZZ BAR 60K =====
-      {
-        id: 70,
-        nombre: 'RAZZ BAR 60K',
-        precio: 110000,
-        precioEur: 12,
-        stock: 4,
-        tipo: '60k-RAZZ',
-        color: 'linear-gradient(135deg, #fb7185, #be123c)',
-        emoji: '🌴',
-        imagen: 'assets/razzbar.jpg',
-        sabores: [
-          '🌴 Summer Dream'
-        ]
-      },
-      {
-        id: 71,
-        nombre: 'RAZZ BAR 60K',
-        precio: 110000,
-        precioEur: 12,
-        stock: 4,
-        tipo: '60k-RAZZ',
-        color: 'linear-gradient(135deg, #f472b6, #ec4899)',
-        emoji: '🍭',
-        imagen: 'assets/razzbar.jpg',
-        sabores: [
-          '🍭 Cotton Candy'
-        ]
-      },
-      {
-        id: 72,
-        nombre: 'RAZZ BAR 60K',
-        precio: 110000,
-        precioEur: 12,
-        stock: 4,
-        tipo: '60k-RAZZ',
-        color: 'linear-gradient(135deg, #fde047, #f97316)',
-        emoji: '🍋',
-        imagen: 'assets/razzbar.jpg',
-        sabores: [
-          '🍋🍑 Lemon Peach Passion Fruit'
-        ]
-      },
-      {
-        id: 73,
-        nombre: 'RAZZ BAR 60K',
-        precio: 110000,
-        precioEur: 12,
-        stock: 4,
-        tipo: '60k-RAZZ',
-        color: 'linear-gradient(135deg, #020617, #312e81)',
-        emoji: '🐉',
-        imagen: 'assets/razzbar.jpg',
-        sabores: [
-          '🐉❄️ Black Ice Dragon Fruit Strawberry'
-        ]
-      },
-      {
-        id: 74,
-        nombre: 'RAZZ BAR 60K',
-        precio: 110000,
-        precioEur: 12,
-        stock: 2,
-        tipo: '60k-RAZZ',
-        color: 'linear-gradient(135deg, #fdba74, #ea580c)',
-        emoji: '🍑',
-        imagen: 'assets/razzbar.jpg',
-        sabores: [
-          '🍑❄️ Juice Peach Ice'
-        ]
-      },
-      {
-        id: 75,
-        nombre: 'RAZZ BAR 60K',
-        precio: 110000,
-        precioEur: 12,
-        stock: 2,
-        tipo: '60k-RAZZ',
-        color: 'linear-gradient(135deg, #4ade80, #16a34a)',
-        emoji: '🍍',
-        imagen: 'assets/razzbar.jpg',
-        sabores: [
-          '🍍🥭 Tropical Fruit'
-        ]
-      },
-      */
 
     ];
   }
