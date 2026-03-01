@@ -747,23 +747,6 @@ export class VaperListPublicComponent implements OnInit {
         ]
       },
 
-      // 1 unidad
-      {
-        id: 204,
-        nombre: '80K',
-        precio: 100000,
-        precioEur: 14,
-        stock: 1,
-        tipo: '80k',
-        color: 'linear-gradient(135deg, #a855f7, #ec4899)',
-        emoji: '🍓',
-        imagen: 'assets/80BangKing.jpg',
-        sabores: [
-          '🍓🫐❄️ Triple Berry Ice',
-          '🥭🍑 Mango Peach',
-          '🍓🥝 Strawberry Kiwi'
-        ]
-      },
 
       // 2 unidades
       {
@@ -853,24 +836,6 @@ export class VaperListPublicComponent implements OnInit {
           '🍉🐉 Watermelon Dragon Fruit',
           '🌿🥭 Aloe Mango Melon',
           '🍋🍈 Lemon Lime'
-        ]
-      },
-
-      // 1 unidad
-      {
-        id: 306,
-        nombre: '140K',
-        precio: 130000,
-        precioEur: 15,
-        stock: 1,
-        tipo: '140k',
-        color: 'linear-gradient(135deg, #16a34a, #3b82f6)',
-        emoji: '🍏',
-        imagen: 'assets/VAPERS140K.jpg',
-        sabores: [
-          '🍏🍇 Apple Grape',
-          '🫐⚡ Blueberry Redbull',
-          '🥭🍑 Mango Peach'
         ]
       },
 
