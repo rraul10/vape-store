@@ -596,7 +596,6 @@ export class VaperListPublicComponent implements OnInit {
 
   filtros = [
     { label: 'Todos', value: 'all', icon: '📦' },
-    { label: '85K', value: '85k', icon: '🟣' },
     { label: '80K', value: '80k', icon: '⚡' },
     { label: '140K', value: '140k', icon: '🚀' },
     { label: 'ZOOY 30K', value: '30k-ZOOY', icon: '🦁' },
@@ -685,7 +684,7 @@ export class VaperListPublicComponent implements OnInit {
         nombre: '80K',
         precio: 100000,
         precioEur: 14,
-        stock: 2,
+        stock: 1,
         tipo: '80k',
         color: 'linear-gradient(135deg, #fb7185, #ef4444)',
         emoji: '🍉',
