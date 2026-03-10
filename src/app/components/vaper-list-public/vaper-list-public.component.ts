@@ -679,23 +679,7 @@ export class VaperListPublicComponent implements OnInit {
       },
 
       // ===== 140K =====
-      // 2 unidades
-      {
-        id: 304,
-        nombre: '140K',
-        precio: 130000,
-        precioEur: 15,
-        stock: 1,
-        tipo: '140k',
-        color: 'linear-gradient(135deg, #ec4899, #facc15)',
-        emoji: '🍉',
-        imagen: 'assets/VAPERS140K.jpg',
-        sabores: [
-          '🍬 Guity Bars',
-          '🍓🥭 Strawberry Lychee',
-          '🍉❄️ Watermelon Ice'
-        ]
-      },
+
 
       // 2 unidades
       {
