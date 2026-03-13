@@ -630,21 +630,6 @@ export class VaperListPublicComponent implements OnInit {
         ]
       },
       {
-        id: 62,
-        nombre: 'ZOOY 30K',
-        precio: 90000,
-        precioEur: 9,
-        stock: 1,
-        tipo: '30k-ZOOY',
-        color: 'linear-gradient(135deg, #a7f3d0, #059669)',
-        emoji: '🍇',
-        imagen: 'assets/30kzooy.jpg',
-        sabores: [
-          '🍇❄️ Grape Mint',
-          '🍓🍌 Strawberry Banana'
-        ]
-      },
-      {
         id: 64,
         nombre: 'ZOOY 30K',
         precio: 90000,
@@ -777,7 +762,7 @@ export class VaperListPublicComponent implements OnInit {
         nombre: '140K',
         precio: 130000,
         precioEur: 15,
-        stock: 3,
+        stock: 2,
         tipo: '140k',
         color: 'linear-gradient(135deg, #fb7185, #60a5fa)',
         emoji: '🍉',
