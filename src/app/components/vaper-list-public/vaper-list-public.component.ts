@@ -755,25 +755,6 @@ export class VaperListPublicComponent implements OnInit {
           '🥭🍑 Mango Peach'
         ]
       },
-
-      // 4 unidades
-      {
-        id: 311,
-        nombre: '140K',
-        precio: 130000,
-        precioEur: 15,
-        stock: 2,
-        tipo: '140k',
-        color: 'linear-gradient(135deg, #fb7185, #60a5fa)',
-        emoji: '🍉',
-        imagen: 'assets/VAPERS140K.jpg',
-        sabores: [
-          '🐻🍬 Guuty Bears',
-          '🍓🥭 Strawberry Lychee',
-          '🍉❄️ Watermelon Ice'
-        ]
-      },
-
       // 4 unidades
       {
         id: 312,
