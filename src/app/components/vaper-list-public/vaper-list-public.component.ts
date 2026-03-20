@@ -672,7 +672,7 @@ export class VaperListPublicComponent implements OnInit {
         nombre: '140K',
         precio: 130000,
         precioEur: 15,
-        stock: 3,
+        stock: 2,
         tipo: '140k',
         color: 'linear-gradient(135deg, #06b6d4, #3b82f6)',
         emoji: '🍍',
@@ -708,7 +708,7 @@ export class VaperListPublicComponent implements OnInit {
         nombre: '140K',
         precio: 130000,
         precioEur: 15,
-        stock: 3,
+        stock: 1,
         tipo: '140k',
         color: 'linear-gradient(135deg, #ef4444, #3b82f6)',
         emoji: '🍒',
@@ -761,7 +761,7 @@ export class VaperListPublicComponent implements OnInit {
         nombre: '140K',
         precio: 130000,
         precioEur: 15,
-        stock: 3,
+        stock: 2,
         tipo: '140k',
         color: 'linear-gradient(135deg, #22c55e, #facc15)',
         emoji: '🥭',
@@ -770,24 +770,6 @@ export class VaperListPublicComponent implements OnInit {
           '🍉🐉 Watermelon Dragon Fruit',
           '🌿🥭 Aloe Mango Melon',
           '🍋🍈 Lemon Lime'
-        ]
-      },
-
-      // 2 unidades
-      {
-        id: 313,
-        nombre: '140K',
-        precio: 130000,
-        precioEur: 15,
-        stock: 2,
-        tipo: '140k',
-        color: 'linear-gradient(135deg, #f472b6, #38bdf8)',
-        emoji: '🍓',
-        imagen: 'assets/VAPERS140K.jpg',
-        sabores: [
-          '🍓🍋 Strawberry Lemon Ice',
-          '🫐🍉 Blueberry Watermelon',
-          '🍑❄️ Peach Ice'
         ]
       },
             {
@@ -804,23 +786,6 @@ export class VaperListPublicComponent implements OnInit {
           '🐻🍬 Gummy Bears',
           '🍓🥭 Strawberry Lychee',
           '🍉❄️ Watermelon Ice'
-        ]
-      },
-
-      {
-        id: 315,
-        nombre: '140K',
-        precio: 130000,
-        precioEur: 15,
-        stock: 1,
-        tipo: '140k',
-        color: 'linear-gradient(135deg, #38bdf8, #6366f1)',
-        emoji: '🫐',
-        imagen: 'assets/VAPERS140K.jpg',
-        sabores: [
-          '🍑🥭🍉 Peach Mango Watermelon',
-          '💙🍇 Love66',
-          '🫐❄️ Blueberry Ice'
         ]
       },
 
