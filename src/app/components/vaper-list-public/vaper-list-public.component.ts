@@ -595,14 +595,12 @@ export class VaperListPublicComponent implements OnInit {
   vapers: Vaper[] = [];
 
   filtros = [
-    { label: 'Todos', value: 'all', icon: '📦' },
-    { label: '80K', value: '80k', icon: '⚡' },
-    { label: '140K', value: '140k', icon: '🚀' },
-    { label: 'ZOOY 30K', value: '30k-ZOOY', icon: '🦁' },
-    /*
-    { label: 'RAZZ BAR 60K', value: '60k-RAZZ', icon: '🔥' },
-     */
-  ];
+  { label: 'Todos', value: 'all', icon: '📦' },
+  { label: '80K', value: '80k', icon: '⚡' },
+  { label: '140K', value: '140k', icon: '🚀' },
+  { label: 'ZOOY 30K', value: '30k-ZOOY', icon: '🦁' },
+  { label: 'ZOOY SISHA 50K', value: '50k-ZOOY', icon: '💎' },
+];
 
 
   constructor() {}
@@ -786,6 +784,35 @@ export class VaperListPublicComponent implements OnInit {
           '🐻🍬 Gummy Bears',
           '🍓🥭 Strawberry Lychee',
           '🍉❄️ Watermelon Ice'
+        ]
+      },
+      // ===== FLOY SISHA 50K =====
+      {
+        id: 400,
+        nombre: 'ZOOY SISHA 50K',
+        precio: 13,
+        precioEur: 13,
+        stock: 10,
+        tipo: '50k-FLOY',
+        color: 'linear-gradient(135deg, #0ea5e9, #22c55e)',
+        emoji: '⚡',
+        imagen: 'assets/vapers50ksisha.jpg',
+        sabores: [
+          '⚡ Red Bull'
+        ]
+      },
+      {
+        id: 401,
+        nombre: 'ZOOY SISHA 50K',
+        precio: 13,
+        precioEur: 13,
+        stock: 10,
+        tipo: '50k-FLOY',
+        color: 'linear-gradient(135deg, #f43f5e, #8b5cf6)',
+        emoji: '🍒',
+        imagen: 'assets/vapers50ksisha.jpg',
+        sabores: [
+          '🍒🍓🫐 Cherry Strawberry Raspberry'
         ]
       },
 
