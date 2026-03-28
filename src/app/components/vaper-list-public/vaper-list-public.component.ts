@@ -754,23 +754,6 @@ export class VaperListPublicComponent implements OnInit {
           '🥭🍑 Mango Peach'
         ]
       },
-      // 4 unidades
-      {
-        id: 312,
-        nombre: '140K',
-        precio: 130000,
-        precioEur: 15,
-        stock: 2,
-        tipo: '140k',
-        color: 'linear-gradient(135deg, #22c55e, #facc15)',
-        emoji: '🥭',
-        imagen: 'assets/VAPERS140K.jpg',
-        sabores: [
-          '🍉🐉 Watermelon Dragon Fruit',
-          '🌿🥭 Aloe Mango Melon',
-          '🍋🍈 Lemon Lime'
-        ]
-      },
             {
         id: 314,
         nombre: '140K',
@@ -793,7 +776,7 @@ export class VaperListPublicComponent implements OnInit {
         nombre: 'ZOOY SISHA 50K',
         precio: 13,
         precioEur: 13,
-        stock: 8,
+        stock: 7,
         tipo: '50k-ZOOY',
         color: 'linear-gradient(135deg, #0ea5e9, #22c55e)',
         emoji: '⚡',
@@ -807,7 +790,7 @@ export class VaperListPublicComponent implements OnInit {
         nombre: 'ZOOY SISHA 50K',
         precio: 13,
         precioEur: 13,
-        stock: 7,
+        stock: 6,
         tipo: '50k-ZOOY',
         color: 'linear-gradient(135deg, #f43f5e, #8b5cf6)',
         emoji: '🍒',
