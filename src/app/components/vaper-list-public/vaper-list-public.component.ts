@@ -612,22 +612,6 @@ export class VaperListPublicComponent implements OnInit {
 
   getVapersData(): Vaper[] {
     return [
-      // ===== ZOOY 30K =====
-      {
-        id: 61,
-        nombre: 'ZOOY 30K',
-        precio: 90000,
-        precioEur: 9,
-        stock: 1,
-        tipo: '30k-ZOOY',
-        color: 'linear-gradient(135deg, #38bdf8, #0284c7)',
-        emoji: '🍦',
-        imagen: 'assets/30kzooy.jpg',
-        sabores: [
-          '🍓🍦 Strawberry Ice Cream',
-          '🍑🥭 Peach Mango Milkshake'
-        ]
-      },
       {
         id: 64,
         nombre: 'ZOOY 30K',
@@ -659,27 +643,6 @@ export class VaperListPublicComponent implements OnInit {
           '🍍🥥 Pineapple Coconut',
           '🍓🍬 Strawberry Raspberry Candy',
           '🫐❄️ Blue Razz Ice'
-        ]
-      },
-
-      // ===== 140K =====
-
-
-      // 2 unidades
-      {
-        id: 306,
-        nombre: '140K',
-        precio: 130000,
-        precioEur: 15,
-        stock: 2,
-        tipo: '140k',
-        color: 'linear-gradient(135deg, #06b6d4, #3b82f6)',
-        emoji: '🍍',
-        imagen: 'assets/VAPERS140K.jpg',
-        sabores: [
-          '🍍🥥 Pineapple Coconut',
-          '🥝 Kiwi Passionfruit Guava',
-          '🫐🍓 Blueberry Raspberry'
         ]
       },
 
@@ -853,7 +816,7 @@ export class VaperListPublicComponent implements OnInit {
         nombre: '120K (6 en 1)',
         precio: 120000,
         precioEur: 14,
-        stock: 2,
+        stock: 1,
         tipo: '120k',
         color: 'linear-gradient(135deg, #38bdf8, #6366f1)',
         emoji: '🍈',
@@ -951,5 +914,5 @@ export class VaperListPublicComponent implements OnInit {
   get vapersFiltrados(): Vaper[] {
     if (this.filtroActivo === 'all') return this.vapers;
     return this.vapers.filter(v => v.tipo === this.filtroActivo);
-  }
+  }     
 }
