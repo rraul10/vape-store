@@ -700,23 +700,6 @@ export class VaperListPublicComponent implements OnInit {
         ]
       },
 
-      // 2 unidades
-      {
-        id: 310,
-        nombre: '140K',
-        precio: 130000,
-        precioEur: 15,
-        stock: 1,
-        tipo: '140k',
-        color: 'linear-gradient(135deg, #22c55e, #f97316)',
-        emoji: '🍏',
-        imagen: 'assets/VAPERS140K.jpg',
-        sabores: [
-          '🍏🍇 Apple Grape',
-          '🫐⚡ Blueberry Red Bull',
-          '🥭🍑 Mango Peach'
-        ]
-      },
             {
         id: 314,
         nombre: '140K',
@@ -739,7 +722,7 @@ export class VaperListPublicComponent implements OnInit {
         nombre: 'ZOOY SISHA 50K',
         precio: 13,
         precioEur: 13,
-        stock: 7,
+        stock: 6,
         tipo: '50k-ZOOY',
         color: 'linear-gradient(135deg, #0ea5e9, #22c55e)',
         emoji: '⚡',
@@ -753,7 +736,7 @@ export class VaperListPublicComponent implements OnInit {
         nombre: 'ZOOY SISHA 50K',
         precio: 13,
         precioEur: 13,
-        stock: 6,
+        stock: 2,
         tipo: '50k-ZOOY',
         color: 'linear-gradient(135deg, #f43f5e, #8b5cf6)',
         emoji: '🍒',
@@ -873,22 +856,6 @@ export class VaperListPublicComponent implements OnInit {
           '🫐❄️ Blueberry Ice',
           '🍓🥝 Strawberry Kiwi',
           '🍉❄️ Watermelon Ice'
-        ]
-      },
-      {
-        id: 507,
-        nombre: '120K (6 en 1)',
-        precio: 120000,
-        precioEur: 14,
-        stock: 1,
-        tipo: '120k',
-        color: 'linear-gradient(135deg, #ef4444, #f97316)',
-        emoji: '⚡',
-        imagen: 'assets/vapers120k6en1.jpg',
-        sabores: [
-          '🍉❄️ Watermelon Ice',
-          '⚡ Red Bull',
-          '🍓🥝 Strawberry Kiwi'
         ]
       },
       {
