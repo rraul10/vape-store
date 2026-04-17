@@ -646,13 +646,12 @@ export class VaperListPublicComponent implements OnInit {
         ]
       },
 
-      // 2 unidades
       {
         id: 307,
         nombre: '140K',
         precio: 130000,
         precioEur: 15,
-        stock: 2,
+        stock: 1,
         tipo: '140k',
         color: 'linear-gradient(135deg, #7c3aed, #f472b6)',
         emoji: '🫐',
@@ -716,19 +715,19 @@ export class VaperListPublicComponent implements OnInit {
           '🍉❄️ Watermelon Ice'
         ]
       },
-      // ===== FLOY SISHA 50K =====
+      // ===== ZOOY SISHA 50K =====
       {
         id: 400,
         nombre: 'ZOOY SISHA 50K',
         precio: 13,
         precioEur: 13,
-        stock: 6,
+        stock: 7,
         tipo: '50k-ZOOY',
-        color: 'linear-gradient(135deg, #0ea5e9, #22c55e)',
-        emoji: '⚡',
+        color: 'linear-gradient(135deg, #f97316, #ec4899)',
+        emoji: '🥭',
         imagen: 'assets/vapers50ksisha.jpg',
         sabores: [
-          '⚡ Red Bull'
+          '🥭🍑🍉 Mango Peach Watermelon'
         ]
       },
       {
@@ -736,13 +735,27 @@ export class VaperListPublicComponent implements OnInit {
         nombre: 'ZOOY SISHA 50K',
         precio: 13,
         precioEur: 13,
-        stock: 2,
+        stock: 6,
         tipo: '50k-ZOOY',
-        color: 'linear-gradient(135deg, #f43f5e, #8b5cf6)',
-        emoji: '🍒',
+        color: 'linear-gradient(135deg, #22c55e, #0ea5e9)',
+        emoji: '🍓',
         imagen: 'assets/vapers50ksisha.jpg',
         sabores: [
-          '🍒🍓🫐 Cherry Strawberry Raspberry'
+          '🍓🍉 Strawberry Watermelon'
+        ]
+      },
+      {
+        id: 402,
+        nombre: 'ZOOY SISHA 50K',
+        precio: 13,
+        precioEur: 13,
+        stock: 6,
+        tipo: '50k-ZOOY',
+        color: 'linear-gradient(135deg, #8b5cf6, #ef4444)',
+        emoji: '🫐',
+        imagen: 'assets/vapers50ksisha.jpg',
+        sabores: [
+          '🫐🍒 Blue Razz Cherry'
         ]
       },
       // ===== 120K (6 en 1) =====
@@ -760,6 +773,74 @@ export class VaperListPublicComponent implements OnInit {
           '🍓🍇 Strawberry Grape',
           '🫐❄️ Blue Razz',
           '🍓🍌 Strawberry Banana'
+        ]
+      },
+
+      {
+        id: 509,
+        nombre: '120K (6 en 1)',
+        precio: 120000,
+        precioEur: 14,
+        stock: 3,
+        tipo: '120k',
+        color: 'linear-gradient(135deg, #facc15, #0ea5e9)',
+        emoji: '⚡',
+        imagen: 'assets/vapers120k6en1.jpg',
+        sabores: [
+          '🍉❄️ Watermelon Ice',
+          '⚡ Red Bull',
+          '🍓🥝 Strawberry Kiwi'
+        ]
+      },
+
+      {
+        id: 506,
+        nombre: '120K (6 en 1)',
+        precio: 120000,
+        precioEur: 14,
+        stock: 4,
+        tipo: '120k',
+        color: 'linear-gradient(135deg, #0ea5e9, #a855f7)',
+        emoji: '🫐',
+        imagen: 'assets/vapers120k6en1.jpg',
+        sabores: [
+          '🫐❄️ Blueberry Ice',
+          '🍓🥝 Strawberry Kiwi',
+          '🍉❄️ Watermelon Ice'
+        ]
+      },
+
+      {
+        id: 502,
+        nombre: '120K (6 en 1)',
+        precio: 120000,
+        precioEur: 14,
+        stock: 5,
+        tipo: '120k',
+        color: 'linear-gradient(135deg, #22c55e, #0ea5e9)',
+        emoji: '🥝',
+        imagen: 'assets/vapers120k6en1.jpg',
+        sabores: [
+          '🥝🍈 Kiwi Passion Fruit',
+          '💜 Love 66',
+          '🍋🥤 Pink Lemonade'
+        ]
+      },
+
+      {
+        id: 505,
+        nombre: '120K (6 en 1)',
+        precio: 120000,
+        precioEur: 14,
+        stock: 4,
+        tipo: '120k',
+        color: 'linear-gradient(135deg, #4ade80, #22d3ee)',
+        emoji: '🍉',
+        imagen: 'assets/vapers120k6en1.jpg',
+        sabores: [
+          '🍓🍉 Strawberry Watermelon',
+          '🫐❄️ Blueberry Ice',
+          '🍋🍈 Lemon Lime'
         ]
       },
       {
@@ -799,7 +880,7 @@ export class VaperListPublicComponent implements OnInit {
         nombre: '120K (6 en 1)',
         precio: 120000,
         precioEur: 14,
-        stock: 3,
+        stock: 1,
         tipo: '120k',
         color: 'linear-gradient(135deg, #facc15, #fb7185)',
         emoji: '🍑',
