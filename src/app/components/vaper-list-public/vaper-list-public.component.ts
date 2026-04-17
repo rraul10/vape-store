@@ -716,6 +716,35 @@ export class VaperListPublicComponent implements OnInit {
         ]
       },
       // ===== ZOOY SISHA 50K =====
+
+      {
+        id: 400,
+        nombre: 'ZOOY SISHA 50K',
+        precio: 13,
+        precioEur: 13,
+        stock: 6,
+        tipo: '50k-ZOOY',
+        color: 'linear-gradient(135deg, #0ea5e9, #22c55e)',
+        emoji: '⚡',
+        imagen: 'assets/vapers50ksisha.jpg',
+        sabores: [
+          '⚡ Red Bull'
+        ]
+      },
+      {
+        id: 401,
+        nombre: 'ZOOY SISHA 50K',
+        precio: 13,
+        precioEur: 13,
+        stock: 2,
+        tipo: '50k-ZOOY',
+        color: 'linear-gradient(135deg, #f43f5e, #8b5cf6)',
+        emoji: '🍒',
+        imagen: 'assets/vapers50ksisha.jpg',
+        sabores: [
+          '🍒🍓🫐 Cherry Strawberry Raspberry'
+        ]
+      },
       {
         id: 400,
         nombre: 'ZOOY SISHA 50K',
