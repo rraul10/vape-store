@@ -663,13 +663,31 @@ export class VaperListPublicComponent implements OnInit {
         ]
       },
 
+        {
+        id: 401,
+        nombre: '140K',
+        precio: 130000,
+        precioEur: 15,
+        stock: 1,
+        tipo: '140k',
+        color: 'linear-gradient(135deg, #7c3aed, #f472b6)',
+        emoji: '🫐',
+        imagen: 'assets/VAPERS140K.jpg',
+        sabores: [
+          '🍑🥭🍉 Peach Mango Watermelon',
+          '❤️💨 Love66',
+          '🫐❄️ Blueberry Ice'
+        ]
+      },
+
+
       // 2 unidades
       {
         id: 308,
         nombre: '140K',
         precio: 130000,
         precioEur: 15,
-        stock: 1,
+        stock: 2,
         tipo: '140k',
         color: 'linear-gradient(135deg, #ef4444, #3b82f6)',
         emoji: '🍒',
