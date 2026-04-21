@@ -613,23 +613,6 @@ export class VaperListPublicComponent implements OnInit {
   getVapersData(): Vaper[] {
     return [
       {
-        id: 64,
-        nombre: 'ZOOY 30K',
-        precio: 90000,
-        precioEur: 9,
-        stock: 1,
-        tipo: '30k-ZOOY',
-        color: 'linear-gradient(135deg, #fde047, #f59e0b)',
-        emoji: '⚡',
-        imagen: 'assets/30kzooy.jpg',
-        sabores: [
-          '⚡ Red Bull',
-          '🍓🥝 Strawberry Kiwi'
-        ]
-      },
-      // ===== 80K =====
-      // 1 unidad
-      {
         id: 202,
         nombre: '80K',
         precio: 100000,
@@ -663,31 +646,12 @@ export class VaperListPublicComponent implements OnInit {
         ]
       },
 
-        {
-        id: 401,
-        nombre: '140K',
-        precio: 130000,
-        precioEur: 15,
-        stock: 1,
-        tipo: '140k',
-        color: 'linear-gradient(135deg, #7c3aed, #f472b6)',
-        emoji: '🫐',
-        imagen: 'assets/VAPERS140K.jpg',
-        sabores: [
-          '🍑🥭🍉 Peach Mango Watermelon',
-          '❤️💨 Love66',
-          '🫐❄️ Blueberry Ice'
-        ]
-      },
-
-
-      // 2 unidades
       {
         id: 308,
         nombre: '140K',
         precio: 130000,
         precioEur: 15,
-        stock: 2,
+        stock: 1,
         tipo: '140k',
         color: 'linear-gradient(135deg, #ef4444, #3b82f6)',
         emoji: '🍒',
@@ -699,30 +663,12 @@ export class VaperListPublicComponent implements OnInit {
         ]
       },
 
-      // 2 unidades
-      {
-        id: 309,
-        nombre: '140K',
-        precio: 130000,
-        precioEur: 15,
-        stock: 1,
-        tipo: '140k',
-        color: 'linear-gradient(135deg, #a855f7, #0ea5e9)',
-        emoji: '🍇',
-        imagen: 'assets/VAPERS140K.jpg',
-        sabores: [
-          '🍓🍇 Raspberry Grape',
-          '🍓🍬 Strawberry Mamba',
-          '🐉❄️ Black Dragon Ice'
-        ]
-      },
-
             {
         id: 314,
         nombre: '140K',
         precio: 130000,
         precioEur: 15,
-        stock: 14,
+        stock: 11,
         tipo: '140k',
         color: 'linear-gradient(135deg, #f97316, #ec4899)',
         emoji: '🍑',
@@ -829,7 +775,7 @@ export class VaperListPublicComponent implements OnInit {
         nombre: '120K (6 en 1)',
         precio: 120000,
         precioEur: 14,
-        stock: 3,
+        stock: 2,
         tipo: '120k',
         color: 'linear-gradient(135deg, #facc15, #0ea5e9)',
         emoji: '⚡',
@@ -880,7 +826,7 @@ export class VaperListPublicComponent implements OnInit {
         nombre: '120K (6 en 1)',
         precio: 120000,
         precioEur: 14,
-        stock: 4,
+        stock: 3,
         tipo: '120k',
         color: 'linear-gradient(135deg, #4ade80, #22d3ee)',
         emoji: '🍉',
