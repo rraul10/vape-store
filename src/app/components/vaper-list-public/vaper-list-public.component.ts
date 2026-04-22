@@ -686,7 +686,7 @@ export class VaperListPublicComponent implements OnInit {
         nombre: 'ZOOY SISHA 50K',
         precio: 13,
         precioEur: 13,
-        stock: 6,
+        stock: 5,
         tipo: '50k-ZOOY',
         color: 'linear-gradient(135deg, #0ea5e9, #22c55e)',
         emoji: '⚡',
@@ -710,20 +710,6 @@ export class VaperListPublicComponent implements OnInit {
         ]
       },
       
-      {
-        id: 400,
-        nombre: 'ZOOY SISHA 50K',
-        precio: 13,
-        precioEur: 13,
-        stock: 4,
-        tipo: '50k-ZOOY',
-        color: 'linear-gradient(135deg, #f97316, #ec4899)',
-        emoji: '🥭',
-        imagen: 'assets/vapers50ksisha.jpg',
-        sabores: [
-          '🥭🍑🍉 Mango Peach Watermelon'
-        ]
-      },
       {
         id: 401,
         nombre: 'ZOOY SISHA 50K',
@@ -792,7 +778,7 @@ export class VaperListPublicComponent implements OnInit {
         nombre: '120K (6 en 1)',
         precio: 120000,
         precioEur: 14,
-        stock: 4,
+        stock: 3,
         tipo: '120k',
         color: 'linear-gradient(135deg, #0ea5e9, #a855f7)',
         emoji: '🫐',
@@ -826,7 +812,7 @@ export class VaperListPublicComponent implements OnInit {
         nombre: '120K (6 en 1)',
         precio: 120000,
         precioEur: 14,
-        stock: 3,
+        stock: 2,
         tipo: '120k',
         color: 'linear-gradient(135deg, #4ade80, #22d3ee)',
         emoji: '🍉',
@@ -842,7 +828,7 @@ export class VaperListPublicComponent implements OnInit {
         nombre: '120K (6 en 1)',
         precio: 120000,
         precioEur: 14,
-        stock: 2,
+        stock: 1,
         tipo: '120k',
         color: 'linear-gradient(135deg, #f97316, #f43f5e)',
         emoji: '🥭',
@@ -867,22 +853,6 @@ export class VaperListPublicComponent implements OnInit {
           '🥝🍈 Kiwi Passion Fruit',
           '💜 Love 66',
           '🍋🥤 Pink Lemonade'
-        ]
-      },
-      {
-        id: 504,
-        nombre: '120K (6 en 1)',
-        precio: 120000,
-        precioEur: 14,
-        stock: 1,
-        tipo: '120k',
-        color: 'linear-gradient(135deg, #facc15, #fb7185)',
-        emoji: '🍑',
-        imagen: 'assets/vapers120k6en1.jpg',
-        sabores: [
-          '🍑❄️ Peach Ice',
-          '🍓🥤 Strawberry Milkshake',
-          '🥭❄️ Mango Ice'
         ]
       },
       {
