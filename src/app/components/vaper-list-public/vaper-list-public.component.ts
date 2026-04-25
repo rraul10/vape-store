@@ -599,7 +599,6 @@ export class VaperListPublicComponent implements OnInit {
   { label: '80K', value: '80k', icon: '⚡' },
   { label: '120K (6 en 1)', value: '120k', icon: '🔥' },
   { label: '140K', value: '140k', icon: '🚀' },
-  { label: 'ZOOY 30K', value: '30k-ZOOY', icon: '🦁' },
   { label: 'ZOOY SISHA 50K', value: '50k-ZOOY', icon: '💎' },
 ];
 
@@ -761,7 +760,7 @@ export class VaperListPublicComponent implements OnInit {
         nombre: '120K (6 en 1)',
         precio: 120000,
         precioEur: 14,
-        stock: 2,
+        stock: 1,
         tipo: '120k',
         color: 'linear-gradient(135deg, #facc15, #0ea5e9)',
         emoji: '⚡',
@@ -778,7 +777,7 @@ export class VaperListPublicComponent implements OnInit {
         nombre: '120K (6 en 1)',
         precio: 120000,
         precioEur: 14,
-        stock: 3,
+        stock: 2,
         tipo: '120k',
         color: 'linear-gradient(135deg, #0ea5e9, #a855f7)',
         emoji: '🫐',
@@ -821,70 +820,6 @@ export class VaperListPublicComponent implements OnInit {
           '🍓🍉 Strawberry Watermelon',
           '🫐❄️ Blueberry Ice',
           '🍋🍈 Lemon Lime'
-        ]
-      },
-      {
-        id: 501,
-        nombre: '120K (6 en 1)',
-        precio: 120000,
-        precioEur: 14,
-        stock: 1,
-        tipo: '120k',
-        color: 'linear-gradient(135deg, #f97316, #f43f5e)',
-        emoji: '🥭',
-        imagen: 'assets/vapers120k6en1.jpg',
-        sabores: [
-          '🍓🍇 Strawberry Raspberry',
-          '🥭🍑 Mango Peach',
-          '🫐🍉 Blueberry Watermelon'
-        ]
-      },
-      {
-        id: 502,
-        nombre: '120K (6 en 1)',
-        precio: 120000,
-        precioEur: 14,
-        stock: 2,
-        tipo: '120k',
-        color: 'linear-gradient(135deg, #22c55e, #0ea5e9)',
-        emoji: '🥝',
-        imagen: 'assets/vapers120k6en1.jpg',
-        sabores: [
-          '🥝🍈 Kiwi Passion Fruit',
-          '💜 Love 66',
-          '🍋🥤 Pink Lemonade'
-        ]
-      },
-      {
-        id: 505,
-        nombre: '120K (6 en 1)',
-        precio: 120000,
-        precioEur: 14,
-        stock: 2,
-        tipo: '120k',
-        color: 'linear-gradient(135deg, #4ade80, #22d3ee)',
-        emoji: '🍉',
-        imagen: 'assets/vapers120k6en1.jpg',
-        sabores: [
-          '🍓🍉 Strawberry Watermelon',
-          '🫐❄️ Blueberry Ice',
-          '🍋🍈 Lemon Lime'
-        ]
-      },
-      {
-        id: 506,
-        nombre: '120K (6 en 1)',
-        precio: 120000,
-        precioEur: 14,
-        stock: 1,
-        tipo: '120k',
-        color: 'linear-gradient(135deg, #0ea5e9, #a855f7)',
-        emoji: '🫐',
-        imagen: 'assets/vapers120k6en1.jpg',
-        sabores: [
-          '🫐❄️ Blueberry Ice',
-          '🍓🥝 Strawberry Kiwi',
-          '🍉❄️ Watermelon Ice'
         ]
       },
       {
@@ -892,7 +827,7 @@ export class VaperListPublicComponent implements OnInit {
         nombre: '120K (6 en 1)',
         precio: 120000,
         precioEur: 14,
-        stock: 3,
+        stock: 2,
         tipo: '120k',
         color: 'linear-gradient(135deg, #9333ea, #fb7185)',
         emoji: '🍒',
