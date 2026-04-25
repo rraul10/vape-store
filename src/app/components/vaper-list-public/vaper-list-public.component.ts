@@ -773,23 +773,6 @@ export class VaperListPublicComponent implements OnInit {
       },
 
       {
-        id: 506,
-        nombre: '120K (6 en 1)',
-        precio: 120000,
-        precioEur: 14,
-        stock: 1,
-        tipo: '120k',
-        color: 'linear-gradient(135deg, #0ea5e9, #a855f7)',
-        emoji: '🫐',
-        imagen: 'assets/vapers120k6en1.jpg',
-        sabores: [
-          '🫐❄️ Blueberry Ice',
-          '🍓🥝 Strawberry Kiwi',
-          '🍉❄️ Watermelon Ice'
-        ]
-      },
-
-      {
         id: 502,
         nombre: '120K (6 en 1)',
         precio: 120000,
