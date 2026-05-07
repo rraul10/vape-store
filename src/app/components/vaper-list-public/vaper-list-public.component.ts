@@ -727,7 +727,7 @@ export class VaperListPublicComponent implements OnInit {
         nombre: '120K (6 en 1)',
         precio: 120000,
         precioEur: 14,
-        stock: 4,
+        stock: 3,
         tipo: '120k',
         color: 'linear-gradient(135deg, #ec4899, #8b5cf6)',
         emoji: '🍓',
