@@ -20,94 +20,82 @@ export interface Vaper {
   standalone: true,
   imports: [CommonModule, FormsModule],
   template: `
-    <div class="catalog-container">
-      <!-- Fondo con burbujas animadas -->
-      <div class="bubble bubble-1"></div>
-      <div class="bubble bubble-2"></div>
-      <div class="bubble bubble-3"></div>
-      
+    <div class="catalog">
+
+      <!-- Burbujas de fondo -->
+      <div class="bubble b1"></div>
+      <div class="bubble b2"></div>
+      <div class="bubble b3"></div>
+
       <div class="content">
+
         <!-- Header -->
         <header class="header">
-          <div class="logo-wrapper">
-            <div class="logo">💨</div>
-            <div class="sparkle sparkle-1">✨</div>
-            <div class="sparkle sparkle-2">✨</div>
-          </div>
+          <div class="logo">💨</div>
           <h1>Stock Vapers</h1>
         </header>
 
-        <!-- Filtros -->
-        <!-- Filtro select -->
-        <div class="filter-select-container">
-          <label class="filter-label">Selecciona caladas</label>
-          <div class="custom-select">
+        <!-- Filtro -->
+        <div class="filter-wrap">
+          <label class="filter-label">Filtrar por caladas</label>
+          <div class="select-wrap">
             <select [(ngModel)]="filtroActivo" class="filter-select">
               <option *ngFor="let f of filtros" [value]="f.value">
                 {{ f.icon }} {{ f.label }}
               </option>
             </select>
-            <span class="select-arrow">▼</span>
+            <span class="arrow">▼</span>
           </div>
         </div>
 
+        <!-- Contador -->
+        <p class="count">{{ vapersFiltrados.length }} producto{{ vapersFiltrados.length !== 1 ? 's' : '' }}</p>
 
-        <!-- Cards de productos -->
-        <div class="cards-grid">
-          <div class="vaper-card" *ngFor="let vaper of vapersFiltrados">
-            
-            <!-- Imagen con overlay de precio y stock -->
-            <div class="card-image" [style.background]="vaper.color">
-              <img *ngIf="vaper.imagen" 
-                   [src]="vaper.imagen" 
-                   [alt]="vaper.nombre" 
-                   class="product-photo">
-              <span *ngIf="!vaper.imagen" class="big-emoji">{{ vaper.emoji }}</span>
-              
-              <!-- Badge de stock flotante -->
-              <div class="stock-badge" 
-                   [class.low-stock]="vaper.stock === 1"
-                   [class.medium-stock]="vaper.stock === 2"
-                   [class.good-stock]="vaper.stock > 2">
-                <div class="stock-icon">📦</div>
-                <div class="stock-text">
-                  <span class="stock-number">{{ vaper.stock }}</span>
-                  <span class="stock-label">{{ vaper.stock === 1 ? 'unidad' : 'unidades' }}</span>
-                </div>
+        <!-- Cards -->
+        <div class="grid">
+          <div class="card" *ngFor="let vaper of vapersFiltrados">
+
+            <!-- Imagen -->
+            <div class="card-img" [style.background]="vaper.color">
+              <img *ngIf="vaper.imagen"
+                   [src]="vaper.imagen"
+                   [alt]="vaper.nombre"
+                   class="photo">
+              <span *ngIf="!vaper.imagen" class="emoji-big">{{ vaper.emoji }}</span>
+
+              <!-- Stock badge -->
+              <div class="stock-badge"
+                   [class.stock-ok]="vaper.stock > 2"
+                   [class.stock-warn]="vaper.stock === 2"
+                   [class.stock-low]="vaper.stock === 1">
+                📦
+                <span class="stock-num">{{ vaper.stock }}</span>
+                <span class="stock-lbl">{{ vaper.stock === 1 ? 'ud.' : 'uds.' }}</span>
               </div>
             </div>
 
-            <!-- Info del producto -->
+            <!-- Cuerpo -->
             <div class="card-body">
-              <!-- Título y precio -->
-              <div class="card-header">
-                <h2 class="product-name">{{ vaper.nombre }}</h2>
-                <div class="price-bubble">{{ vaper.precioEur }}€</div>
+
+              <div class="card-top">
+                <h2 class="name">{{ vaper.nombre }}</h2>
+                <span class="price">{{ vaper.precioEur }}€</span>
               </div>
 
-              <!-- Separador -->
-              <div class="divider"></div>
+              <hr class="sep">
 
-              <!-- Título de sabores -->
-              <div class="flavors-title">
-                <span class="title-icon">🌈</span>
-                <span class="title-text">Sabores disponibles</span>
-              </div>
+              <p class="flavors-label">🌈 Sabores disponibles</p>
+              <ul class="flavors">
+                <li *ngFor="let s of vaper.sabores">{{ s }}</li>
+              </ul>
 
-              <!-- Lista de sabores -->
-              <div class="flavors-container">
-                <div class="flavor-tag" *ngFor="let sabor of vaper.sabores">
-                  {{ sabor }}
-                </div>
-              </div>
             </div>
-
           </div>
         </div>
 
         <!-- Empty -->
-        <div class="empty-box" *ngIf="vapersFiltrados.length === 0">
-          <div class="empty-emoji">🔍</div>
+        <div class="empty" *ngIf="vapersFiltrados.length === 0">
+          <span>🔍</span>
           <p>No hay productos en esta categoría</p>
         </div>
 
@@ -115,479 +103,270 @@ export interface Vaper {
     </div>
   `,
   styles: [`
-    * { 
-      box-sizing: border-box; 
-      margin: 0; 
-      padding: 0; 
-    }
-    
-    .catalog-container {
+    /* ── Reset ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── Contenedor principal ── */
+    .catalog {
       min-height: 100vh;
-      background: linear-gradient(180deg, #0f0f23 0%, #1a1a2e 100%);
-      position: relative;
+      background: linear-gradient(180deg, #0f0f23, #1a1a2e);
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
       overflow-x: hidden;
-      padding-bottom: 2rem;
+      position: relative;
+      padding-bottom: 3rem;
     }
 
-    /* Burbujas de fondo */
+    /* ── Burbujas de fondo ── */
     .bubble {
       position: fixed;
       border-radius: 50%;
       filter: blur(80px);
-      opacity: 0.15;
+      opacity: 0.12;
       pointer-events: none;
       animation: float 20s ease-in-out infinite;
     }
-
-    .bubble-1 {
-      width: 300px;
-      height: 300px;
-      background: radial-gradient(circle, #8b5cf6, transparent);
-      top: 10%;
-      left: -10%;
-      animation-delay: 0s;
-    }
-
-    .bubble-2 {
-      width: 250px;
-      height: 250px;
-      background: radial-gradient(circle, #ec4899, transparent);
-      top: 50%;
-      right: -10%;
-      animation-delay: 5s;
-    }
-
-    .bubble-3 {
-      width: 200px;
-      height: 200px;
-      background: radial-gradient(circle, #3b82f6, transparent);
-      bottom: 20%;
-      left: 50%;
-      animation-delay: 10s;
-    }
+    .b1 { width: 300px; height: 300px; background: radial-gradient(circle, #8b5cf6, transparent); top: 10%; left: -8%; animation-delay: 0s; }
+    .b2 { width: 250px; height: 250px; background: radial-gradient(circle, #ec4899, transparent); top: 50%; right: -8%; animation-delay: 6s; }
+    .b3 { width: 200px; height: 200px; background: radial-gradient(circle, #3b82f6, transparent); bottom: 20%; left: 40%; animation-delay: 12s; }
 
     @keyframes float {
       0%, 100% { transform: translate(0, 0) scale(1); }
-      33% { transform: translate(30px, -30px) scale(1.1); }
-      66% { transform: translate(-20px, 20px) scale(0.9); }
+      33%       { transform: translate(20px, -20px) scale(1.08); }
+      66%       { transform: translate(-15px, 15px) scale(0.93); }
     }
 
+    /* ── Contenido centrado ── */
     .content {
       position: relative;
-      max-width: 500px;
-      margin: 0 auto;
-      padding: 1rem;
       z-index: 1;
+      max-width: 520px;
+      margin: 0 auto;
+      padding: 0 1rem;
     }
 
-    /* ========== HEADER ========== */
+    /* ── Header ── */
     .header {
       text-align: center;
-      padding: 2rem 0 1.5rem;
-      position: relative;
+      padding: 2.5rem 0 1.5rem;
     }
-
-    .logo-wrapper {
-      position: relative;
-      display: inline-block;
-      margin-bottom: 1rem;
-    }
-
     .logo {
-      font-size: 4rem;
-      filter: drop-shadow(0 0 20px rgba(139, 92, 246, 0.6));
-      animation: bounce 2s ease-in-out infinite;
-      display: inline-block;
+      font-size: 3.5rem;
+      display: block;
+      margin-bottom: 0.75rem;
+      filter: drop-shadow(0 0 18px rgba(139, 92, 246, 0.5));
+      animation: bounce 3s ease-in-out infinite;
     }
-
     @keyframes bounce {
       0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-15px); }
+      50%       { transform: translateY(-12px); }
     }
-
-    .sparkle {
-      position: absolute;
-      font-size: 1.25rem;
-      animation: sparkle 2s ease-in-out infinite;
-    }
-
-    .sparkle-1 {
-      top: 0;
-      right: -10px;
-      animation-delay: 0.5s;
-    }
-
-    .sparkle-2 {
-      bottom: 0;
-      left: -10px;
-      animation-delay: 1s;
-    }
-
-    @keyframes sparkle {
-      0%, 100% { opacity: 0; transform: scale(0.5) rotate(0deg); }
-      50% { opacity: 1; transform: scale(1) rotate(180deg); }
-    }
-
-    .header h1 {
-      font-size: 2.5rem;
+    h1 {
+      font-size: clamp(2rem, 6vw, 2.75rem);
       font-weight: 900;
-      background: linear-gradient(135deg, #ffffff 0%, #c4b5fd 50%, #f9a8d4 100%);
+      background: linear-gradient(135deg, #fff 0%, #c4b5fd 50%, #f9a8d4 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       letter-spacing: -0.03em;
-      margin-bottom: 0.25rem;
     }
 
-    .tagline {
+    /* ── Filtro ── */
+    .filter-wrap   { margin-bottom: 0.5rem; }
+    .filter-label  {
+      display: block;
+      margin-bottom: 0.4rem;
+      font-size: 0.75rem;
+      font-weight: 700;
       color: rgba(255,255,255,0.5);
-      font-size: 0.95rem;
-      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
     }
-
-    /* ========== FILTROS ========== */
-    .filters-scroll {
-      display: flex;
-      gap: 0.625rem;
-      overflow-x: auto;
-      padding: 0.75rem 0 1.75rem;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-    }
-
-    .filters-scroll::-webkit-scrollbar {
-      display: none;
-    }
-
-    .filter-pill {
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.875rem 1.5rem;
-      border: 2px solid rgba(255,255,255,0.1);
-      background: rgba(255,255,255,0.05);
-      backdrop-filter: blur(10px);
-      color: rgba(255,255,255,0.7);
-      border-radius: 50px;
+    .select-wrap   { position: relative; }
+    .filter-select {
+      width: 100%;
+      padding: 0.9rem 3rem 0.9rem 1.25rem;
+      background: rgba(0,0,0,0.4);
+      border: 2px solid rgba(255,255,255,0.12);
+      border-radius: 1rem;
+      color: white;
       font-size: 1rem;
       font-weight: 700;
+      appearance: none;
       cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      white-space: nowrap;
+      transition: border-color 0.2s;
+    }
+    .filter-select:hover  { border-color: rgba(139,92,246,0.55); }
+    .filter-select:focus  { outline: none; border-color: #8b5cf6; box-shadow: 0 0 0 3px rgba(139,92,246,0.25); }
+    .arrow {
+      position: absolute;
+      right: 1.1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+      color: rgba(255,255,255,0.45);
+      font-size: 0.8rem;
     }
 
-    .pill-emoji {
-      font-size: 1.15rem;
+    /* ── Contador ── */
+    .count {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 1.5rem;
+      padding-left: 0.25rem;
     }
 
-    .filter-pill.active {
-      background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
-      border-color: transparent;
-      color: white;
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(139, 92, 246, 0.5);
-    }
-
-    /* ========== CARDS ========== */
-    .cards-grid {
+    /* ── Grid de cards ── */
+    .grid {
       display: flex;
       flex-direction: column;
       gap: 1.5rem;
     }
 
-    .vaper-card {
+    /* ── Card ── */
+    .card {
       background: rgba(255,255,255,0.06);
-      border: 2px solid rgba(255,255,255,0.12);
-      border-radius: 2rem;
+      border: 1.5px solid rgba(255,255,255,0.1);
+      border-radius: 1.75rem;
       overflow: hidden;
-      box-shadow: 
-        0 10px 40px rgba(0,0,0,0.4),
-        inset 0 1px 0 rgba(255,255,255,0.1);
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.08);
+      transition: transform 0.2s ease;
     }
+    .card:active { transform: scale(0.98); }
 
-    .vaper-card:active {
-      transform: scale(0.97);
-    }
-
-    /* Imagen con gradiente */
-    .card-image {
+    /* Imagen */
+    .card-img {
       position: relative;
-      height: 260px;
+      height: 240px;
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: hidden;
-      background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(236, 72, 153, 0.2));
     }
-
-    .product-photo {
+    .photo {
       width: 100%;
       height: 100%;
       object-fit: contain;
       padding: 2rem;
-      filter: drop-shadow(0 10px 25px rgba(0,0,0,0.4));
-      transition: transform 0.4s ease;
+      filter: drop-shadow(0 8px 20px rgba(0,0,0,0.4));
+      transition: transform 0.3s ease;
     }
+    .card:active .photo { transform: scale(1.04); }
+    .emoji-big { font-size: 5.5rem; }
 
-    .vaper-card:active .product-photo {
-      transform: scale(1.05);
-    }
-
-    .big-emoji {
-      font-size: 6rem;
-      filter: drop-shadow(0 10px 30px rgba(0,0,0,0.5));
-    }
-
-    /* Badge de stock flotante */
+    /* Stock badge */
     .stock-badge {
       position: absolute;
-      bottom: 1.25rem;
-      right: 1.25rem;
-      background: rgba(0,0,0,0.8);
-      backdrop-filter: blur(20px);
-      border-radius: 1.25rem;
-      padding: 0.875rem 1.25rem;
+      bottom: 1rem;
+      right: 1rem;
       display: flex;
       align-items: center;
-      gap: 0.75rem;
-      border: 2px solid rgba(255,255,255,0.15);
-      box-shadow: 0 8px 30px rgba(0,0,0,0.6);
-      transition: all 0.3s ease;
+      gap: 0.5rem;
+      padding: 0.6rem 1rem;
+      background: rgba(0,0,0,0.8);
+      backdrop-filter: blur(16px);
+      border-radius: 1rem;
+      border: 1.5px solid rgba(255,255,255,0.12);
+      font-size: 1.25rem;
     }
-
-    .stock-icon {
-      font-size: 1.75rem;
-    }
-
-    .stock-text {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.2;
-    }
-
-    .stock-number {
-      font-size: 1.5rem;
+    .stock-num {
+      font-size: 1.35rem;
       font-weight: 900;
       color: white;
     }
-
-    .stock-label {
-      font-size: 0.7rem;
-      color: rgba(255,255,255,0.6);
+    .stock-lbl {
+      font-size: 0.65rem;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      font-weight: 600;
+      font-weight: 700;
+      color: rgba(255,255,255,0.55);
     }
 
     /* Colores de stock */
-    .good-stock {
-      border-color: rgba(34, 197, 94, 0.5);
-      background: rgba(0,0,0,0.85);
+    .stock-ok   { border-color: rgba(34,197,94,0.45); }
+    .stock-ok   .stock-num { color: #22c55e; }
+    .stock-warn { border-color: rgba(251,191,36,0.45); animation: pulse-warn 2s infinite; }
+    .stock-warn .stock-num { color: #fbbf24; }
+    .stock-low  { border-color: rgba(239,68,68,0.55); animation: pulse-low 1.5s infinite; }
+    .stock-low  .stock-num { color: #ef4444; }
+
+    @keyframes pulse-warn {
+      0%, 100% { box-shadow: 0 4px 20px rgba(251,191,36,0.2); }
+      50%       { box-shadow: 0 4px 20px rgba(251,191,36,0.5); }
     }
-    .good-stock .stock-number {
-      color: #22c55e;
-      text-shadow: 0 0 10px rgba(34, 197, 94, 0.5);
+    @keyframes pulse-low {
+      0%, 100% { box-shadow: 0 4px 20px rgba(239,68,68,0.25); }
+      50%       { box-shadow: 0 4px 20px rgba(239,68,68,0.6); }
     }
 
-    .medium-stock {
-      border-color: rgba(251, 191, 36, 0.5);
-      background: rgba(0,0,0,0.85);
-      animation: pulse-warning 2s infinite;
-    }
-    .medium-stock .stock-number {
-      color: #fbbf24;
-      text-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
-    }
+    /* Cuerpo de la card */
+    .card-body { padding: 1.5rem; }
 
-    .low-stock {
-      border-color: rgba(239, 68, 68, 0.6);
-      background: rgba(0,0,0,0.9);
-      animation: pulse-danger 1.5s infinite;
-    }
-    .low-stock .stock-number {
-      color: #ef4444;
-      text-shadow: 0 0 10px rgba(239, 68, 68, 0.6);
-    }
-
-    @keyframes pulse-warning {
-      0%, 100% { box-shadow: 0 8px 30px rgba(251, 191, 36, 0.3); }
-      50% { box-shadow: 0 8px 30px rgba(251, 191, 36, 0.6); }
-    }
-
-    @keyframes pulse-danger {
-      0%, 100% { box-shadow: 0 8px 30px rgba(239, 68, 68, 0.4); }
-      50% { box-shadow: 0 8px 30px rgba(239, 68, 68, 0.7); }
-    }
-
-    /* Body de la card */
-    .card-body {
-      padding: 1.75rem;
-      background: rgba(0,0,0,0.2);
-    }
-
-    .card-header {
+    .card-top {
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
       gap: 1rem;
-      margin-bottom: 1.25rem;
+      margin-bottom: 1rem;
     }
-
-    .product-name {
+    .name {
       color: white;
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       font-weight: 900;
       letter-spacing: -0.02em;
       flex: 1;
     }
-
-    .price-bubble {
+    .price {
       background: linear-gradient(135deg, #8b5cf6, #ec4899);
       color: white;
-      padding: 0.75rem 1.25rem;
+      padding: 0.6rem 1.1rem;
       border-radius: 50px;
-      font-size: 1.35rem;
+      font-size: 1.25rem;
       font-weight: 900;
-      box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
       white-space: nowrap;
+      box-shadow: 0 4px 14px rgba(139,92,246,0.4);
     }
 
-    /* Separador */
-    .divider {
-      height: 1px;
-      background: linear-gradient(90deg, 
-        transparent 0%, 
-        rgba(255,255,255,0.2) 50%, 
-        transparent 100%);
-      margin-bottom: 1.25rem;
-    }
-
-    /* Título de sabores */
-    .flavors-title {
-      display: flex;
-      align-items: center;
-      gap: 0.625rem;
+    .sep {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.1);
       margin-bottom: 1rem;
     }
 
-    .title-icon {
-      font-size: 1.25rem;
-    }
-
-    .title-text {
-      font-size: 0.85rem;
-      color: rgba(255,255,255,0.6);
+    .flavors-label {
+      font-size: 0.75rem;
+      font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.1em;
-      font-weight: 700;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 0.75rem;
     }
 
-    /* Sabores */
-    .flavors-container {
+    .flavors {
+      list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 0.75rem;
+      gap: 0.55rem;
+    }
+    .flavors li {
+      padding: 0.3rem 0 0.3rem 0.75rem;
+      border-left: 3px solid rgba(139,92,246,0.55);
+      color: rgba(255,255,255,0.85);
+      font-size: 0.95rem;
+      font-weight: 500;
     }
 
-    .flavor-tag {
-  padding: 0.35rem 0;
-  color: rgba(255,255,255,0.85);
-  font-size: 1rem;
-  font-weight: 500;
-  border-left: 3px solid rgba(139, 92, 246, 0.6);
-  padding-left: 0.75rem;
-}
-
-
-    .flavor-tag:active {
-      transform: translateX(5px);
-      background: linear-gradient(135deg, 
-        rgba(139, 92, 246, 0.25), 
-        rgba(236, 72, 153, 0.15));
-    }
-
-    /* Empty state */
-    .empty-box {
+    /* ── Empty state ── */
+    .empty {
       text-align: center;
       padding: 4rem 2rem;
-      color: rgba(255,255,255,0.4);
+      color: rgba(255,255,255,0.35);
     }
+    .empty span { font-size: 3.5rem; display: block; margin-bottom: 0.75rem; opacity: 0.4; }
+    .empty p    { font-size: 1rem; }
 
-    .empty-emoji {
-      font-size: 4.5rem;
-      margin-bottom: 1rem;
-      opacity: 0.3;
-    }
-
-    .empty-box p {
-      font-size: 1.05rem;
-    }
-
-    /* ========== RESPONSIVE ========== */
+    /* ── Responsive ── */
     @media (min-width: 420px) {
-      .card-image {
-        height: 280px;
-      }
-
-      .big-emoji {
-        font-size: 6.5rem;
-      }
+      .card-img { height: 260px; }
     }
-      /* ========== SELECT FILTRO ========== */
-.filter-select-container {
-  margin-bottom: 2rem;
-}
-
-.filter-label {
-  display: block;
-  margin-bottom: 0.5rem;
-  color: rgba(255,255,255,0.6);
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  font-weight: 700;
-}
-
-.custom-select {
-  position: relative;
-}
-
-.filter-select {
-  width: 100%;
-  padding: 1rem 3rem 1rem 1.25rem;
-  border-radius: 1.25rem;
-  border: 2px solid rgba(255,255,255,0.15);
-  background: rgba(0,0,0,0.4);
-  color: white;
-  font-size: 1.1rem;
-  font-weight: 700;
-  appearance: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.filter-select:hover {
-  border-color: rgba(139, 92, 246, 0.6);
-}
-
-.filter-select:focus {
-  outline: none;
-  border-color: #8b5cf6;
-  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.3);
-}
-
-.select-arrow {
-  position: absolute;
-  right: 1.25rem;
-  top: 50%;
-  transform: translateY(-50%);
-  pointer-events: none;
-  color: rgba(255,255,255,0.5);
-  font-size: 0.85rem;
-}
-
   `]
 })
 export class VaperListPublicComponent implements OnInit {
@@ -595,15 +374,12 @@ export class VaperListPublicComponent implements OnInit {
   vapers: Vaper[] = [];
 
   filtros = [
-  { label: 'Todos', value: 'all', icon: '📦' },
-  { label: '80K', value: '80k', icon: '⚡' },
-  { label: '120K (6 en 1)', value: '120k', icon: '🔥' },
-  { label: '140K', value: '140k', icon: '🚀' },
-  { label: 'ZOOY SISHA 50K', value: '50k-ZOOY', icon: '💎' },
-];
-
-
-  constructor() {}
+    { label: 'Todos',          value: 'all',      icon: '📦' },
+    { label: '80K',            value: '80k',       icon: '⚡' },
+    { label: '120K (6 en 1)', value: '120k',      icon: '🔥' },
+    { label: '140K',           value: '140k',      icon: '🚀' },
+    { label: 'ZOOY SISHA 50K', value: '50k-ZOOY', icon: '💎' },
+  ];
 
   ngOnInit(): void {
     this.vapers = this.getVapersData();
@@ -611,6 +387,7 @@ export class VaperListPublicComponent implements OnInit {
 
   getVapersData(): Vaper[] {
     return [
+      // ── 80K ──────────────────────────────────────────────────────
       {
         id: 202,
         nombre: '80K',
@@ -624,10 +401,11 @@ export class VaperListPublicComponent implements OnInit {
         sabores: [
           '🍍🥥 Pineapple Coconut',
           '🍓🍬 Strawberry Raspberry Candy',
-          '🫐❄️ Blue Razz Ice'
+          '🫐❄️ Blue Razz Ice',
         ]
       },
 
+      // ── 140K ─────────────────────────────────────────────────────
       {
         id: 307,
         nombre: '140K',
@@ -641,12 +419,10 @@ export class VaperListPublicComponent implements OnInit {
         sabores: [
           '🍇🍍 Blackcurrant Pineapple Ice',
           '🫐🍑 Blueberry Peach',
-          '🍓🍉 Strawberry Watermelon'
+          '🍓🍉 Strawberry Watermelon',
         ]
       },
-
-  
-            {
+      {
         id: 314,
         nombre: '140K',
         precio: 130000,
@@ -659,11 +435,11 @@ export class VaperListPublicComponent implements OnInit {
         sabores: [
           '🐻🍬 Gummy Bears',
           '🍓🥭 Strawberry Lychee',
-          '🍉❄️ Watermelon Ice'
+          '🍉❄️ Watermelon Ice',
         ]
       },
-      // ===== ZOOY SISHA 50K =====
 
+      // ── ZOOY SISHA 50K ───────────────────────────────────────────
       {
         id: 400,
         nombre: 'ZOOY SISHA 50K',
@@ -674,9 +450,7 @@ export class VaperListPublicComponent implements OnInit {
         color: 'linear-gradient(135deg, #0ea5e9, #22c55e)',
         emoji: '⚡',
         imagen: 'assets/vapers50ksisha.jpg',
-        sabores: [
-          '⚡ Red Bull'
-        ]
+        sabores: ['⚡ Red Bull']
       },
       {
         id: 401,
@@ -688,24 +462,7 @@ export class VaperListPublicComponent implements OnInit {
         color: 'linear-gradient(135deg, #f43f5e, #8b5cf6)',
         emoji: '🍒',
         imagen: 'assets/vapers50ksisha.jpg',
-        sabores: [
-          '🍒🍓🫐 Cherry Strawberry Raspberry'
-        ]
-      },
-      
-      {
-        id: 401,
-        nombre: 'ZOOY SISHA 50K',
-        precio: 13,
-        precioEur: 13,
-        stock: 4,
-        tipo: '50k-ZOOY',
-        color: 'linear-gradient(135deg, #22c55e, #0ea5e9)',
-        emoji: '🍓',
-        imagen: 'assets/vapers50ksisha.jpg',
-        sabores: [
-          '🍓🍉 Strawberry Watermelon'
-        ]
+        sabores: ['🍒🍓🫐 Cherry Strawberry Raspberry']
       },
       {
         id: 402,
@@ -717,17 +474,52 @@ export class VaperListPublicComponent implements OnInit {
         color: 'linear-gradient(135deg, #8b5cf6, #ef4444)',
         emoji: '🫐',
         imagen: 'assets/vapers50ksisha.jpg',
-        sabores: [
-          '🫐🍒 Blue Razz Cherry'
-        ]
+        sabores: ['🫐🍒 Blue Razz Cherry']
       },
-      // ===== 120K (6 en 1) =====
+      {
+        id: 403,
+        nombre: 'ZOOY SISHA 50K',
+        precio: 13,
+        precioEur: 13,
+        stock: 10,
+        tipo: '50k-ZOOY',
+        color: 'linear-gradient(135deg, #fb923c, #38bdf8)',
+        emoji: '🥭',
+        imagen: 'assets/vapers50ksisha.jpg',
+        sabores: ['🥭🍑🍉 Mango Peach Watermelon']
+      },
+      {
+        id: 404,
+        nombre: 'ZOOY SISHA 50K',
+        precio: 13,
+        precioEur: 13,
+        stock: 4,
+        tipo: '50k-ZOOY',
+        color: 'linear-gradient(135deg, #22c55e, #0ea5e9)',
+        emoji: '🍉',
+        imagen: 'assets/vapers50ksisha.jpg',
+        sabores: ['🍉❄️ Watermelon Ice']
+      },
+      {
+        id: 405,
+        nombre: 'ZOOY SISHA 50K',
+        precio: 13,
+        precioEur: 13,
+        stock: 4,
+        tipo: '50k-ZOOY',
+        color: 'linear-gradient(135deg, #22c55e, #3b82f6)',
+        emoji: '🍓',
+        imagen: 'assets/vapers50ksisha.jpg',
+        sabores: ['🍓🍉 Strawberry Watermelon']
+      },
+
+      // ── 120K (6 en 1) ────────────────────────────────────────────
       {
         id: 500,
         nombre: '120K (6 en 1)',
         precio: 120000,
         precioEur: 14,
-        stock: 3,
+        stock: 5,
         tipo: '120k',
         color: 'linear-gradient(135deg, #ec4899, #8b5cf6)',
         emoji: '🍓',
@@ -735,27 +527,9 @@ export class VaperListPublicComponent implements OnInit {
         sabores: [
           '🍓🍇 Strawberry Grape',
           '🫐❄️ Blue Razz',
-          '🍓🍌 Strawberry Banana'
+          '🍓🍌 Strawberry Banana',
         ]
       },
-
-      {
-        id: 509,
-        nombre: '120K (6 en 1)',
-        precio: 120000,
-        precioEur: 14,
-        stock: 1,
-        tipo: '120k',
-        color: 'linear-gradient(135deg, #facc15, #0ea5e9)',
-        emoji: '⚡',
-        imagen: 'assets/vapers120k6en1.jpg',
-        sabores: [
-          '🍉❄️ Watermelon Ice',
-          '⚡ Red Bull',
-          '🍓🥝 Strawberry Kiwi'
-        ]
-      },
-
       {
         id: 502,
         nombre: '120K (6 en 1)',
@@ -769,16 +543,15 @@ export class VaperListPublicComponent implements OnInit {
         sabores: [
           '🥝🍈 Kiwi Passion Fruit',
           '💜 Love 66',
-          '🍋🥤 Pink Lemonade'
+          '🍋🥤 Pink Lemonade',
         ]
       },
-
       {
         id: 505,
         nombre: '120K (6 en 1)',
         precio: 120000,
         precioEur: 14,
-        stock: 2,
+        stock: 4,
         tipo: '120k',
         color: 'linear-gradient(135deg, #4ade80, #22d3ee)',
         emoji: '🍉',
@@ -786,7 +559,7 @@ export class VaperListPublicComponent implements OnInit {
         sabores: [
           '🍓🍉 Strawberry Watermelon',
           '🫐❄️ Blueberry Ice',
-          '🍋🍈 Lemon Lime'
+          '🍋🍈 Lemon Lime',
         ]
       },
       {
@@ -802,15 +575,62 @@ export class VaperListPublicComponent implements OnInit {
         sabores: [
           '🍑🫐 Peach Berry',
           '🍓🥭 Strawberry Mango',
-          '🥤🍒 Cherry Cola Ice'
+          '🥤🍒 Cherry Cola Ice',
         ]
       },
-
+      {
+        id: 509,
+        nombre: '120K (6 en 1)',
+        precio: 120000,
+        precioEur: 14,
+        stock: 1,
+        tipo: '120k',
+        color: 'linear-gradient(135deg, #facc15, #0ea5e9)',
+        emoji: '⚡',
+        imagen: 'assets/vapers120k6en1.jpg',
+        sabores: [
+          '🍉❄️ Watermelon Ice',
+          '⚡ Red Bull',
+          '🍓🥝 Strawberry Kiwi',
+        ]
+      },
+      {
+        id: 510,
+        nombre: '120K (6 en 1)',
+        precio: 120000,
+        precioEur: 14,
+        stock: 4,
+        tipo: '120k',
+        color: 'linear-gradient(135deg, #38bdf8, #8b5cf6)',
+        emoji: '🍈',
+        imagen: 'assets/vapers120k6en1.jpg',
+        sabores: [
+          '🍈🍈🍈 Triple Melon',
+          '🫐🍓 Blueberry Raspberry',
+          '🍓❄️ Strawberry Ice',
+        ]
+      },
+      {
+        id: 511,
+        nombre: '120K (6 en 1)',
+        precio: 120000,
+        precioEur: 14,
+        stock: 2,
+        tipo: '120k',
+        color: 'linear-gradient(135deg, #0ea5e9, #f43f5e)',
+        emoji: '🫐',
+        imagen: 'assets/vapers120k6en1.jpg',
+        sabores: [
+          '🫐❄️ Blueberry Ice',
+          '🍓🥝 Strawberry Kiwi',
+          '🍉❄️ Watermelon Ice',
+        ]
+      },
     ];
   }
 
   get vapersFiltrados(): Vaper[] {
     if (this.filtroActivo === 'all') return this.vapers;
     return this.vapers.filter(v => v.tipo === this.filtroActivo);
-  }     
+  }
 }
