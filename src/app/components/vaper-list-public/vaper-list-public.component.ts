@@ -445,31 +445,36 @@ export class VaperListPublicComponent implements OnInit {
         nombre: 'ZOOY SISHA 50K',
         precio: 13,
         precioEur: 13,
-        stock: 3,
+        stock: 1,
         tipo: '50k-ZOOY',
         color: 'linear-gradient(135deg, #0ea5e9, #22c55e)',
         emoji: '⚡',
         imagen: 'assets/vapers50ksisha.jpg',
         sabores: ['⚡ Red Bull']
       },
+      /*
+
       {
         id: 401,
         nombre: 'ZOOY SISHA 50K',
         precio: 13,
         precioEur: 13,
-        stock: 2,
+        stock: 1,
         tipo: '50k-ZOOY',
         color: 'linear-gradient(135deg, #f43f5e, #8b5cf6)',
         emoji: '🍒',
         imagen: 'assets/vapers50ksisha.jpg',
         sabores: ['🍒🍓🫐 Cherry Strawberry Raspberry']
       },
+
+      */
+
       {
         id: 402,
         nombre: 'ZOOY SISHA 50K',
         precio: 13,
         precioEur: 13,
-        stock: 3,
+        stock: 5,
         tipo: '50k-ZOOY',
         color: 'linear-gradient(135deg, #8b5cf6, #ef4444)',
         emoji: '🫐',
@@ -481,7 +486,7 @@ export class VaperListPublicComponent implements OnInit {
         nombre: 'ZOOY SISHA 50K',
         precio: 13,
         precioEur: 13,
-        stock: 9,
+        stock: 8,
         tipo: '50k-ZOOY',
         color: 'linear-gradient(135deg, #fb923c, #38bdf8)',
         emoji: '🥭',
@@ -493,7 +498,7 @@ export class VaperListPublicComponent implements OnInit {
         nombre: 'ZOOY SISHA 50K',
         precio: 13,
         precioEur: 13,
-        stock: 4,
+        stock: 2,
         tipo: '50k-ZOOY',
         color: 'linear-gradient(135deg, #22c55e, #0ea5e9)',
         emoji: '🍉',
@@ -505,7 +510,7 @@ export class VaperListPublicComponent implements OnInit {
         nombre: 'ZOOY SISHA 50K',
         precio: 13,
         precioEur: 13,
-        stock: 3,
+        stock: 2,
         tipo: '50k-ZOOY',
         color: 'linear-gradient(135deg, #22c55e, #3b82f6)',
         emoji: '🍓',
