@@ -498,7 +498,7 @@ export class VaperListPublicComponent implements OnInit {
         nombre: 'ZOOY SISHA 50K',
         precio: 13,
         precioEur: 13,
-        stock: 2,
+        stock: 1,
         tipo: '50k-ZOOY',
         color: 'linear-gradient(135deg, #22c55e, #0ea5e9)',
         emoji: '🍉',
@@ -510,7 +510,7 @@ export class VaperListPublicComponent implements OnInit {
         nombre: 'ZOOY SISHA 50K',
         precio: 13,
         precioEur: 13,
-        stock: 2,
+        stock: 1,
         tipo: '50k-ZOOY',
         color: 'linear-gradient(135deg, #22c55e, #3b82f6)',
         emoji: '🍓',
@@ -536,22 +536,6 @@ export class VaperListPublicComponent implements OnInit {
         ]
       },
       {
-        id: 505,
-        nombre: '120K (6 en 1)',
-        precio: 120000,
-        precioEur: 14,
-        stock: 2,
-        tipo: '120k',
-        color: 'linear-gradient(135deg, #4ade80, #22d3ee)',
-        emoji: '🍉',
-        imagen: 'assets/vapers120k6en1.jpg',
-        sabores: [
-          '🍓🍉 Strawberry Watermelon',
-          '🫐❄️ Blueberry Ice',
-          '🍋🍈 Lemon Lime',
-        ]
-      },
-      {
         id: 508,
         nombre: '120K (6 en 1)',
         precio: 120000,
@@ -565,38 +549,6 @@ export class VaperListPublicComponent implements OnInit {
           '🍑🫐 Peach Berry',
           '🍓🥭 Strawberry Mango',
           '🥤🍒 Cherry Cola Ice',
-        ]
-      },
-      {
-        id: 510,
-        nombre: '120K (6 en 1)',
-        precio: 120000,
-        precioEur: 14,
-        stock: 1,
-        tipo: '120k',
-        color: 'linear-gradient(135deg, #38bdf8, #8b5cf6)',
-        emoji: '🍈',
-        imagen: 'assets/vapers120k6en1.jpg',
-        sabores: [
-          '🍈🍈🍈 Triple Melon',
-          '🫐🍓 Blueberry Raspberry',
-          '🍓❄️ Strawberry Ice',
-        ]
-      },
-      {
-        id: 511,
-        nombre: '120K (6 en 1)',
-        precio: 120000,
-        precioEur: 14,
-        stock: 1,
-        tipo: '120k',
-        color: 'linear-gradient(135deg, #0ea5e9, #f43f5e)',
-        emoji: '🫐',
-        imagen: 'assets/vapers120k6en1.jpg',
-        sabores: [
-          '🫐❄️ Blueberry Ice',
-          '🍓🥝 Strawberry Kiwi',
-          '🍉❄️ Watermelon Ice',
         ]
       },
     ];
