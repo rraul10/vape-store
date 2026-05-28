@@ -439,36 +439,6 @@ export class VaperListPublicComponent implements OnInit {
         ]
       },
 
-      // ── ZOOY SISHA 50K ───────────────────────────────────────────
-      {
-        id: 400,
-        nombre: 'ZOOY SISHA 50K',
-        precio: 13,
-        precioEur: 13,
-        stock: 1,
-        tipo: '50k-ZOOY',
-        color: 'linear-gradient(135deg, #0ea5e9, #22c55e)',
-        emoji: '⚡',
-        imagen: 'assets/vapers50ksisha.jpg',
-        sabores: ['⚡ Red Bull']
-      },
-      /*
-
-      {
-        id: 401,
-        nombre: 'ZOOY SISHA 50K',
-        precio: 13,
-        precioEur: 13,
-        stock: 1,
-        tipo: '50k-ZOOY',
-        color: 'linear-gradient(135deg, #f43f5e, #8b5cf6)',
-        emoji: '🍒',
-        imagen: 'assets/vapers50ksisha.jpg',
-        sabores: ['🍒🍓🫐 Cherry Strawberry Raspberry']
-      },
-
-      */
-
       {
         id: 402,
         nombre: 'ZOOY SISHA 50K',
@@ -486,36 +456,12 @@ export class VaperListPublicComponent implements OnInit {
         nombre: 'ZOOY SISHA 50K',
         precio: 13,
         precioEur: 13,
-        stock: 5,
+        stock: 4,
         tipo: '50k-ZOOY',
         color: 'linear-gradient(135deg, #fb923c, #38bdf8)',
         emoji: '🥭',
         imagen: 'assets/vapers50ksisha.jpg',
         sabores: ['🥭🍑🍉 Mango Peach Watermelon']
-      },
-      {
-        id: 404,
-        nombre: 'ZOOY SISHA 50K',
-        precio: 13,
-        precioEur: 13,
-        stock: 1,
-        tipo: '50k-ZOOY',
-        color: 'linear-gradient(135deg, #22c55e, #0ea5e9)',
-        emoji: '🍉',
-        imagen: 'assets/vapers50ksisha.jpg',
-        sabores: ['🍉❄️ Watermelon Ice']
-      },
-      {
-        id: 405,
-        nombre: 'ZOOY SISHA 50K',
-        precio: 13,
-        precioEur: 13,
-        stock: 1,
-        tipo: '50k-ZOOY',
-        color: 'linear-gradient(135deg, #22c55e, #3b82f6)',
-        emoji: '🍓',
-        imagen: 'assets/vapers50ksisha.jpg',
-        sabores: ['🍓🍉 Strawberry Watermelon']
       },
 
       // ── 120K (6 en 1) ────────────────────────────────────────────
