@@ -587,7 +587,7 @@ export class VaperListPublicComponent implements OnInit {
         tipo: '120k',
         color: 'linear-gradient(135deg, #06b6d4, #ef4444)',
         emoji: '🍉',
-        imagen: 'assets/vapers120k6en1.jpg',
+        imagen: 'assets/vapers120k6en1.webp',
         sabores: [
           '🍉❄️ Watermelon Ice',
           '🥤 Red Bull',
