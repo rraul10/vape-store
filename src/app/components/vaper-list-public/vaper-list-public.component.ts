@@ -387,23 +387,6 @@ export class VaperListPublicComponent implements OnInit {
   getVapersData(): Vaper[] {
     return [
 
-      // ── 140K ─────────────────────────────────────────────────────
-      {
-        id: 307,
-        nombre: '140K',
-        precio: 130000,
-        precioEur: 13,
-        stock: 1,
-        tipo: '140k',
-        color: 'linear-gradient(135deg, #7c3aed, #f472b6)',
-        emoji: '🫐',
-        imagen: 'assets/VAPERS140K.jpg',
-        sabores: [
-          '🍇🍍 Blackcurrant Pineapple Ice',
-          '🫐🍑 Blueberry Peach',
-          '🍓🍉 Strawberry Watermelon',
-        ]
-      },
       {
         id: 314,
         nombre: '140K',
@@ -476,7 +459,7 @@ export class VaperListPublicComponent implements OnInit {
         nombre: 'ZOOY SISHA 50K',
         precio: 12,
         precioEur: 12,
-        stock: 3,
+        stock: 2,
         tipo: '50k-ZOOY',
         color: 'linear-gradient(135deg, #6366f1, #312e81)',
         emoji: '🫐',
@@ -566,7 +549,7 @@ export class VaperListPublicComponent implements OnInit {
         nombre: '120K (6 en 1)',
         precio: 14,
         precioEur: 14,
-        stock: 5,
+        stock: 4,
         tipo: '120k',
         color: 'linear-gradient(135deg, #fb7185, #f59e0b)',
         emoji: '🍑',
