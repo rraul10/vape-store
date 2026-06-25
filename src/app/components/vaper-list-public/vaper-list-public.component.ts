@@ -431,18 +431,6 @@ export class VaperListPublicComponent implements OnInit {
         sabores: ['🥤 Red Bull']
       },
       {
-        id: 403,
-        nombre: 'ZOOY SISHA 50K',
-        precio: 12,
-        precioEur: 12,
-        stock: 1,
-        tipo: '50k-ZOOY',
-        color: 'linear-gradient(135deg, #fbbf24, #f97316)',
-        emoji: '🍍',
-        imagen: 'assets/vapers50ksisha.jpg',
-        sabores: ['🍍🥤 Pineapple Shake']
-      },
-      {
         id: 404,
         nombre: 'ZOOY SISHA 50K',
         precio: 12,
