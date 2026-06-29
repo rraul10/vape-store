@@ -392,7 +392,7 @@ export class VaperListPublicComponent implements OnInit {
         nombre: '140K',
         precio: 130000,
         precioEur: 13,
-        stock: 9,
+        stock: 8,
         tipo: '140k',
         color: 'linear-gradient(135deg, #f97316, #ec4899)',
         emoji: '🍑',
@@ -417,43 +417,6 @@ export class VaperListPublicComponent implements OnInit {
         sabores: ['🫐🍒 Blue Razz Cherry']
       },
 
-      // ── ZOOY SISHA 50K ─────────────────────────────────────────────
-      {
-        id: 402,
-        nombre: 'ZOOY SISHA 50K',
-        precio: 12,
-        precioEur: 12,
-        stock: 4,
-        tipo: '50k-ZOOY',
-        color: 'linear-gradient(135deg, #8b5cf6, #ef4444)',
-        emoji: '🥤',
-        imagen: 'assets/vapers50ksisha.jpg',
-        sabores: ['🥤 Red Bull']
-      },
-      {
-        id: 404,
-        nombre: 'ZOOY SISHA 50K',
-        precio: 12,
-        precioEur: 12,
-        stock: 3,
-        tipo: '50k-ZOOY',
-        color: 'linear-gradient(135deg, #fb923c, #38bdf8)',
-        emoji: '🥭',
-        imagen: 'assets/vapers50ksisha.jpg',
-        sabores: ['🥭🍑🍉 Mango Peach Watermelon']
-      },
-      {
-        id: 405,
-        nombre: 'ZOOY SISHA 50K',
-        precio: 12,
-        precioEur: 12,
-        stock: 1,
-        tipo: '50k-ZOOY',
-        color: 'linear-gradient(135deg, #6366f1, #312e81)',
-        emoji: '🫐',
-        imagen: 'assets/vapers50ksisha.jpg',
-        sabores: ['🫐❄️ Black Currant Ice']
-      },
       {
         id: 406,
         nombre: 'ZOOY SISHA 50K',
