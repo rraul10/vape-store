@@ -404,32 +404,6 @@ export class VaperListPublicComponent implements OnInit {
         ]
       },
 
-      {
-        id: 402,
-        nombre: 'ZOOY SISHA 50K',
-        precio: 12,
-        precioEur: 12,
-        stock: 1,
-        tipo: '50k-ZOOY',
-        color: 'linear-gradient(135deg, #8b5cf6, #ef4444)',
-        emoji: '🫐',
-        imagen: 'assets/vapers50ksisha.jpg',
-        sabores: ['🫐🍒 Blue Razz Cherry']
-      },
-
-      {
-        id: 406,
-        nombre: 'ZOOY SISHA 50K',
-        precio: 12,
-        precioEur: 12,
-        stock: 1,
-        tipo: '50k-ZOOY',
-        color: 'linear-gradient(135deg, #3b82f6, #ec4899)',
-        emoji: '🫐',
-        imagen: 'assets/vapers50ksisha.jpg',
-        sabores: ['🫐🍓 Blueberry Raspberry']
-      },
-
       // ── 120K (6 en 1) ────────────────────────────────────────────
       {
         id: 500,
