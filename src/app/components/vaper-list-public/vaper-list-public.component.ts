@@ -388,6 +388,77 @@ export class VaperListPublicComponent implements OnInit {
     return [
 
       {
+    id: 600,
+    nombre: 'ZOOY SISHA 50K SIN NICOTINA',
+    precio: 10,
+    precioEur: 10,
+    stock: 3,
+    tipo: '50k-ZOOY',
+    color: 'linear-gradient(135deg, #ef4444, #f97316)',
+    emoji: '🥤',
+    imagen: 'assets/vapers50ksisha.jpg',
+    sabores: [
+      '🥤 Red Bull',
+    ]
+  },
+  {
+    id: 601,
+    nombre: 'ZOOY SISHA 50K SIN NICOTINA',
+    precio: 10,
+    precioEur: 10,
+    stock: 6,
+    tipo: '50k-ZOOY',
+    color: 'linear-gradient(135deg, #3b82f6, #06b6d4)',
+    emoji: '🫐',
+    imagen: 'assets/vapers50ksisha.jpg',
+    sabores: [
+      '🫐❄️ Blueberry Ice',
+    ]
+  },
+  {
+    id: 602,
+    nombre: 'ZOOY SISHA 50K SIN NICOTINA',
+    precio: 10,
+    precioEur: 10,
+    stock: 8,
+    tipo: '50k-ZOOY',
+    color: 'linear-gradient(135deg, #312e81, #6366f1)',
+    emoji: '🫐',
+    imagen: 'assets/vapers50ksisha.jpg',
+    sabores: [
+      '🫐⚫❄️ Black Currant Ice',
+    ]
+  },
+  {
+    id: 603,
+    nombre: 'ZOOY SISHA 50K SIN NICOTINA',
+    precio: 10,
+    precioEur: 10,
+    stock: 5,
+    tipo: '50k-ZOOY',
+    color: 'linear-gradient(135deg, #f59e0b, #ec4899)',
+    emoji: '🥭',
+    imagen: 'assets/vapers50ksisha.jpg',
+    sabores: [
+      '🥭🍑🍉 Mango Peach Watermelon',
+    ]
+  },
+  {
+    id: 604,
+    nombre: 'ZOOY SISHA 50K SIN NICOTINA',
+    precio: 10,
+    precioEur: 10,
+    stock: 5,
+    tipo: '50k-ZOOY',
+    color: 'linear-gradient(135deg, #22c55e, #facc15)',
+    emoji: '🍍',
+    imagen: 'assets/vapers50ksisha.jpg',
+    sabores: [
+      '🍍🥤 Pineapple Shake',
+    ]
+  },
+
+      {
         id: 314,
         nombre: '140K',
         precio: 130000,
@@ -410,7 +481,7 @@ export class VaperListPublicComponent implements OnInit {
         nombre: '120K (6 en 1)',
         precio: 14,
         precioEur: 14,
-        stock: 3,
+        stock: 6,
         tipo: '120k',
         color: 'linear-gradient(135deg, #ec4899, #8b5cf6)',
         emoji: '🫐',
@@ -426,7 +497,7 @@ export class VaperListPublicComponent implements OnInit {
         nombre: '120K (6 en 1)',
         precio: 14,
         precioEur: 14,
-        stock: 5,
+        stock: 7,
         tipo: '120k',
         color: 'linear-gradient(135deg, #3b82f6, #06b6d4)',
         emoji: '❄️',
@@ -442,7 +513,7 @@ export class VaperListPublicComponent implements OnInit {
         nombre: '120K (6 en 1)',
         precio: 14,
         precioEur: 14,
-        stock: 3,
+        stock: 6,
         tipo: '120k',
         color: 'linear-gradient(135deg, #f97316, #ec4899)',
         emoji: '🥭',
@@ -458,7 +529,7 @@ export class VaperListPublicComponent implements OnInit {
         nombre: '120K (6 en 1)',
         precio: 14,
         precioEur: 14,
-        stock: 4,
+        stock: 7,
         tipo: '120k',
         color: 'linear-gradient(135deg, #22c55e, #f472b6)',
         emoji: '💕',
@@ -500,6 +571,23 @@ export class VaperListPublicComponent implements OnInit {
           '🍉❄️ Watermelon Ice',
           '🥤 Red Bull',
           '🍓🥝 Strawberry Kiwi',
+        ]
+      },
+
+      {
+        id: 506,
+        nombre: '120K (6 en 1)',
+        precio: 14,
+        precioEur: 14,
+        stock: 7,
+        tipo: '120k',
+        color: 'linear-gradient(135deg, #a855f7, #ec4899)',
+        emoji: '🍇',
+        imagen: 'assets/vapers120k6en1.webp',
+        sabores: [
+          '🍓🍇 Strawberry Grape',
+          '🫐⚡ Blue Razz',
+          '🍓🍌 Strawberry Banana',
         ]
       },
 
