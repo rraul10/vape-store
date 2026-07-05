@@ -578,8 +578,8 @@ export interface Producto {
   `]
 })
 export class VaperListPublicComponent implements OnInit {
-  /** Número de WhatsApp del negocio, en formato internacional sin '+' ni espacios. */
-  private readonly whatsappNumero = '34600000000'; // ← CAMBIA esto por tu número real
+
+  private readonly whatsappNumero = '34640635155'; 
 
   filtroActivo = 'all';
   busqueda = '';
