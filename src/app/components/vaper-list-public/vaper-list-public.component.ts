@@ -695,11 +695,6 @@ export class VaperListPublicComponent implements OnInit {
             stock: 6
           },
           {
-            id: 5004,
-            sabores: ['🍑🫐 Peach Berry', '🍓🥭 Strawberry Mango', '🍒🥤❄️ Cherry Cola Ice'],
-            stock: 1
-          },
-          {
             id: 5005,
             sabores: ['🍉❄️ Watermelon Ice', '🥤 Red Bull', '🍓🥝 Strawberry Kiwi'],
             stock: 2
