@@ -578,7 +578,7 @@ export interface Producto {
   `]
 })
 export class VaperListPublicComponent implements OnInit {
-
+  /** Número de WhatsApp del negocio, en formato internacional sin '+' ni espacios. */
   private readonly whatsappNumero = '34640635155'; 
 
   filtroActivo = 'all';
@@ -601,7 +601,7 @@ export class VaperListPublicComponent implements OnInit {
   }
 
   pedirLink(producto: Producto, combo: Combo): string {
-    const mensaje = `Hola! Quiero pedir: ${producto.nombre} - (${producto.precioEur}€)`;
+    const mensaje = `Hola! Quiero pedir: ${producto.nombre} - Combo: ${combo.sabores.join(' + ')} (${producto.precioEur}€)`;
     return `https://wa.me/${this.whatsappNumero}?text=${encodeURIComponent(mensaje)}`;
   }
 
