@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 
 export interface Combo {
   id: number;
-  /** Sabores que vienen juntos en esta unidad (p.ej. 3 sabores en un mismo vaper 6 en 1) */
   sabores: string[];
   stock: number;
 }
@@ -142,7 +141,6 @@ export interface Producto {
   `,
   styles: [`
     /* ── Reset ── */
-    @import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@600;800;900&family=Space+Grotesk:wght@500;600;700&display=swap');
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     /* ── Paleta de marca ── */
