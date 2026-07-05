@@ -601,7 +601,7 @@ export class VaperListPublicComponent implements OnInit {
   }
 
   pedirLink(producto: Producto, combo: Combo): string {
-    const mensaje = `Hola! Quiero pedir: ${producto.nombre} - Combo: ${combo.sabores.join(' + ')} (${producto.precioEur}€)`;
+    const mensaje = `Hola! Quiero pedir: ${producto.nombre} - (${producto.precioEur}€)`;
     return `https://wa.me/${this.whatsappNumero}?text=${encodeURIComponent(mensaje)}`;
   }
 
