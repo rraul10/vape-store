@@ -660,7 +660,7 @@ export class VaperListPublicComponent implements OnInit {
           {
             id: 3140,
             sabores: ['🐻🍬 Gummy Bears', '🍓🥭 Strawberry Lychee', '🍉❄️ Watermelon Ice'],
-            stock: 8
+            stock: 7
           },
         ]
       },
