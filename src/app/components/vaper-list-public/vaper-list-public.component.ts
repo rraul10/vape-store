@@ -640,11 +640,11 @@ export class VaperListPublicComponent implements OnInit {
         emoji: '🥤',
         imagen: 'assets/vapers50ksisha.jpg',
         combos: [
-          { id: 6000, sabores: ['🥤 Red Bull'], stock: 3 },
+          { id: 6000, sabores: ['🥤 Red Bull'], stock: 1 },
           { id: 6001, sabores: ['🫐❄️ Blueberry Ice'], stock: 6 },
           { id: 6002, sabores: ['🫐⚫❄️ Black Currant Ice'], stock: 7 },
-          { id: 6003, sabores: ['🥭🍑🍉 Mango Peach Watermelon'], stock: 5 },
-          { id: 6004, sabores: ['🍍🥤 Pineapple Shake'], stock: 5 },
+          { id: 6003, sabores: ['🥭🍑🍉 Mango Peach Watermelon'], stock: 2 },
+          { id: 6004, sabores: ['🍍🥤 Pineapple Shake'], stock: 2 },
         ]
       },
 
@@ -660,7 +660,7 @@ export class VaperListPublicComponent implements OnInit {
           {
             id: 3140,
             sabores: ['🐻🍬 Gummy Bears', '🍓🥭 Strawberry Lychee', '🍉❄️ Watermelon Ice'],
-            stock: 7
+            stock: 6
           },
         ]
       },
