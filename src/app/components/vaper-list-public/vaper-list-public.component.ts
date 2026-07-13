@@ -640,10 +640,10 @@ export class VaperListPublicComponent implements OnInit {
         emoji: '🥤',
         imagen: 'assets/vapers50ksisha.jpg',
         combos: [
-          { id: 6001, sabores: ['🫐❄️ Blueberry Ice'], stock: 5 },
-          { id: 6002, sabores: ['🫐⚫❄️ Black Currant Ice'], stock: 7 },
+          { id: 6001, sabores: ['🫐❄️ Blueberry Ice'], stock: 4 },
+          { id: 6002, sabores: ['🫐⚫❄️ Black Currant Ice'], stock: 6 },
           { id: 6003, sabores: ['🥭🍑🍉 Mango Peach Watermelon'], stock: 1 },
-          { id: 6004, sabores: ['🍍🥤 Pineapple Shake'], stock: 2 },
+          { id: 6004, sabores: ['🍍🥤 Pineapple Shake'], stock: 1 },
         ]
       },
 
