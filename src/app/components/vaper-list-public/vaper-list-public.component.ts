@@ -590,6 +590,7 @@ export class VaperListPublicComponent implements OnInit {
     { label: '120K (6 en 1)',             value: '120k',     icon: '🔥' },
     { label: '140K',                      value: '140k',     icon: '🚀' },
     { label: 'ZOOY SISHA 50K SIN NICOTINA', value: '50k-ZOOY', icon: '💎' },
+    { label: 'VapSolo 80K', value: '80k', icon: '⚡' },
   ];
 
   ngOnInit(): void {
@@ -640,12 +641,28 @@ export class VaperListPublicComponent implements OnInit {
         emoji: '🥤',
         imagen: 'assets/vapers50ksisha.jpg',
         combos: [
-          { id: 6001, sabores: ['🫐❄️ Blueberry Ice'], stock: 4 },
+          { id: 6001, sabores: ['🫐❄️ Blueberry Ice'], stock: 2 },
           { id: 6002, sabores: ['🫐⚫❄️ Black Currant Ice'], stock: 6 },
           { id: 6003, sabores: ['🥭🍑🍉 Mango Peach Watermelon'], stock: 1 },
-          { id: 6004, sabores: ['🍍🥤 Pineapple Shake'], stock: 1 },
         ]
       },
+
+      {
+    id: 700,
+      nombre: 'VapSolo 80K',
+      precioEur: 14,
+      tipo: '80k',
+      color: 'linear-gradient(135deg, #3b82f6, #8b5cf6)',
+      emoji: '⚡',
+      imagen: 'assets/VapSolo80k.jpg',
+      combos: [
+        { id: 7001, sabores: ['🤠🍬 Happy Ranch', '🍹 Sex on the Beach', '🍉🥥 Watermelon Coconut', '🍒🫐 Cherry Berry'], stock: 7 },
+        { id: 7002, sabores: ['🫐⚫ Blueberry Currant', '🫐🍓 Blackberry Red Raspberry', '🍰 Cheesecake', '🍋🥭 Lime Passion Fruit'], stock: 10 },
+        { id: 7003, sabores: ['🍋🍈 Lemon Lime', '🍓❄️ Strawberry Ice', '🍓🍉 Raspberry Watermelon', '🍒🥤 Fizzy Cherry'], stock: 10 },
+        { id: 7004, sabores: ['🥤🍦 Vanilla Cola', '🍋🍑 Lemon Peach', '🍓🫐🍒❄️ Strawberry Raspberry Cherry Ice', '🍇❄️ Grape Ice'], stock: 10 },
+        { id: 7005, sabores: ['🔵🍒 Blue Razz Cherry', '🥭🍍 Mango Pineapple', '🫐🌿 Blackberry Mint', '🍉🍒 Watermelon Cherry'], stock: 10 },
+      ]
+    },
 
       {
         id: 314,
