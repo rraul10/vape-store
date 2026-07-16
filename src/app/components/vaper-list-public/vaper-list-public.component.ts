@@ -660,7 +660,7 @@ export class VaperListPublicComponent implements OnInit {
         { id: 7002, sabores: ['🫐⚫ Blueberry Currant', '🫐🍓 Blackberry Red Raspberry', '🍰 Cheesecake', '🍋🥭 Lime Passion Fruit'], stock: 9 },
         { id: 7003, sabores: ['🍋🍈 Lemon Lime', '🍓❄️ Strawberry Ice', '🍓🍉 Raspberry Watermelon', '🍒🥤 Fizzy Cherry'], stock: 8 },
         { id: 7004, sabores: ['🥤🍦 Vanilla Cola', '🍋🍑 Lemon Peach', '🍓🫐🍒❄️ Strawberry Raspberry Cherry Ice', '🍇❄️ Grape Ice'], stock: 10 },
-        { id: 7005, sabores: ['🔵🍒 Blue Razz Cherry', '🥭🍍 Mango Pineapple', '🫐🌿 Blackberry Mint', '🍉🍒 Watermelon Cherry'], stock: 9 },
+        { id: 7005, sabores: ['🔵🍒 Blue Razz Cherry', '🥭🍍 Mango Pineapple', '🫐🌿 Blackberry Mint', '🍉🍒 Watermelon Cherry'], stock: 8 },
       ]
     },
 
