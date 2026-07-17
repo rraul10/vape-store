@@ -642,8 +642,7 @@ export class VaperListPublicComponent implements OnInit {
         imagen: 'assets/vapers50ksisha.jpg',
         combos: [
           { id: 6001, sabores: ['🫐❄️ Blueberry Ice'], stock: 2 },
-          { id: 6002, sabores: ['🫐⚫❄️ Black Currant Ice'], stock: 6 },
-          { id: 6003, sabores: ['🥭🍑🍉 Mango Peach Watermelon'], stock: 1 },
+          { id: 6002, sabores: ['🫐⚫❄️ Black Currant Ice'], stock: 5 },
         ]
       },
 
@@ -709,11 +708,6 @@ export class VaperListPublicComponent implements OnInit {
             id: 5003,
             sabores: ['🥝🍍 Kiwi Passion Fruit', '💕 Love 66', '🍋🍓 Pink Lemonade'],
             stock: 6
-          },
-          {
-            id: 5005,
-            sabores: ['🍉❄️ Watermelon Ice', '🥤 Red Bull', '🍓🥝 Strawberry Kiwi'],
-            stock: 1
           },
           {
             id: 5006,
