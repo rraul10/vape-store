@@ -663,22 +663,53 @@ export class VaperListPublicComponent implements OnInit {
       ]
     },
 
-      {
-        id: 314,
-        nombre: '140K',
-        precioEur: 13,
-        tipo: '140k',
-        color: 'linear-gradient(135deg, #f97316, #ec4899)',
-        emoji: '🍑',
-        imagen: 'assets/VAPERS140K.jpg',
-        combos: [
-          {
-            id: 3140,
-            sabores: ['🐻🍬 Gummy Bears', '🍓🥭 Strawberry Lychee', '🍉❄️ Watermelon Ice'],
-            stock: 5
-          },
-        ]
-      },
+    {
+      id: 314,
+      nombre: '140K',
+      precioEur: 13,
+      tipo: '140k',
+      color: 'linear-gradient(135deg, #f97316, #ec4899)',
+      emoji: '🍑',
+      imagen: 'assets/VAPERS140K.jpg',
+      combos: [
+        {
+          id: 3140,
+          sabores: [
+            '🐻🍬 Gummy Bears',
+            '🍓🥭 Strawberry Lychee',
+            '🍉❄️ Watermelon Ice'
+          ],
+          stock: 2
+        },
+        {
+          id: 3141,
+          sabores: [
+            '🍑🥭 Peach Mango Watermelon',
+            '💙 Love 66',
+            '🫐❄️ Blueberry Ice'
+          ],
+          stock: 2
+        },
+        {
+          id: 3142,
+          sabores: [
+            '🍉🐉 Watermelon Dragon Fruit',
+            '🌿🥭🍈 Aloe Mango Melon',
+            '🍋🟢 Lemon Lime'
+          ],
+          stock: 2
+        },
+        {
+          id: 3143,
+          sabores: [
+            '🫐🍒 Blueberry Cherry',
+            '🍉🍬 Watermelon Bubblegum',
+            '🍓🥝 Strawberry Kiwi'
+          ],
+          stock: 2
+        }
+      ]
+    },
 
       {
         id: 500,
