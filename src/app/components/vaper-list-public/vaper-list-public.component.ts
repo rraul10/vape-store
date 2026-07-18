@@ -688,7 +688,7 @@ export class VaperListPublicComponent implements OnInit {
             '💙 Love 66',
             '🫐❄️ Blueberry Ice'
           ],
-          stock: 2
+          stock: 1
         },
         {
           id: 3142,
@@ -697,7 +697,7 @@ export class VaperListPublicComponent implements OnInit {
             '🌿🥭🍈 Aloe Mango Melon',
             '🍋🟢 Lemon Lime'
           ],
-          stock: 2
+          stock: 1
         },
         {
           id: 3143,
@@ -706,7 +706,7 @@ export class VaperListPublicComponent implements OnInit {
             '🍉🍬 Watermelon Bubblegum',
             '🍓🥝 Strawberry Kiwi'
           ],
-          stock: 2
+          stock: 1
         }
       ]
     },
