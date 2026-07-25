@@ -641,8 +641,8 @@ export class VaperListPublicComponent implements OnInit {
         emoji: '🥤',
         imagen: 'assets/vapers50ksisha.jpg',
         combos: [
-          { id: 6001, sabores: ['🫐❄️ Blueberry Ice'], stock: 2 },
-          { id: 6002, sabores: ['🫐⚫❄️ Black Currant Ice'], stock: 5 },
+          { id: 6001, sabores: ['🥭🍑🍉 Mango Peach Watermelon'], stock: 1 },
+          { id: 6002, sabores: ['🫐⚫❄️ Black Currant Ice'], stock: 3 },
         ]
       },
 
@@ -656,10 +656,10 @@ export class VaperListPublicComponent implements OnInit {
       imagen: 'assets/VapSolo80k.jpg',
       combos: [
         { id: 7001, sabores: ['🤠🍬 Happy Ranch', '🍹 Sex on the Beach', '🍉🥥 Watermelon Coconut', '🍒🫐 Cherry Berry'], stock: 7 },
-        { id: 7002, sabores: ['🫐⚫ Blueberry Currant', '🫐🍓 Blackberry Red Raspberry', '🍰 Cheesecake', '🍋🥭 Lime Passion Fruit'], stock: 9 },
-        { id: 7003, sabores: ['🍋🍈 Lemon Lime', '🍓❄️ Strawberry Ice', '🍓🍉 Raspberry Watermelon', '🍒🥤 Fizzy Cherry'], stock: 8 },
-        { id: 7004, sabores: ['🥤🍦 Vanilla Cola', '🍋🍑 Lemon Peach', '🍓🫐🍒❄️ Strawberry Raspberry Cherry Ice', '🍇❄️ Grape Ice'], stock: 10 },
-        { id: 7005, sabores: ['🔵🍒 Blue Razz Cherry', '🥭🍍 Mango Pineapple', '🫐🌿 Blackberry Mint', '🍉🍒 Watermelon Cherry'], stock: 8 },
+        { id: 7002, sabores: ['🫐⚫ Blueberry Currant', '🫐🍓 Blackberry Red Raspberry', '🍰 Cheesecake', '🍋🥭 Lime Passion Fruit'], stock: 6 },
+        { id: 7003, sabores: ['🍋🍈 Lemon Lime', '🍓❄️ Strawberry Ice', '🍓🍉 Raspberry Watermelon', '🍒🥤 Fizzy Cherry'], stock: 7 },
+        { id: 7004, sabores: ['🥤🍦 Vanilla Cola', '🍋🍑 Lemon Peach', '🍓🫐🍒❄️ Strawberry Raspberry Cherry Ice', '🍇❄️ Grape Ice'], stock: 6 },
+        { id: 7005, sabores: ['🔵🍒 Blue Razz Cherry', '🥭🍍 Mango Pineapple', '🫐🌿 Blackberry Mint', '🍉🍒 Watermelon Cherry'], stock: 6 },
       ]
     },
 
