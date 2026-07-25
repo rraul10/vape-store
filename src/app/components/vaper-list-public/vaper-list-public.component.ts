@@ -658,8 +658,8 @@ export class VaperListPublicComponent implements OnInit {
         { id: 7001, sabores: ['🤠🍬 Happy Ranch', '🍹 Sex on the Beach', '🍉🥥 Watermelon Coconut', '🍒🫐 Cherry Berry'], stock: 7 },
         { id: 7002, sabores: ['🫐⚫ Blueberry Currant', '🫐🍓 Blackberry Red Raspberry', '🍰 Cheesecake', '🍋🥭 Lime Passion Fruit'], stock: 6 },
         { id: 7003, sabores: ['🍋🍈 Lemon Lime', '🍓❄️ Strawberry Ice', '🍓🍉 Raspberry Watermelon', '🍒🥤 Fizzy Cherry'], stock: 7 },
-        { id: 7004, sabores: ['🥤🍦 Vanilla Cola', '🍋🍑 Lemon Peach', '🍓🫐🍒❄️ Strawberry Raspberry Cherry Ice', '🍇❄️ Grape Ice'], stock: 6 },
-        { id: 7005, sabores: ['🔵🍒 Blue Razz Cherry', '🥭🍍 Mango Pineapple', '🫐🌿 Blackberry Mint', '🍉🍒 Watermelon Cherry'], stock: 6 },
+        { id: 7004, sabores: ['🥤🍦 Vanilla Cola', '🍋🍑 Lemon Peach', '🍓🫐🍒❄️ Strawberry Raspberry Cherry Ice', '🍇❄️ Grape Ice'], stock: 5 },
+        { id: 7005, sabores: ['🔵🍒 Blue Razz Cherry', '🥭🍍 Mango Pineapple', '🫐🌿 Blackberry Mint', '🍉🍒 Watermelon Cherry'], stock: 8 },
       ]
     },
 
@@ -723,7 +723,7 @@ export class VaperListPublicComponent implements OnInit {
           {
             id: 5000,
             sabores: ['🫐 Mixed Berry', '🍓🍉 Strawberry Watermelon', '🥝🍍 Kiwi Passion Fruit'],
-            stock: 4
+            stock: 3
           },
           {
             id: 5001,
@@ -733,7 +733,7 @@ export class VaperListPublicComponent implements OnInit {
           {
             id: 5002,
             sabores: ['🍓🫐 Strawberry Raspberry', '🥭🍑 Mango Peach', '🫐🍉 Blueberry Watermelon'],
-            stock: 5
+            stock: 4
           },
           {
             id: 5003,
@@ -743,7 +743,7 @@ export class VaperListPublicComponent implements OnInit {
           {
             id: 5006,
             sabores: ['🍓🍇 Strawberry Grape', '🫐⚡ Blue Razz', '🍓🍌 Strawberry Banana'],
-            stock: 4
+            stock: 3
           },
         ]
       },
