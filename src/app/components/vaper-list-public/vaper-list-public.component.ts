@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { SupabaseService } from '../../supabase.service';
 
 export interface Combo {
   id: number;
@@ -105,22 +106,20 @@ export interface Producto {
 
               <p class="flavors-label">🌈 Combos disponibles</p>
               <ul class="flavors">
-                <li *ngFor="let c of producto.combos" [class.sabor-out]="c.stock === 0">
+                <li *ngFor="let c of producto.combos">
                   <div class="sabor-info">
                     <span class="sabor-nombre">{{ c.sabores.join(' + ') }}</span>
                     <span class="sabor-stock"
                           [class.stock-ok]="c.stock > 2"
                           [class.stock-warn]="c.stock === 2"
-                          [class.stock-low]="c.stock === 1"
-                          [class.stock-out]="c.stock === 0">
-                      {{ c.stock === 0 ? 'Agotado' : (c.stock + (c.stock === 1 ? ' ud.' : ' uds.')) }}
+                          [class.stock-low]="c.stock === 1">
+                      {{ c.stock }} {{ c.stock === 1 ? 'ud.' : 'uds.' }}
                     </span>
                   </div>
-                  <a *ngIf="c.stock > 0"
-                     class="wa-btn"
-                     [href]="pedirLink(producto, c)"
-                     target="_blank"
-                     rel="noopener">
+                  <a class="wa-btn"
+                    [href]="pedirLink(producto, c)"
+                    target="_blank"
+                    rel="noopener">
                     Pedir →
                   </a>
                 </li>
@@ -579,22 +578,43 @@ export interface Producto {
 })
 export class VaperListPublicComponent implements OnInit {
   /** Número de WhatsApp del negocio, en formato internacional sin '+' ni espacios. */
-  private readonly whatsappNumero = '34640635155'; 
+  private readonly whatsappNumero = '34640635155';
 
   filtroActivo = 'all';
   busqueda = '';
   productos: Producto[] = [];
+  cargando = true;
 
   filtros = [
-    { label: 'Todos',                     value: 'all',      icon: '📦' },
-    { label: '120K (6 en 1)',             value: '120k',     icon: '🔥' },
-    { label: '140K',                      value: '140k',     icon: '🚀' },
+    { label: 'Todos',                       value: 'all',      icon: '📦' },
+    { label: '120K (6 en 1)',               value: '120k',     icon: '🔥' },
+    { label: '140K',                        value: '140k',     icon: '🚀' },
     { label: 'ZOOY SISHA 50K SIN NICOTINA', value: '50k-ZOOY', icon: '💎' },
-    { label: 'VapSolo 80K', value: '80k', icon: '⚡' },
+    { label: 'VapSolo 80K',                 value: '80k',      icon: '⚡' },
   ];
 
-  ngOnInit(): void {
-    this.productos = this.getProductosData();
+  constructor(private supabaseService: SupabaseService) {}
+
+  async ngOnInit(): Promise<void> {
+    this.cargando = true;
+    const data = await this.supabaseService.getProductos();
+
+    this.productos = (data ?? []).map((p: any) => ({
+      id: p.id,
+      nombre: p.nombre,
+      precioEur: p.precio_eur,
+      tipo: p.tipo,
+      color: p.color,
+      emoji: p.emoji,
+      imagen: p.imagen,
+      combos: (p.combos ?? []).map((c: any) => ({
+        id: c.id,
+        sabores: c.sabores,
+        stock: c.stock
+      }))
+    }));
+
+    this.cargando = false;
   }
 
   stockTotal(producto: Producto): number {
@@ -607,136 +627,22 @@ export class VaperListPublicComponent implements OnInit {
   }
 
   get productosFiltrados(): Producto[] {
-    let lista = this.productos;
+  let lista = this.productos;
 
-    if (this.filtroActivo !== 'all') {
-      lista = lista.filter(p => p.tipo === this.filtroActivo);
-    }
-
-    const q = this.busqueda.trim().toLowerCase();
-    if (q) {
-      lista = lista
-        .map(p => ({
-          ...p,
-          combos: p.combos.filter(c =>
-            p.nombre.toLowerCase().includes(q) ||
-            c.sabores.some(s => s.toLowerCase().includes(q))
-          )
-        }))
-        .filter(p => p.combos.length > 0);
-    }
-
-    return lista;
+  if (this.filtroActivo !== 'all') {
+    lista = lista.filter(p => p.tipo === this.filtroActivo);
   }
 
-  getProductosData(): Producto[] {
-    return [
+  const q = this.busqueda.trim().toLowerCase();
 
-      {
-        id: 600,
-        nombre: 'ZOOY SISHA 50K SIN NICOTINA',
-        precioEur: 12,
-        tipo: '50k-ZOOY',
-        color: 'linear-gradient(135deg, #ef4444, #f97316)',
-        emoji: '🥤',
-        imagen: 'assets/vapers50ksisha.jpg',
-        combos: [
-          { id: 6005, sabores: ['🍓🍇 Strawberry Grape'], stock: 1 },
-        ]
-      },
-
-      {
-    id: 700,
-      nombre: 'VapSolo 80K',
-      precioEur: 14,
-      tipo: '80k',
-      color: 'linear-gradient(135deg, #3b82f6, #8b5cf6)',
-      emoji: '⚡',
-      imagen: 'assets/VapSolo80k.jpg',
-      combos: [
-        { id: 7001, sabores: ['🤠🍬 Happy Ranch', '🍹 Sex on the Beach', '🍉🥥 Watermelon Coconut', '🍒🫐 Cherry Berry'], stock: 4 },
-        { id: 7002, sabores: ['🫐⚫ Blueberry Currant', '🫐🍓 Blackberry Red Raspberry', '🍰 Cheesecake', '🍋🥭 Lime Passion Fruit'], stock: 4 },
-        { id: 7003, sabores: ['🍋🍈 Lemon Lime', '🍓❄️ Strawberry Ice', '🍓🍉 Raspberry Watermelon', '🍒🥤 Fizzy Cherry'], stock: 3},
-        { id: 7004, sabores: ['🥤🍦 Vanilla Cola', '🍋🍑 Lemon Peach', '🍓🫐🍒❄️ Strawberry Raspberry Cherry Ice', '🍇❄️ Grape Ice'], stock: 1 },
-      ]
-    },
-
-    {
-      id: 314,
-      nombre: '140K',
-      precioEur: 13,
-      tipo: '140k',
-      color: 'linear-gradient(135deg, #f97316, #ec4899)',
-      emoji: '🍑',
-      imagen: 'assets/VAPERS140K.jpg',
-      combos: [
-        {
-          id: 3140,
-          sabores: [
-            '🐻🍬 Gummy Bears',
-            '🍓🥭 Strawberry Lychee',
-            '🍉❄️ Watermelon Ice'
-          ],
-          stock: 1
-        },
-        {
-          id: 3142,
-          sabores: [
-            '🍉🐉 Watermelon Dragon Fruit',
-            '🌿🥭🍈 Aloe Mango Melon',
-            '🍋🟢 Lemon Lime'
-          ],
-          stock: 1
-        },
-        {
-          id: 3143,
-          sabores: [
-            '🫐🍒 Blueberry Cherry',
-            '🍉🍬 Watermelon Bubblegum',
-            '🍓🥝 Strawberry Kiwi'
-          ],
-          stock: 1
-        }
-      ]
-    },
-
-      {
-        id: 500,
-        nombre: '120K (6 en 1)',
-        precioEur: 14,
-        tipo: '120k',
-        color: 'linear-gradient(135deg, #ec4899, #8b5cf6)',
-        emoji: '🫐',
-        imagen: 'assets/vapers120k6en1.webp',
-        combos: [
-          {
-            id: 5000,
-            sabores: ['🫐 Mixed Berry', '🍓🍉 Strawberry Watermelon', '🥝🍍 Kiwi Passion Fruit'],
-            stock: 3
-          },
-          {
-            id: 5001,
-            sabores: ['🍓🍉 Strawberry Watermelon', '🫐❄️ Blueberry Ice', '🍋🍈 Lemon Lime'],
-            stock: 2
-          },
-          {
-            id: 5002,
-            sabores: ['🍓🫐 Strawberry Raspberry', '🥭🍑 Mango Peach', '🫐🍉 Blueberry Watermelon'],
-            stock: 2
-          },
-          {
-            id: 5003,
-            sabores: ['🥝🍍 Kiwi Passion Fruit', '💕 Love 66', '🍋🍓 Pink Lemonade'],
-            stock: 2
-          },
-          {
-            id: 5006,
-            sabores: ['🍓🍇 Strawberry Grape', '🫐⚡ Blue Razz', '🍓🍌 Strawberry Banana'],
-            stock: 7
-          },
-        ]
-      },
-
-    ];
-  }
+  return lista
+    .map(p => ({
+      ...p,
+      combos: p.combos.filter(c =>
+        c.stock > 0 &&
+        (!q || p.nombre.toLowerCase().includes(q) || c.sabores.some(s => s.toLowerCase().includes(q)))
+      )
+    }))
+    .filter(p => p.combos.length > 0);
+}
 }

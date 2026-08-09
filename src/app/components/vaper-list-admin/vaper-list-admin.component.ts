@@ -1,346 +1,356 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { VaperService, Vaper } from '../../services/vaper.service';
+import { FormsModule } from '@angular/forms';
+import { SupabaseService } from '../../supabase.service';
+
+interface ComboAdmin {
+  id: number;
+  sabores: string[];
+  stock: number;
+  guardando?: boolean;
+}
+
+interface ProductoAdmin {
+  id: number;
+  nombre: string;
+  emoji: string;
+  combos: ComboAdmin[];
+}
 
 @Component({
   selector: 'app-vaper-list-admin',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   template: `
-    <div class="admin-container">
-      <div class="pattern-bg"></div>
-      
-      <div class="content">
-        <!-- Header -->
-        <div class="header">
-          <h1>🔐 Panel de Admin</h1>
-          <p>Gestiona tu inventario</p>
-          <div class="stats">
-            <div class="stat-badge">
-              <span>📦 Total Stock:</span>
-              <strong>{{ totalStock }}</strong>
+    <div class="admin">
+
+      <!-- ═══════ LOGIN ═══════ -->
+      <div class="login-wrap" *ngIf="!logueado">
+        <div class="login-card">
+          <span class="login-emoji">🔒</span>
+          <h1>Panel de stock</h1>
+          <p class="login-sub">Acceso solo para gestión interna</p>
+
+          <input
+            type="email"
+            placeholder="Email"
+            class="input"
+            [(ngModel)]="email"
+            (keyup.enter)="login()"
+          >
+          <input
+            type="password"
+            placeholder="Contraseña"
+            class="input"
+            [(ngModel)]="password"
+            (keyup.enter)="login()"
+          >
+
+          <p class="error" *ngIf="errorLogin">{{ errorLogin }}</p>
+
+          <button class="btn-login" (click)="login()" [disabled]="cargandoLogin">
+            {{ cargandoLogin ? 'Entrando...' : 'Entrar' }}
+          </button>
+        </div>
+      </div>
+
+      <!-- ═══════ PANEL ═══════ -->
+      <div class="panel" *ngIf="logueado">
+
+        <header class="panel-header">
+          <h1>📦 Gestión de stock</h1>
+          <button class="btn-logout" (click)="logout()">Salir</button>
+        </header>
+
+        <p class="cargando" *ngIf="cargando">Cargando productos...</p>
+
+        <div class="productos" *ngIf="!cargando">
+          <div class="producto" *ngFor="let producto of productos">
+            <div class="producto-header">
+              <span class="producto-emoji">{{ producto.emoji }}</span>
+              <h2>{{ producto.nombre }}</h2>
             </div>
-            <div class="stat-badge warning" *ngIf="stockBajo > 0">
-              <span>⚠️ Stock bajo:</span>
-              <strong>{{ stockBajo }}</strong>
+
+            <div class="combo" *ngFor="let combo of producto.combos">
+              <div class="combo-info">
+                <span class="combo-nombre">{{ combo.sabores.join(' + ') }}</span>
+              </div>
+
+              <div class="combo-controls">
+                <button
+                  class="btn-stock btn-minus"
+                  (click)="cambiarStock(combo, -1)"
+                  [disabled]="combo.guardando || combo.stock <= 0"
+                >−</button>
+
+                <span class="combo-stock" [class.guardando]="combo.guardando">
+                  {{ combo.stock }}
+                </span>
+
+                <button
+                  class="btn-stock btn-plus"
+                  (click)="cambiarStock(combo, 1)"
+                  [disabled]="combo.guardando"
+                >+</button>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- Grid de Vapers -->
-        <div class="vaper-grid">
-          <div class="vaper-card" *ngFor="let vaper of vapers" [style.--color]="vaper.color">
-            <div class="card-gradient"></div>
-            
-            <div class="card-image">
-              <span class="emoji">{{ vaper.emoji }}</span>
-              <div class="price-tag">{{ vaper.precioEur }}€</div>
-            </div>
-
-            <div class="card-content">
-              <h3>{{ vaper.nombre }}</h3>
-              
-              <!-- Stock actual -->
-              <div class="stock-display" [class.low]="vaper.stock <= 1" [class.medium]="vaper.stock === 2" [class.out]="vaper.stock === 0">
-                <span class="stock-label">Stock:</span>
-                <span class="stock-number">{{ vaper.stock }}</span>
-                <span *ngIf="vaper.stock === 0" class="out-badge">AGOTADO</span>
-                <span *ngIf="vaper.stock > 0 && vaper.stock <= 2" class="fire">🔥</span>
-              </div>
-
-              <!-- Controles de stock -->
-              <div class="stock-controls">
-                <button class="btn-control minus" (click)="updateStock(vaper, -1)" [disabled]="vaper.stock === 0">
-                  <span>−</span>
-                </button>
-                <input 
-                  type="number" 
-                  [value]="vaper.stock" 
-                  (change)="setStock(vaper, $event)"
-                  min="0"
-                  class="stock-input"
-                >
-                <button class="btn-control plus" (click)="updateStock(vaper, 1)">
-                  <span>+</span>
-                </button>
-              </div>
-
-              <!-- Botones rápidos -->
-              <div class="quick-actions">
-                <button class="btn-quick" (click)="updateStock(vaper, 5)">+5</button>
-                <button class="btn-quick" (click)="updateStock(vaper, 10)">+10</button>
-                <button class="btn-quick danger" (click)="setStockZero(vaper)">Agotar</button>
-              </div>
-
-              <!-- Sabores (colapsable) -->
-              <button class="sabores-toggle" (click)="toggleSabores(vaper.id)">
-                {{ saboresAbiertos[vaper.id] ? '▲ Ocultar' : '▼ Ver' }} sabores ({{ vaper.sabores.length }})
-              </button>
-              
-              <div class="sabores-list" [class.open]="saboresAbiertos[vaper.id]">
-                <div class="sabor-item" *ngFor="let sabor of vaper.sabores">
-                  {{ sabor }}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   `,
   styles: [`
-    * { box-sizing: border-box; }
-    
-    .admin-container {
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    .admin {
+      --ink-950: #0a0913;
+      --ink-900: #14122a;
+      --violet: #8b5cf6;
+      --violet-deep: #6d28d9;
+      --magenta-deep: #db2777;
+      --mint: #2dd4a7;
+      --rose: #fb5271;
       min-height: 100vh;
-      background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
-      position: relative;
-      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: linear-gradient(180deg, var(--ink-950), var(--ink-900));
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      padding: 1.5rem 1rem;
     }
 
-    .pattern-bg {
-      position: absolute;
-      inset: 0;
-      opacity: 0.3;
-      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23f59e0b' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    }
-
-    .content {
-      position: relative;
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 2rem 1rem;
-    }
-
-    .header { text-align: center; margin-bottom: 2rem; }
-
-    .header h1 {
-      font-size: 2.5rem;
-      font-weight: 900;
-      background: linear-gradient(90deg, #f59e0b, #ef4444);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin: 0 0 0.5rem 0;
-    }
-
-    .header p { color: #9ca3af; font-size: 1rem; margin: 0 0 1rem 0; }
-
-    .stats { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
-
-    .stat-badge {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: rgba(255,255,255,0.1);
-      backdrop-filter: blur(10px);
-      padding: 0.5rem 1rem;
-      border-radius: 50px;
-      color: #e5e7eb;
-      font-size: 0.9rem;
-    }
-
-    .stat-badge strong { color: #4ade80; font-size: 1.1rem; }
-    .stat-badge.warning strong { color: #fbbf24; }
-
-    .vaper-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .vaper-card {
-      --color: linear-gradient(135deg, #a855f7, #ec4899);
-      position: relative;
-      background: #1f2937;
-      border-radius: 1rem;
-      overflow: hidden;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-      border: 1px solid rgba(255,255,255,0.1);
-    }
-
-    .card-gradient { position: absolute; inset: 0; background: var(--color); opacity: 0.1; }
-
-    .card-image {
-      height: 120px;
-      background: var(--color);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-    }
-
-    .emoji { font-size: 3.5rem; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3)); }
-
-    .price-tag {
-      position: absolute;
-      top: 0.5rem;
-      right: 0.5rem;
-      background: rgba(0,0,0,0.5);
-      padding: 0.25rem 0.6rem;
-      border-radius: 50px;
-      color: white;
-      font-size: 0.85rem;
-      font-weight: 700;
-    }
-
-    .card-content { padding: 1rem; position: relative; }
-    .card-content h3 { color: white; font-weight: 700; font-size: 1rem; margin: 0 0 0.75rem 0; }
-
-    .stock-display {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      margin-bottom: 1rem;
-      padding: 0.5rem 0.75rem;
-      background: rgba(74, 222, 128, 0.15);
-      border-radius: 8px;
-      border: 1px solid rgba(74, 222, 128, 0.3);
-    }
-
-    .stock-display.medium { background: rgba(251, 191, 36, 0.15); border-color: rgba(251, 191, 36, 0.3); }
-    .stock-display.low, .stock-display.out { background: rgba(248, 113, 113, 0.15); border-color: rgba(248, 113, 113, 0.3); }
-
-    .stock-label { color: #9ca3af; font-size: 0.85rem; }
-    .stock-number { color: #4ade80; font-size: 1.5rem; font-weight: 800; }
-    .stock-display.medium .stock-number { color: #fbbf24; }
-    .stock-display.low .stock-number, .stock-display.out .stock-number { color: #f87171; }
-
-    .out-badge {
-      background: #ef4444;
-      color: white;
-      font-size: 0.7rem;
-      padding: 0.2rem 0.5rem;
-      border-radius: 4px;
-      font-weight: 700;
-      margin-left: auto;
-    }
-
-    .fire { animation: pulse 1s infinite; }
-    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
-
-    .stock-controls { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem; }
-
-    .btn-control {
-      width: 40px;
-      height: 40px;
-      border: none;
-      border-radius: 10px;
-      font-size: 1.5rem;
-      font-weight: 700;
-      cursor: pointer;
-      transition: all 0.2s;
+    /* ── Login ── */
+    .login-wrap {
+      min-height: 90vh;
       display: flex;
       align-items: center;
       justify-content: center;
     }
-
-    .btn-control.minus { background: linear-gradient(135deg, #ef4444, #dc2626); color: white; }
-    .btn-control.plus { background: linear-gradient(135deg, #22c55e, #16a34a); color: white; }
-    .btn-control:hover:not(:disabled) { transform: scale(1.1); }
-    .btn-control:disabled { opacity: 0.4; cursor: not-allowed; }
-
-    .stock-input {
-      flex: 1;
-      height: 40px;
-      border: 2px solid rgba(255,255,255,0.2);
-      border-radius: 10px;
-      background: rgba(255,255,255,0.1);
-      color: white;
-      font-size: 1.2rem;
-      font-weight: 700;
-      text-align: center;
-      outline: none;
-    }
-
-    .stock-input:focus { border-color: #a855f7; }
-    .stock-input::-webkit-inner-spin-button { -webkit-appearance: none; }
-
-    .quick-actions { display: flex; gap: 0.5rem; margin-bottom: 0.75rem; }
-
-    .btn-quick {
-      flex: 1;
-      padding: 0.4rem;
-      border: none;
-      border-radius: 6px;
-      background: rgba(255,255,255,0.15);
-      color: #e5e7eb;
-      font-size: 0.8rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-
-    .btn-quick:hover { background: rgba(255,255,255,0.25); }
-    .btn-quick.danger { background: rgba(239, 68, 68, 0.3); color: #fca5a5; }
-    .btn-quick.danger:hover { background: rgba(239, 68, 68, 0.5); }
-
-    .sabores-toggle {
+    .login-card {
       width: 100%;
-      padding: 0.5rem;
+      max-width: 340px;
+      background: rgba(255,255,255,0.05);
+      border: 1.5px solid rgba(255,255,255,0.12);
+      border-radius: 1.5rem;
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+    .login-emoji { font-size: 2.5rem; display: block; margin-bottom: 0.75rem; }
+    .login-card h1 { color: white; font-size: 1.3rem; margin-bottom: 0.4rem; }
+    .login-sub { color: rgba(255,255,255,0.45); font-size: 0.85rem; margin-bottom: 1.5rem; }
+
+    .input {
+      width: 100%;
+      padding: 0.9rem 1rem;
+      margin-bottom: 0.75rem;
+      background: rgba(255,255,255,0.05);
+      border: 1.5px solid rgba(255,255,255,0.15);
+      border-radius: 0.75rem;
+      color: white;
+      font-size: 1rem;
+    }
+    .input:focus { outline: none; border-color: var(--violet); }
+
+    .error {
+      color: var(--rose);
+      font-size: 0.85rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .btn-login {
+      width: 100%;
+      padding: 0.95rem;
+      background: linear-gradient(135deg, var(--violet-deep), var(--magenta-deep));
       border: none;
-      border-radius: 6px;
-      background: rgba(255,255,255,0.1);
-      color: #9ca3af;
-      font-size: 0.8rem;
+      border-radius: 0.75rem;
+      color: white;
+      font-weight: 700;
+      font-size: 1rem;
       cursor: pointer;
-      transition: all 0.2s;
+    }
+    .btn-login:disabled { opacity: 0.6; }
+
+    /* ── Panel ── */
+    .panel-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+    }
+    .panel-header h1 { color: white; font-size: 1.3rem; }
+    .btn-logout {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.7);
+      padding: 0.5rem 0.9rem;
+      border-radius: 0.6rem;
+      font-size: 0.85rem;
+      cursor: pointer;
     }
 
-    .sabores-toggle:hover { background: rgba(255,255,255,0.15); }
+    .cargando { color: rgba(255,255,255,0.4); text-align: center; padding: 2rem; }
 
-    .sabores-list { max-height: 0; overflow: hidden; transition: max-height 0.3s; }
-    .sabores-list.open { max-height: 150px; margin-top: 0.5rem; }
-
-    .sabor-item {
-      color: #d1d5db;
-      font-size: 0.8rem;
-      padding: 0.3rem 0;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
+    .productos {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      max-width: 520px;
+      margin: 0 auto;
     }
 
-    @media (max-width: 640px) {
-      .header h1 { font-size: 1.8rem; }
-      .vaper-grid { grid-template-columns: 1fr; }
+    .producto {
+      background: rgba(255,255,255,0.04);
+      border: 1.5px solid rgba(255,255,255,0.1);
+      border-radius: 1.25rem;
+      padding: 1.1rem;
+    }
+    .producto-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.9rem;
+    }
+    .producto-emoji { font-size: 1.4rem; }
+    .producto-header h2 { color: white; font-size: 1.05rem; font-weight: 700; }
+
+    .combo {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding: 0.75rem 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .combo:first-of-type { border-top: none; }
+
+    .combo-info { flex: 1; min-width: 0; }
+    .combo-nombre {
+      color: rgba(255,255,255,0.85);
+      font-size: 0.85rem;
+      line-height: 1.3;
+    }
+
+    .combo-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      flex: 0 0 auto;
+    }
+
+    .btn-stock {
+      width: 2.75rem;
+      height: 2.75rem;
+      border-radius: 50%;
+      border: none;
+      font-size: 1.4rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .btn-stock:disabled { opacity: 0.3; cursor: not-allowed; }
+    .btn-minus { background: rgba(251,82,113,0.15); color: var(--rose); }
+    .btn-plus  { background: rgba(45,212,167,0.15); color: var(--mint); }
+
+    .combo-stock {
+      min-width: 2rem;
+      text-align: center;
+      color: white;
+      font-size: 1.15rem;
+      font-weight: 700;
+      transition: opacity 0.15s ease;
+    }
+    .combo-stock.guardando { opacity: 0.4; }
+
+    @media (min-width: 480px) {
+      .admin { padding: 2.5rem 1.5rem; }
     }
   `]
 })
 export class VaperListAdminComponent implements OnInit {
-  vapers: Vaper[] = [];
-  saboresAbiertos: { [key: number]: boolean } = {};
+  logueado = false;
+  cargandoLogin = false;
+  errorLogin = '';
+  email = '';
+  password = '';
 
-  constructor(private service: VaperService) {}
+  cargando = true;
+  productos: ProductoAdmin[] = [];
 
-  ngOnInit(): void {
-    this.vapers = this.service.getVapers();
+  constructor(private supabaseService: SupabaseService) {}
+
+  async ngOnInit(): Promise<void> {
+    const session = await this.supabaseService.getSession();
+    this.logueado = !!session;
+
+    this.supabaseService.onAuthStateChange((session) => {
+      this.logueado = !!session;
+      if (this.logueado) this.cargarProductos();
+    });
+
+    if (this.logueado) {
+      await this.cargarProductos();
+    }
   }
 
-  get totalStock(): number {
-    return this.vapers.reduce((sum, v) => sum + v.stock, 0);
+  async login(): Promise<void> {
+    this.errorLogin = '';
+    if (!this.email || !this.password) {
+      this.errorLogin = 'Rellena email y contraseña';
+      return;
+    }
+    this.cargandoLogin = true;
+    const { error } = await this.supabaseService.signIn(this.email, this.password);
+    this.cargandoLogin = false;
+
+    if (error) {
+      this.errorLogin = 'Email o contraseña incorrectos';
+      return;
+    }
+    this.logueado = true;
+    await this.cargarProductos();
   }
 
-  get stockBajo(): number {
-    return this.vapers.filter(v => v.stock > 0 && v.stock <= 2).length;
+  async logout(): Promise<void> {
+    await this.supabaseService.signOut();
+    this.logueado = false;
+    this.email = '';
+    this.password = '';
   }
 
-  updateStock(vaper: Vaper, change: number): void {
-    vaper.stock = Math.max(0, vaper.stock + change);
-    this.service.updateStock(vaper.id, vaper.stock);
+  async cargarProductos(): Promise<void> {
+    this.cargando = true;
+    const data = await this.supabaseService.getProductos();
+
+    this.productos = (data ?? []).map((p: any) => ({
+      id: p.id,
+      nombre: p.nombre,
+      emoji: p.emoji,
+      combos: (p.combos ?? []).map((c: any) => ({
+        id: c.id,
+        sabores: c.sabores,
+        stock: c.stock
+      }))
+    }));
+
+    this.cargando = false;
   }
 
-  setStock(vaper: Vaper, event: Event): void {
-    const input = event.target as HTMLInputElement;
-    const value = Math.max(0, parseInt(input.value) || 0);
-    vaper.stock = value;
-    this.service.updateStock(vaper.id, value);
-  }
+  async cambiarStock(combo: ComboAdmin, delta: number): Promise<void> {
+    const nuevoStock = combo.stock + delta;
+    if (nuevoStock < 0) return;
 
-  setStockZero(vaper: Vaper): void {
-    vaper.stock = 0;
-    this.service.updateStock(vaper.id, 0);
-  }
+    const anterior = combo.stock;
+    combo.stock = nuevoStock; // actualización optimista, se ve al instante
+    combo.guardando = true;
 
-  toggleSabores(id: number): void {
-    this.saboresAbiertos[id] = !this.saboresAbiertos[id];
+    const { error } = await this.supabaseService.updateStock(combo.id, nuevoStock);
+
+    combo.guardando = false;
+
+    if (error) {
+      combo.stock = anterior; // si falla, revertimos
+      alert('No se pudo guardar el cambio. Revisa tu conexión e inténtalo de nuevo.');
+    }
   }
 }
