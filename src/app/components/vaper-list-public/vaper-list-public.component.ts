@@ -587,8 +587,6 @@ export class VaperListPublicComponent implements OnInit {
 
   filtros = [
     { label: 'Todos',                       value: 'all',      icon: '📦' },
-    { label: '120K (6 en 1)',               value: '120k',     icon: '🔥' },
-    { label: '140K',                        value: '140k',     icon: '🚀' },
     { label: 'ZOOY SISHA 50K SIN NICOTINA', value: '50k-ZOOY', icon: '💎' },
     { label: 'VapSolo 80K',                 value: '80k',      icon: '⚡' },
   ];
